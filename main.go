@@ -214,9 +214,17 @@ func submitHandler(filename string) http.HandlerFunc {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
+		// Dateiinhalt lesen
+		fileContent, err := os.ReadFile(filename)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 
-		// Erfolgsmeldung anzeigen
-		fmt.Fprintf(w, "Monsterdaten erfolgreich gespeichert in %s: %s", filename, charJSON)
+		// Datei zum Download anbieten
+		w.Header().Set("Content-Disposition", fmt.Sprintf("attachment; filename=%s", filename))
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(fileContent)
 	}
 }
 
