@@ -1,6 +1,7 @@
 package main
 
 import (
+	"embed"
 	"encoding/json"
 	"fmt"
 	"html/template"
@@ -97,6 +98,8 @@ type Source struct {
 var (
 	mu    sync.Mutex
 	chars []Character
+	//go:embed forms.html
+	page embed.FS
 )
 
 func main() {
@@ -112,7 +115,7 @@ func main() {
 // formHandler zeigt das Formular an
 func formHandler(filename string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		tmpl, err := template.ParseFiles("forms.html")
+		tmpl, err := template.ParseFS(page, "forms.html")
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
