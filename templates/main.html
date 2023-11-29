@@ -7,7 +7,18 @@
       <input type="text" name="filename" required placeholder="Dateiname"
         class="input input-bordered w-full max-w-xs"><br>
     </div>
-    {{ template "monsterform" . }}
+    <div class="grid grid-cols-1">
+      <button type="button" hx-post="/addMonster" class="btn">Add Monster</button>
+    </div>
+    <div class="collapse bg-base-200">
+      <input type="checkbox" />
+      <div class="collapse-title text-xl font-medium">
+        Monster
+      </div>
+      <div class="collapse-content">
+        {{ template "monsterform" . }}
+      </div>
+    </div>
     <input type="hidden" name="filename" value="{{.Filename}}">
     <div class="card-actions justify-end">
       <input type="submit" value="Submit" class="btn">

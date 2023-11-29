@@ -100,7 +100,8 @@ var (
 	chars []Character
 	//go:embed templates/*.html
 	//go:embed images/*
-	content embed.FS
+	content  embed.FS
+	Monsters []Monster
 )
 
 func main() {
@@ -109,6 +110,7 @@ func main() {
 	http.HandleFunc("/", formHandler(filename))
 	http.HandleFunc("/submit", submitHandler(filename))
 	http.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.FS(content))))
+	http.HandleFunc("/addMonster", addMonster())
 
 	fmt.Println("Server gestartet, erreichbar unter http://localhost:8080")
 	http.ListenAndServe(":8080", nil)
@@ -149,7 +151,7 @@ func submitHandler(filename string) http.HandlerFunc {
 
 		// Monster-Objekt erstellen
 		filename := r.FormValue("filename")
-		monster := Monster{
+		/*monster := Monster{
 			Name:      r.FormValue("name"),
 			Source:    r.FormValue("source"),
 			Size:      []string{r.FormValue("size")},
@@ -199,14 +201,14 @@ func submitHandler(filename string) http.HandlerFunc {
 					Entries: []string{r.FormValue("actionEntry")},
 				},
 			},
-		}
+		}*/
 
 		// Charakter-Objekt erstellen oder aktualisieren
 		mu.Lock()
 		defer mu.Unlock()
 
 		char := getOrCreateCharacter(filename)
-		char.Monster = append(char.Monster, monster)
+		char.Monster = append(char.Monster, Monsters...)
 
 		// Charakterdaten in JSON umwandeln
 		charJSON, err := json.Marshal(char)
@@ -292,4 +294,73 @@ func parseInt(s string) int {
 		return 0
 	}
 	return i
+}
+
+func addMonster() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		// TODO
+		if r.Method != http.MethodPost {
+			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+			return
+		}
+
+		err := r.ParseForm()
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		monster := Monster{
+			Name:      r.FormValue("name"),
+			Source:    r.FormValue("source"),
+			Size:      []string{r.FormValue("size")},
+			Type:      r.FormValue("type"),
+			Alignment: []string{r.FormValue("alignment")},
+			AC: []AC{
+				{
+					AC:   parseInt(r.FormValue("ac")),
+					From: []string{r.FormValue("acFrom")},
+				},
+			},
+			HP: HP{
+				Average: parseInt(r.FormValue("hpAverage")),
+				Formula: r.FormValue("hpFormula"),
+			},
+			Speed: Speed{
+				Walk: parseInt(r.FormValue("speed")),
+			},
+			Str: parseInt(r.FormValue("str")),
+			Dex: parseInt(r.FormValue("dex")),
+			Con: parseInt(r.FormValue("con")),
+			Int: parseInt(r.FormValue("int")),
+			Wis: parseInt(r.FormValue("wis")),
+			Cha: parseInt(r.FormValue("cha")),
+			Save: Save{
+				Dex: r.FormValue("saveDex"),
+				Con: r.FormValue("saveCon"),
+				Wis: r.FormValue("saveWis"),
+			},
+			Skill: Skill{
+				Perception: r.FormValue("perception"),
+				Stealth:    r.FormValue("stealth"),
+			},
+			DamageRes: []string{r.FormValue("damageRes")},
+			Senses:    []string{r.FormValue("senses")},
+			Languages: []string{r.FormValue("languages")},
+			CR:        r.FormValue("cr"),
+			Traits: []Trait{
+				{
+					Name:    r.FormValue("traitName"),
+					Entries: []string{r.FormValue("traitEntry")},
+				},
+			},
+			Actions: []Action{
+				{
+					Name:    r.FormValue("actionName"),
+					Entries: []string{r.FormValue("actionEntry")},
+				},
+			},
+		}
+		Monsters = append(Monsters, monster)
+	}
 }
