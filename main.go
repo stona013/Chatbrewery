@@ -98,8 +98,9 @@ type Source struct {
 var (
 	mu    sync.Mutex
 	chars []Character
-	//go:embed forms.html
-	page embed.FS
+	//go:embed templates/*.html
+	//go:embed images/*
+	content embed.FS
 )
 
 func main() {
@@ -107,21 +108,27 @@ func main() {
 
 	http.HandleFunc("/", formHandler(filename))
 	http.HandleFunc("/submit", submitHandler(filename))
+	http.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.FS(content))))
 
 	fmt.Println("Server gestartet, erreichbar unter http://localhost:8080")
 	http.ListenAndServe(":8080", nil)
 }
 
-// formHandler zeigt das Formular an
 func formHandler(filename string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		tmpl, err := template.ParseFS(page, "forms.html")
+		tmpl, err := template.ParseFS(content, "templates/base.html", "templates/header.html", "templates/main.html", "templates/footer.html")
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 
-		tmpl.Execute(w, nil)
+		err = tmpl.ExecuteTemplate(w, "base", map[string]interface{}{
+			"Title": "Dungeons & Dragons Monster Generator",
+		})
+		if err != nil {
+			fmt.Println("Template execution error:", err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
 	}
 }
 

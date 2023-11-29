@@ -1,0 +1,64 @@
+{{ define "base" }}
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{.Title}}</title>
+  <!-- Hier könnten weitere Meta-Tags, Stylesheets, JavaScript-Dateien usw. eingefügt werden -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'arial', sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .form-box {
+      max-width: 700px;
+      width: 100%;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .form-item {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      gap: 10px;
+    }
+
+    .form-item2 {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+  </style>
+</head>
+
+<body>
+
+  {{ template "header" . }}
+
+  {{ template "main" . }}
+
+  {{ template "footer" . }}
+
+  <!-- Hier könnten weitere Scripts eingefügt werden, z.B., htmx und andere Abhängigkeiten -->
+
+</body>
+
+</html>
+{{ end }}
