@@ -2,23 +2,17 @@
 <div class="card-body form-box w-4/5 h-full">
   <h2 class="card-title">Monster Form</h2>
   <form action="/submit" method="post" class="grid grid-columns-5 space-y-4 grid place-items-center">
-    <div class="grid grid-cols-2">
-      <label for="filename">Filename:</label>
-      <input type="text" name="filename" required placeholder="Dateiname"
-        class="input input-bordered w-full max-w-xs"><br>
-    </div>
+    <table>
+      <tr>
+        <td><label for="filename">Filename:</label></td>
+        <td><input type="text" name="filename" required placeholder="Dateiname"
+            class="input input-bordered w-full max-w-xs"><br></td>
+      </tr>
+    </table>
     <div class="grid grid-cols-1">
       <button type="button" hx-post="/addMonster" class="btn">Add Monster</button>
     </div>
-    <div class="collapse bg-base-200">
-      <input type="checkbox" />
-      <div class="collapse-title text-xl font-medium">
-        Monster
-      </div>
-      <div class="collapse-content">
-        {{ template "monsterform" . }}
-      </div>
-    </div>
+    {{ template "monsterform" . }}
     <input type="hidden" name="filename" value="{{.Filename}}">
     <div class="card-actions justify-end">
       <input type="submit" value="Submit" class="btn">
