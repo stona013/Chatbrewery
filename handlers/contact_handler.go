@@ -8,6 +8,7 @@ import (
 )
 
 func ContactHandler(content embed.FS) http.HandlerFunc {
+	log.Print("ContactHandler called")
 	return func(w http.ResponseWriter, r *http.Request) {
 		tmpl, err := template.ParseFS(content, "templates/base.html", "templates/header.html", "templates/main.html", "templates/footer.html", "templates/about.html", "templates/contact.html")
 		if err != nil {

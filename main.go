@@ -4,7 +4,7 @@ import (
 	"ddServer/handlers"
 	"ddServer/model"
 	"embed"
-	"fmt"
+	"log"
 	"net/http"
 	"sync"
 )
@@ -28,6 +28,6 @@ func main() {
 	http.HandleFunc("/about", handlers.AboutHandler(content))
 	http.HandleFunc("/contact", handlers.ContactHandler(content))
 
-	fmt.Println("Server gestartet, erreichbar unter http://localhost:8080")
+	log.Print("Server gestartet, erreichbar unter http://localhost:8080")
 	http.ListenAndServe(":8080", nil)
 }

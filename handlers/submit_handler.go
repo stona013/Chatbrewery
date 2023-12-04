@@ -5,6 +5,7 @@ import (
 	"embed"
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"sync"
@@ -14,6 +15,7 @@ var mu sync.Mutex
 
 // submitHandler verarbeitet die Formulardaten
 func SubmitHandler(content embed.FS, chars *[]model.Character, Monsters *[]model.Monster, filename string) http.HandlerFunc {
+	log.Print("SubmitHandler called")
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodPost {
 			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)

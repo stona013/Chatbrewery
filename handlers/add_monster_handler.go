@@ -2,11 +2,13 @@ package handlers
 
 import (
 	"ddServer/model"
+	"log"
 	"net/http"
 	"strconv"
 )
 
 func AddMonster(Monsters *[]model.Monster) http.HandlerFunc {
+	log.Print("AddMonster called")
 	return func(w http.ResponseWriter, r *http.Request) {
 		// TODO
 		if r.Method != http.MethodPost {

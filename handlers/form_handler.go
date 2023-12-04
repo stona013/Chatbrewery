@@ -8,6 +8,7 @@ import (
 )
 
 func FormHandler(content embed.FS, filename string) http.HandlerFunc {
+	log.Print("FormHandler called")
 	return func(w http.ResponseWriter, r *http.Request) {
 		tmpl, err := template.ParseFS(content, "templates/base.html", "templates/header.html", "templates/main.html", "templates/footer.html", "templates/monsterForm.html")
 		if err != nil {
