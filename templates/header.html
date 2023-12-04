@@ -1,15 +1,14 @@
 {{ define "header" }}
 <header>
-  <div id="banner" class="bg-gray-800 p-8 text-white">
-    <!-- Hier könntest du ein Dungeons-and-Dragons-Banner einfügen -->
+  <nav class="navbar bg-base-100">
+    <a href="/" class="btn btn-ghost text-xl">Dungeons & Dragons</a>
+    <a href="/about" class="btn btn-ghost text-xl">About</a>
+    <a href="/contact" class="btn btn-ghost text-xl">Contact</a>
+  </nav>
+  <div id="banner" class="banner bg-gray-800 p-8 text-white">
     <img src="/images/images/banner.jpg" alt="Dungeons-and-Dragons-Banner">
     <a href="https://dnd.wizards.com/resources/press-assets">image credits</a>
-    <h1 class="text-4xl font-bold">Dungeons and Dragons</h1>
+    <h1 class="centered text-4xl font-bold">Dungeons and Dragons</h1>
   </div>
-  <nav class="navbar bg-base-100">
-    <a href="#" class="btn btn-ghost text-xl">Dungeons & Dragons</a>
-    <a href="#" class="btn btn-ghost text-xl">About</a>
-    <a href="#" class="btn btn-ghost text-xl">Contact</a>
-  </nav>
 </header>
 {{ end }}

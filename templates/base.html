@@ -6,7 +6,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{.Title}}</title>
-  <!-- Hier könnten weitere Meta-Tags, Stylesheets, JavaScript-Dateien usw. eingefügt werden -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css">
   <script src="https://unpkg.com/htmx.org@1.9.9"
@@ -48,6 +47,18 @@
       flex-direction: row;
       justify-content: space-evenly;
     }
+
+    .banner {
+      position: relative;
+      text-align: center;
+    }
+
+    .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   </style>
 </head>
 
@@ -59,7 +70,6 @@
 
   {{ template "footer" . }}
 
-  <!-- Hier könnten weitere Scripts eingefügt werden, z.B., htmx und andere Abhängigkeiten -->
 
 </body>
 
