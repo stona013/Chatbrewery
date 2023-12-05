@@ -1,67 +1,79 @@
 {{ define "main" }}
-<div class="card-body form-box w-full h-full">
-  <h2 class="card-title">Monster Form</h2>
-  <form action="/submit" method="post" class="grid grid-columns-5 space-y-4 grid place-items-center">
-    <table>
-      <tr>
-        <td><label for="filename">Filename:</label></td>
-        <td><input type="text" name="filename" required placeholder="Dateiname"
-            class="input input-bordered w-full max-w-xs"><br></td>
-      </tr>
-    </table>
-    <div class="grid grid-cols-1">
-      <button type="button" hx-post="/addMonster" hx-trigger="click" hx-target="#monster-table" hx-swap="outerHTML"
-        class="btn">Add
-        Monster</button>
+<div class="card">
+  <div class="card-content">
+    <div class="media-content">
+      <p class="title is-4">Monster Form</p>
     </div>
-    {{ template "monsterform" . }}
-    <input type="hidden" name="filename" value="{{.Filename}}">
-    <div class="card-actions justify-end">
-      <input type="submit" value="Submit" class="btn">
+    <div class="content">
+      <form action="/submit" method="post" class="grid grid-columns-5 space-y-4 grid place-items-center">
+        <table>
+          <tr>
+            <td><label for="filename">Filename:</label></td>
+            <td><input type="text" name="filename" required placeholder="Dateiname"
+                class="input input-bordered w-full max-w-xs"><br></td>
+          </tr>
+        </table>
+        <div class="grid grid-cols-1">
+          <button type="button" hx-post="/addMonster" hx-trigger="click" hx-target="#monster-table" hx-swap="outerHTML"
+            class="button">Add
+            Monster</button>
+        </div>
+        {{ template "monsterform" . }}
+        <input type="hidden" name="filename" value="{{.Filename}}">
+        <div class="card-actions justify-end">
+          <input type="submit" value="Submit" class="button is-primary">
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
 </div>
-<div class="card-body form-box w-full h-full">
-  <h2 class="card-title">Existing Monsters</h2>
-  <table class="table">
-    <colgroup>
-      <col style="width: 100px;">
-      <col style="width: 100px;">
-    </colgroup>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Source</th>
-        <th>Size</th>
-        <th>Type</th>
-        <th>Alignment</th>
-        <th>AC</th>
-        <th>AC Form</th>
-        <th>HP Average</th>
-        <th>HP Formula</th>
-        <th>Speed</th>
-        <th>Str</th>
-        <th>Dex</th>
-        <th>Con</th>
-        <th>Int</th>
-        <th>Wis</th>
-        <th>Cha</th>
-        <th>Save Dex</th>
-        <th>Save Con</th>
-        <th>Savve Wis</th>
-        <th>Perception</th>
-        <th>Stealth</th>
-        <th>Damage Resistance</th>
-        <th>Senses</th>
-        <th>Languages</th>
-        <th>CR</th>
-        <th>Trait Name</th>
-        <th>Trait Entry</th>
-        <th>Action Name</th>
-        <th>Action Entry</th>
-      </tr>
-    </thead>
-    {{ template "monsterTable" }}
-  </table>
+<div class="card">
+  <div class="card-content">
+    <div class="media-content">
+      <p class="title is-4 is-centered">Existing Monsters</p>
+    </div>
+    <div class="table-container">
+      <table class="table">
+        <colgroup>
+          <col style="width: 100px;">
+          <col style="width: 100px;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Source</th>
+            <th>Size</th>
+            <th>Type</th>
+            <th>Alignment</th>
+            <th>AC</th>
+            <th>AC Form</th>
+            <th>HP Average</th>
+            <th>HP Formula</th>
+            <th>Speed</th>
+            <th>Str</th>
+            <th>Dex</th>
+            <th>Con</th>
+            <th>Int</th>
+            <th>Wis</th>
+            <th>Cha</th>
+            <th>Save Dex</th>
+            <th>Save Con</th>
+            <th>Savve Wis</th>
+            <th>Perception</th>
+            <th>Stealth</th>
+            <th>Damage Resistance</th>
+            <th>Senses</th>
+            <th>Languages</th>
+            <th>CR</th>
+            <th>Trait Name</th>
+            <th>Trait Entry</th>
+            <th>Action Name</th>
+            <th>Action Entry</th>
+          </tr>
+        </thead>
+        {{ template "monsterTable" }}
+      </table>
+    </div>
+  </div>
 </div>
 {{ end }}
