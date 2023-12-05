@@ -73,7 +73,11 @@ func AddMonster(Monsters *[]model.Monster) http.HandlerFunc {
 				},
 			},
 		}
+		mu.Lock()
+		defer mu.Unlock()
 		*Monsters = append(*Monsters, monster)
+		log.Printf("Monster hinzugefügt. Anzahl der Monster jetzt: %d\n", len(*Monsters))
+		http.Redirect(w, r, "/monsterTable", http.StatusFound)
 	}
 }
 

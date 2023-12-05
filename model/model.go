@@ -69,8 +69,8 @@ type Action struct {
 
 // Character struct für die Daten des Charakters
 type Character struct {
-	Monster []Monster `json:"monster"`
 	Meta    Meta      `json:"_meta"`
+	Monster []Monster `json:"monster"`
 }
 
 // Meta struct für Meta-Informationen

@@ -21,12 +21,13 @@ var (
 func main() {
 	filename := ""
 
-	http.HandleFunc("/", handlers.FormHandler(content, filename))
+	http.HandleFunc("/", handlers.FormHandler(content, &Monsters, filename))
 	http.HandleFunc("/submit", handlers.SubmitHandler(content, &chars, &Monsters, filename))
 	http.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.FS(content))))
 	http.HandleFunc("/addMonster", handlers.AddMonster(&Monsters))
 	http.HandleFunc("/about", handlers.AboutHandler(content))
 	http.HandleFunc("/contact", handlers.ContactHandler(content))
+	http.HandleFunc("/monsterTable", handlers.MonsterTableHandler(content, &Monsters))
 
 	log.Print("Server gestartet, erreichbar unter http://localhost:8080")
 	http.ListenAndServe(":8080", nil)

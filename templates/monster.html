@@ -1,0 +1,33 @@
+{{ define "monster" }}
+<tr>
+  <td>{{.Name}}</td>
+  <td>{{.Source}}</td>
+  <td>{{range .Size}}{{.}}{{end}}</td>
+  <td>{{.Type}}</td>
+  <td>{{range .Alignment}}{{.}}{{end}}</td>
+  <td>{{range .AC}}{{.AC}}{{end}}</td>
+  <td>{{range .AC}}{{.From}}{{end}}</td>
+  <td>{{.HP.Average}}</td>
+  <td>{{.HP.Formula}}</td>
+  <td>{{.Speed.Walk}}</td>
+  <td>{{.Str}}</td>
+  <td>{{.Dex}}</td>
+  <td>{{.Con}}</td>
+  <td>{{.Int}}</td>
+  <td>{{.Wis}}</td>
+  <td>{{.Cha}}</td>
+  <td>{{.Save.Dex}}</td>
+  <td>{{.Save.Con}}</td>
+  <td>{{.Save.Wis}}</td>
+  <td>{{.Skill.Perception}}</td>
+  <td>{{.Skill.Stealth}}</td>
+  <td>{{range .DamageRes}}{{.}}{{end}}</td>
+  <td>{{range .Senses}}{{.}}{{end}}</td>
+  <td>{{range .Languages}}{{.}}{{end}}</td>
+  <td>{{.CR}}</td>
+  <td>{{range .Traits}}{{.Name}}{{end}}</td>
+  <td>{{range .Traits}}{{range .Entries}}{{.}}{{end}}{{end}}</td>
+  <td>{{range .Actions}}{{.Name}}{{end}}</td>
+  <td>{{range .Actions}}{{range .Entries}}{{.}}{{end}}{{end}}</td>
+</tr>
+{{ end }}

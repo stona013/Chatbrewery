@@ -46,6 +46,7 @@ func SubmitHandler(content embed.FS, chars *[]model.Character, Monsters *[]model
 			return
 		}
 
+		log.Printf("Monster hinzugefügt. Anzahl der Monster jetzt: %d\n", len(*Monsters))
 		// JSON-Daten in die Datei schreiben
 		err = model.WriteToFile(filename, charJSON)
 		if err != nil {

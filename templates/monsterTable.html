@@ -1,0 +1,7 @@
+{{ define "monsterTable" }}
+<tbody id="monster-table">
+  {{ range .Monsters }}
+  {{ template "monster" . }}
+</tbody>
+{{ end }}
+{{ end }}
