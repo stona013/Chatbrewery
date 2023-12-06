@@ -28,6 +28,7 @@ func main() {
 	http.HandleFunc("/submit", handlers.SubmitHandler(content, &chars, &Monsters, filename))
 	http.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.FS(content))))
 	http.HandleFunc("/addMonster", handlers.AddMonster(&Monsters))
+	http.HandleFunc("/main", handlers.MainHandler(content))
 	http.HandleFunc("/about", handlers.AboutHandler(content))
 	http.HandleFunc("/contact", handlers.ContactHandler(content))
 	http.HandleFunc("/monsterTable", handlers.MonsterTableHandler(content, &Monsters))

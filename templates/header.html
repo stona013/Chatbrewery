@@ -11,15 +11,15 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a href="/" class="navbar-item">
+        <a href="/" class="navbar-item" hx-get="/main" hx-target="#main-content">
           Dungeons & Dragons
         </a>
 
-        <a href="/about" class="navbar-item">
+        <a href="/about" class="navbar-item" hx-get="/about" hx-target="#main-content">
           About
         </a>
 
-        <a href="/contact" class="navbar-item">
+        <a href="/contact" class="navbar-item" hx-get="/contact" hx-target="#main-content">
           Contact
         </a>
       </div>
