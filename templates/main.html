@@ -6,7 +6,7 @@
         <p class="title is-4">Monster Form</p>
       </div>
       <div class="content">
-        <form action="/submit" method="post" class="">
+        <form hx-boost="true" action="/submit" method="post" class="">
           <div class="field">
             <td><label for="filename">Filename:</label></td>
             <div class="control"><input type="text" name="filename" required placeholder="Dateiname"
@@ -16,7 +16,7 @@
           <div class="field">
             <div class="control">
               <button type="button" hx-post="/addMonster" hx-trigger="click" hx-target="#monster-table"
-                hx-swap="outerHTML" class="button is-info">Add
+                hx-swap="outerHTML" class="button is-info" hx-boost="true">Add
                 Monster</button>
             </div>
           </div>
