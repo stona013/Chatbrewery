@@ -12,7 +12,7 @@ import (
 func MainHandler(content embed.FS, monsters *[]model.Monster) http.HandlerFunc {
 	log.Print("MainHandler called")
 	return func(w http.ResponseWriter, r *http.Request) {
-		tmpl, err := template.ParseFS(content, "templates/main.html", "templates/monsterForm.html", "templates/monster.html", "templates/monsterTable.html")
+		tmpl, err := template.ParseFS(content, "templates/main.html", "templates/monsterForm.html", "templates/monster.html", "templates/monsterTable.html", "templates/base.html")
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
