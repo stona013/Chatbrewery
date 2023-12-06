@@ -13,53 +13,59 @@ import (
 
 var mu sync.Mutex
 
-// submitHandler verarbeitet die Formulardaten
+// SubmitHandler processes the form data.
 func SubmitHandler(content embed.FS, chars *[]model.Character, Monsters *[]model.Monster, filename string) http.HandlerFunc {
 	log.Print("SubmitHandler called")
 	return func(w http.ResponseWriter, r *http.Request) {
+		log.Print("SubmitHandler called")
 		if r.Method != http.MethodPost {
 			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 			return
 		}
 
-		// Formulardaten parsen
+		// Parse form data.
 		err := r.ParseForm()
 		if err != nil {
+			log.Printf("Error parsing form data: %v", err)
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 
-		// Monster-Objekt erstellen
+		// Create monster object.
 		filename := r.FormValue("filename")
 
-		// Charakter-Objekt erstellen oder aktualisieren
+		// Create or update character object.
 		mu.Lock()
 		defer mu.Unlock()
 
 		char := model.GetOrCreateCharacter(filename, *chars)
 		char.Monster = append(char.Monster, *Monsters...)
 
-		// Charakterdaten in JSON umwandeln
+		// Convert character data to JSON.
 		charJSON, err := json.Marshal(char)
 		if err != nil {
+			log.Printf("Error marshalling character data to JSON: %v", err)
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 
-		// JSON-Daten in die Datei schreiben
+		// Write JSON data to file.
 		err = model.WriteToFile(filename, charJSON)
 		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
-		}
-		// Dateiinhalt lesen
-		fileContent, err := os.ReadFile(filename)
-		if err != nil {
+			log.Printf("Error writing JSON data to file: %v", err)
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 
-		// Datei zum Download anbieten
+		// Read file contents.
+		fileContent, err := os.ReadFile(filename)
+		if err != nil {
+			log.Printf("Error reading file contents: %v", err)
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		// Offer file for download.
 		w.Header().Set("Content-Disposition", fmt.Sprintf("attachment; filename=%s", filename))
 		w.Header().Set("Content-Type", "application/json")
 		w.Write(fileContent)

@@ -2,6 +2,7 @@ package model
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"time"
 )
@@ -89,32 +90,47 @@ type Source struct {
 	ConvertedBy  []string `json:"convertedBy"`
 }
 
-// writeToFile schreibt Daten in eine Datei
+// WriteToFile writes data to a file.
+// It takes in a filename string and a data byte slice.
+// It returns an error if there was an issue writing to the file, otherwise it returns nil.
 func WriteToFile(filename string, data []byte) error {
+	log.Println("Writing data to file:", filename)
+
+	// Create a file with the given filename
 	file, err := os.Create(filename)
 	if err != nil {
+		log.Println("Error creating file:", err)
 		return err
 	}
-	defer file.Close()
+	defer func() {
+		if err := file.Close(); err != nil {
+			log.Println("Error closing file:", err)
+		}
+	}()
 
-	_, err = file.Write(data)
+	// Write the data to the file
+	n, err := file.Write(data)
 	if err != nil {
+		log.Println("Error writing to file:", err)
 		return err
 	}
+	log.Printf("Successfully wrote %d bytes to file", n)
 
 	return nil
 }
 
-// getOrCreateCharacter gibt das aktuelle Charakterobjekt zurück oder erstellt ein neues
+// getOrCreateCharacter returns the current character object or creates a new one
 func GetOrCreateCharacter(filename string, chars []Character) Character {
+	// Check if there is an empty character object
 	for _, char := range chars {
 		if char.Meta.DateLastModified == 0 {
-			// Ein leeres Charakterobjekt wurde gefunden
+			// Return the empty character object
+			log.Println("Returning existing character object")
 			return char
 		}
 	}
 
-	// Erstelle ein neues Charakterobjekt
+	// Create a new character object
 	now := time.Now().Unix()
 	newChar := Character{
 		Meta: Meta{
@@ -134,7 +150,10 @@ func GetOrCreateCharacter(filename string, chars []Character) Character {
 		Monster: []Monster{},
 	}
 
+	// Append the new character object to the list of characters
 	chars = append(chars, newChar)
 
+	// Return the newly created character object
+	log.Println("Returning newly created character object")
 	return newChar
 }
