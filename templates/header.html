@@ -26,14 +26,11 @@
 
       <div class="navbar-end">
         <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light">
-              Log in
-            </a>
-          </div>
+          <button id="switchButton" class="button is-light">
+            <span id="stylesheetIcon" class="icon">
+              <i class="fas fa-sun"></i>
+            </span>
+          </button>
         </div>
       </div>
     </div>
@@ -54,5 +51,28 @@
       </section>
     </div>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const switchButton = document.getElementById("switchButton");
+      const stylesheetIcon = document.getElementById("stylesheetIcon");
+
+      if (switchButton) {
+        switchButton.addEventListener('click', switchStylesheet);
+      }
+
+      function switchStylesheet() {
+        const link = document.getElementById("customStylesheet");
+
+        // Ändere das Icon basierend auf dem aktuellen Stylesheet
+        if (link.getAttribute("href") === "/static/darkly_bulmawatch.css") {
+          link.setAttribute("href", "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css");
+          stylesheetIcon.innerHTML = '<i class="fas fa-moon"></i>'; // Zum Mond-Icon wechseln
+        } else {
+          link.setAttribute("href", "/static/darkly_bulmawatch.css");
+          stylesheetIcon.innerHTML = '<i class="fas fa-sun"></i>'; // Zum Sonnen-Icon wechseln
+        }
+      }
+    });
+  </script>
 </header>
 {{ end }}
