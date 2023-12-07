@@ -17,7 +17,7 @@ type Monster struct {
 	Type            string   `json:"type"`
 	Name            string   `json:"name"`
 	Vulnerable      []string `json:"vulnerable"`
-	ConditionImmnue []string `json:"conditionImmune"`
+	ConditionImmune []string `json:"conditionImmune"`
 	Resist          []string `json:"resist"`
 	Immune          []string `json:"immune"`
 	Traits          []Trait  `json:"trait"`
@@ -78,7 +78,7 @@ type Skill struct {
 	Nature         string `json:"nature"`
 	Perception     string `json:"perception"`
 	Performance    string `json:"performance"`
-	Persuation     string `json:"persuation"`
+	Persuasion     string `json:"persuasion"`
 	SleightOfHand  string `json:"sleightOfHand"`
 	Survival       string `json:"survival"`
 	Religion       string `json:"religion"`
