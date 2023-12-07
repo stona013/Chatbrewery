@@ -13,7 +13,7 @@ import (
 // and a filename string as parameters.
 // The function parses the template files from the content FS,
 // executes the template with the provided data, and renders it as a response.
-func FormHandler(content embed.FS, monsters *[]model.Monster, filename string) http.HandlerFunc {
+func FormHandler(content embed.FS, monsters *[]model.Monster) http.HandlerFunc {
 	log.Print("FormHandler called")
 
 	// Lock the mutex to ensure exclusive access to the monsters slice.

@@ -24,18 +24,20 @@ var (
 func main() {
 	filename := ""
 
+	// Create a new ServeMux instance
+	routes := http.NewServeMux()
+
+	// Register the handlers for different routes
+	routes.HandleFunc("/", handlers.FormHandler(content, &Monsters))
+	routes.HandleFunc("/submit", handlers.SubmitHandler(content, &chars, &Monsters, filename))
+	routes.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.FS(content))))
+	routes.HandleFunc("/addMonster", handlers.AddMonster(&Monsters))
+	routes.HandleFunc("/main", handlers.MainHandler(content, &Monsters))
+	routes.HandleFunc("/about", handlers.AboutHandler(content))
+	routes.HandleFunc("/contact", handlers.ContactHandler(content))
+	routes.HandleFunc("/monsterTable", handlers.MonsterTableHandler(content, &Monsters))
 	// Print the message indicating that 'static' has been included.
 	log.Printf("Eingebunden is %v\n", static)
-
-	// Set up the HTTP handlers for different routes.
-	http.HandleFunc("/", handlers.FormHandler(content, &Monsters, filename))
-	http.HandleFunc("/submit", handlers.SubmitHandler(content, &chars, &Monsters, filename))
-	http.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.FS(content))))
-	http.HandleFunc("/addMonster", handlers.AddMonster(&Monsters))
-	http.HandleFunc("/main", handlers.MainHandler(content, &Monsters))
-	http.HandleFunc("/about", handlers.AboutHandler(content))
-	http.HandleFunc("/contact", handlers.ContactHandler(content))
-	http.HandleFunc("/monsterTable", handlers.MonsterTableHandler(content, &Monsters))
 
 	// Load the CSS file.
 	css, err := loadCSS(static)
@@ -43,8 +45,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Add a route for the CSS file.
-	http.HandleFunc("/static/darkly_bulmawatch.css", func(w http.ResponseWriter, r *http.Request) {
+	// Add a route for the CSS file
+	routes.HandleFunc("/static/darkly_bulmawatch.css", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/css")
 		w.Write([]byte(css))
 	})
@@ -53,7 +55,7 @@ func main() {
 	log.Print("Server gestartet, erreichbar unter http://localhost:8080")
 
 	// Start the server and listen for incoming requests on port 8080.
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":8080", routes))
 }
 
 // loadCSS reads the CSS file from the embedded filesystem.
