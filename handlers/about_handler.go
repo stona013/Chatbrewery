@@ -20,7 +20,7 @@ func AboutHandler(content embed.FS) http.HandlerFunc {
 		tmpl, err := template.ParseFS(content, tmplFiles...)
 		if err != nil {
 			log.Printf("Template parsing error: %v\n", err)
-			http.Error(w, err.Error(), http.StatusInternalServerError)
+			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
 
@@ -31,7 +31,7 @@ func AboutHandler(content embed.FS) http.HandlerFunc {
 		err = tmpl.ExecuteTemplate(w, "about", data)
 		if err != nil {
 			log.Printf("Template execution error: %v\n", err)
-			http.Error(w, err.Error(), http.StatusInternalServerError)
+			http.Error(w, err.Error(), http.StatusBadRequest)
 		}
 	}
 }

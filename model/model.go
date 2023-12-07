@@ -48,10 +48,10 @@ type HP struct {
 
 type Speed struct {
 	Walk   int `json:"walk"`
-	burrow int `json:"burrow"`
-	climb  int `json:"climb"`
-	fly    int `json:"fly"`
-	swim   int `json:"swim"`
+	Burrow int `json:"burrow"`
+	Climb  int `json:"climb"`
+	Fly    int `json:"fly"`
+	Swim   int `json:"swim"`
 }
 
 type Save struct {
