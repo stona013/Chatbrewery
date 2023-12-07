@@ -9,28 +9,31 @@ import (
 
 // Monster struct für die Daten des Monsters
 type Monster struct {
-	Save      Save     `json:"save"`
-	Skill     Skill    `json:"skill"`
-	HP        HP       `json:"hp"`
-	Source    string   `json:"source"`
-	CR        string   `json:"cr"`
-	Type      string   `json:"type"`
-	Name      string   `json:"name"`
-	DamageRes []string `json:"damageResistances"`
-	Traits    []Trait  `json:"trait"`
-	AC        []AC     `json:"ac"`
-	Alignment []string `json:"alignment"`
-	Senses    []string `json:"senses"`
-	Languages []string `json:"languages"`
-	Size      []string `json:"size"`
-	Actions   []Action `json:"action"`
-	Speed     Speed    `json:"speed"`
-	Str       int      `json:"str"`
-	Dex       int      `json:"dex"`
-	Con       int      `json:"con"`
-	Int       int      `json:"int"`
-	Wis       int      `json:"wis"`
-	Cha       int      `json:"cha"`
+	Save            Save     `json:"save"`
+	Skill           Skill    `json:"skill"`
+	HP              HP       `json:"hp"`
+	Source          string   `json:"source"`
+	CR              string   `json:"cr"`
+	Type            string   `json:"type"`
+	Name            string   `json:"name"`
+	Vulnerable      []string `json:"vulnerable"`
+	ConditionImmnue []string `json:"conditionImmune"`
+	Resist          []string `json:"resist"`
+	Immune          []string `json:"immune"`
+	Traits          []Trait  `json:"trait"`
+	AC              []AC     `json:"ac"`
+	Alignment       []string `json:"alignment"`
+	Senses          []string `json:"senses"`
+	Languages       []string `json:"languages"`
+	Size            []string `json:"size"`
+	Actions         []Action `json:"action"`
+	Speed           Speed    `json:"speed"`
+	Str             int      `json:"str"`
+	Dex             int      `json:"dex"`
+	Con             int      `json:"con"`
+	Int             int      `json:"int"`
+	Wis             int      `json:"wis"`
+	Cha             int      `json:"cha"`
 }
 
 type AC struct {
@@ -44,18 +47,41 @@ type HP struct {
 }
 
 type Speed struct {
-	Walk int `json:"walk"`
+	Walk   int `json:"walk"`
+	burrow int `json:"burrow"`
+	climb  int `json:"climb"`
+	fly    int `json:"fly"`
+	swim   int `json:"swim"`
 }
 
 type Save struct {
 	Dex string `json:"dex"`
 	Con string `json:"con"`
 	Wis string `json:"wis"`
+	Cha string `json:"cha"`
+	Str string `json:"str"`
+	Int string `json:"int"`
 }
 
 type Skill struct {
-	Perception string `json:"perception"`
-	Stealth    string `json:"stealth"`
+	Stealth        string `json:"stealth"`
+	Acrobatics     string `json:"acrobatics"`
+	AnimalHandling string `json:"animalHandling"`
+	Arcana         string `json:"arcana"`
+	Athletics      string `json:"athletics"`
+	Deception      string `json:"deception"`
+	History        string `json:"history"`
+	Insight        string `json:"insight"`
+	Intimidation   string `json:"intimidation"`
+	Investigation  string `json:"investigation"`
+	Medicine       string `json:"medicine"`
+	Nature         string `json:"nature"`
+	Perception     string `json:"perception"`
+	Performance    string `json:"performance"`
+	Persuation     string `json:"persuation"`
+	SleightOfHand  string `json:"sleightOfHand"`
+	Survival       string `json:"survival"`
+	Religion       string `json:"religion"`
 }
 
 type Trait struct {

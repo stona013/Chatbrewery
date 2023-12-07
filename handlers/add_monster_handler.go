@@ -63,7 +63,7 @@ func AddMonster(Monsters *[]model.Monster) http.HandlerFunc {
 				Perception: r.FormValue("perception"),
 				Stealth:    r.FormValue("stealth"),
 			},
-			DamageRes: []string{r.FormValue("damageRes")},
+			Resist:    []string{r.FormValue("resist")},
 			Senses:    []string{r.FormValue("senses")},
 			Languages: []string{r.FormValue("languages")},
 			CR:        r.FormValue("cr"),
