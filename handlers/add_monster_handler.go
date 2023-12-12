@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"strings"
 )
 
 // AddMonster is a http.HandlerFunc that adds a new monster to the Monsters slice.
@@ -67,7 +68,7 @@ func parseMonster(r *http.Request) model.Monster {
 		Name:      r.FormValue("name"),
 		Source:    r.FormValue("source"),
 		Size:      []string{r.FormValue("size")},
-		Type:      r.FormValue("type"),
+		Type:      strings.ToLower(r.FormValue("type")),
 		Alignment: []string{r.FormValue("alignment")},
 		AC: []model.AC{
 			{

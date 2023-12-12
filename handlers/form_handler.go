@@ -31,6 +31,7 @@ func FormHandler(content embed.FS, monsters *[]model.Monster) http.HandlerFunc {
 			"templates/footer.html",
 			"templates/monsterForm.html",
 			"templates/monster.html",
+			"templates/skills.html",
 			"templates/monsterTable.html",
 		}
 		tmpl, err := template.ParseFS(content, templateFiles...)

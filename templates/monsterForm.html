@@ -1,537 +1,378 @@
 {{ define "monsterform" }}
 <div class="tile is-ancestor">
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="name">Monster Name:</label>
-            <div class="control">
-                <input type="text" name="name" required placeholder="Type here"
-                    class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="name">Monster Name:</label>
+      <div class="control">
+        <input type="text" name="name" required placeholder="Type here" class="input input-bordered w-full max-w-xs">
+      </div>
     </div>
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="source">Monster Source:</label>
-            <div class="control">
-                <input type="text" name="source" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="source">Monster Source:</label>
+      <div class="control">
+        <input type="text" name="source" required class="input input-bordered w-full max-w-xs">
+      </div>
     </div>
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="size">Size:</label>
-            <div class="control">
-                <div class="select">
-                    <select name="size">
-                        <option>H</option>
-                        <option>T</option>
-                        <option>S</option>
-                        <option>L</option>
-                        <option>G</option>
-                    </select>
-                </div>
-            </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="size">Size:</label>
+      <div class="control">
+        <div class="select">
+          <select name="size">
+            <option>H</option>
+            <option>T</option>
+            <option>S</option>
+            <option>L</option>
+            <option>G</option>
+          </select>
         </div>
+      </div>
     </div>
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="type">Type:</label>
-            <div class="control">
-                <input type="text" name="type" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="type">Type:</label>
+      <div class="control">
+        <input type="text" name="type" required class="input input-bordered w-full max-w-xs">
+      </div>
     </div>
+  </div>
 </div>
 <div class="tile is-vertical is-ancestor">
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="alignment">Alignment:</label>
-            <div class="control">
-                <input type="text" name="alignment" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="alignment">Alignment:</label>
+      <div class="control">
+        <input type="text" name="alignment" required class="input input-bordered w-full max-w-xs">
+      </div>
     </div>
+  </div>
 </div>
 <div class="tile is-ancestor">
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="ac">AC:</label>
-            <div class="control">
-                <input type="number" name="ac" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="ac">AC:</label>
+      <div class="control">
+        <input type="number" name="ac" required class="input input-bordered w-full max-w-xs">
+      </div>
     </div>
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="acFrom">AC From:</label>
-            <div class="control">
-                <input type="text" name="acFrom" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="acFrom">AC From:</label>
+      <div class="control">
+        <input type="text" name="acFrom" required class="input input-bordered w-full max-w-xs">
+      </div>
     </div>
+  </div>
 </div>
 <div class="tile is-ancestor">
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="hpAverage">HP Average:</label>
-            <div class="control">
-                <input type="number" name="hpAverage" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="hpAverage">HP Average:</label>
+      <div class="control">
+        <input type="number" name="hpAverage" required class="input input-bordered w-full max-w-xs">
+      </div>
     </div>
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="hpFormula">HP Formula:</label>
-            <div class="control">
-                <input type="text" name="hpFormula" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="hpFormula">HP Formula:</label>
+      <div class="control">
+        <input type="text" name="hpFormula" required class="input input-bordered w-full max-w-xs">
+      </div>
     </div>
+  </div>
 </div>
 <div class="card tile is-ancestor is-vertical">
-    <header class="card-header">
-        <p class="card-header-title">
-            Speed
-        </p>
-    </header>
-    <div class="card-content">
-        <div class="content">
-            <div class="tile is-ancestor">
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="walk">Walk:</label>
-                        <div class="control">
-                            <input type="number" name="walk" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="burrow">burrow:</label>
-                        <div class="control">
-                            <input type="number" name="burrow" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="climb">Climb:</label>
-                        <div class="control">
-                            <input type="number" name="climb" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
+  <header class="card-header">
+    <p class="card-header-title">
+      Speed
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <div class="tile is-ancestor">
+        <div class="tile is-parent">
+          <div class="tile is-child field">
+            <label for="walk">Walk:</label>
+            <div class="control">
+              <input type="number" name="walk" required class="input input-bordered w-full max-w-xs">
             </div>
-            <div class="tile is-ancestor">
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="fly">Fly:</label>
-                        <div class="control">
-                            <input type="number" name="fly" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="swim">Swim:</label>
-                        <div class="control">
-                            <input type="number" name="swim" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+        <div class="tile is-parent">
+          <div class="tile is-child field">
+            <label for="burrow">Burrow:</label>
+            <div class="control">
+              <input type="number" name="burrow" required class="input input-bordered w-full max-w-xs">
+            </div>
+          </div>
+        </div>
+        <div class="tile is-parent">
+          <div class="tile is-child field">
+            <label for="climb">Climb:</label>
+            <div class="control">
+              <input type="number" name="climb" required class="input input-bordered w-full max-w-xs">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tile is-ancestor">
+        <div class="tile is-parent">
+          <div class="tile is-child field">
+            <label for="fly">Fly:</label>
+            <div class="control">
+              <input type="number" name="fly" required class="input input-bordered w-full max-w-xs">
+            </div>
+          </div>
+        </div>
+        <div class="tile is-parent">
+          <div class="tile is-child field">
+            <label for="swim">Swim:</label>
+            <div class="control">
+              <input type="number" name="swim" required class="input input-bordered w-full max-w-xs">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 <div class="tile is-ancestor">
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="str">Str:</label>
-            <div class="control">
-                <input type="number" name="str" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="str">Str:</label>
+      <div class="control">
+        <input type="number" name="str" required class="input input-bordered w-full max-w-xs"
+          hx-post="/calculate-skills" hx-trigger="keyup changed delay:100ms" hx-target="#skills" hx-swap="innerHTML">
+      </div>
     </div>
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="dex">Dex:</label>
-            <div class="control">
-                <input type="number" name="dex" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="dex">Dex:</label>
+      <div class="control">
+        <input type="number" name="dex" required class="input input-bordered w-full max-w-xs"
+          hx-post="/calculate-skills" hx-trigger="keyup changed delay:100ms" hx-target="#skills" hx-swap="innerHTML">
+      </div>
     </div>
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="con">Con:</label>
-            <div class="control">
-                <input type="number" name="con" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="con">Con:</label>
+      <div class="control">
+        <input type="number" name="con" required class="input input-bordered w-full max-w-xs"
+          hx-post="/calculate-skills" hx-trigger="keyup changed delay:100ms" hx-target="#skills" hx-swap="innerHTML">
+      </div>
     </div>
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="cr">CR:</label>
-            <div class="control">
-                <input type="text" name="cr" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="cr">CR:</label>
+      <div class="control">
+        <input type="text" name="cr" required class="input input-bordered w-full max-w-xs" hx-post="/calculate-skills"
+          hx-trigger="keyup changed delay:100ms" hx-target="#skills" hx-swap="innerHTML" hx-target="#skills"
+          hx-swap="outerHTML">
+      </div>
     </div>
+  </div>
 </div>
 <div class="tile is-ancestor">
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="int">Int:</label>
-            <div class="control">
-                <input type="number" name="int" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="int">Int:</label>
+      <div class="control">
+        <input type="number" name="int" required class="input input-bordered w-full max-w-xs"
+          hx-post="/calculate-skills" hx-trigger="keyup changed delay:100ms" hx-target="#skills" hx-swap="innerHTML">
+      </div>
     </div>
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="wis">Wis:</label>
-            <div class="control">
-                <input type="number" name="wis" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="wis">Wis:</label>
+      <div class="control">
+        <input type="number" name="wis" required class="input input-bordered w-full max-w-xs"
+          hx-post="/calculate-skills" hx-trigger="keyup changed delay:100ms" hx-target="#skills" hx-swap="innerHTML">
+      </div>
     </div>
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="cha">Cha:</label>
-            <div class="control">
-                <input type="number" name="cha" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="cha">Cha:</label>
+      <div class="control">
+        <input type="number" name="cha" required class="input input-bordered w-full max-w-xs"
+          hx-post="/calculate-skills" hx-trigger="keyup changed delay:100ms" hx-target="#skills" hx-swap="innerHTML">
+      </div>
     </div>
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="passive">Passive:</label>
-            <div class="control">
-                <input type="number" name="passive" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="passive">Passive:</label>
+      <div class="control">
+        <input type="number" name="passive" required class="input input-bordered w-full max-w-xs"
+          hx-post="/calculate-skills" hx-trigger="keyup changed delay:100ms" hx-target="#skills" hx-swap="innerHTML">
+      </div>
     </div>
+  </div>
 </div>
 <div class="card tile is-ancestor is-vertical">
-    <header class="card-header">
-        <p class="card-header-title">
-            Save
-        </p>
-    </header>
-    <div class="card-content">
-        <div class="content">
-            <div class="tile is-ancestor">
-                <div class="tile is-parent gap">
-                    <div class="tile is-child field">
-                        <label for="saveDex">Dex:</label>
-                        <div class="control">
-                            <input type="text" name="saveDex" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-                <div class="tile is-parent gap">
-                    <div class="tile is-child field">
-                        <label for="saveCon">Con:</label>
-                        <div class="control">
-                            <input type="text" name="saveCon" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-                <div class="tile is-parent gap">
-                    <div class="tile is-child field">
-                        <label for="saveWis">Wis:</label>
-                        <div class="control">
-                            <input type="text" name="saveWis" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
+  <header class="card-header">
+    <p class="card-header-title">
+      Save
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <div class="tile is-ancestor">
+        <div class="tile is-parent gap">
+          <div class="tile is-child field">
+            <label for="saveDex">Dex:</label>
+            <div class="control">
+              <input type="text" name="saveDex" required class="input input-bordered w-full max-w-xs">
             </div>
+          </div>
         </div>
-        <div class="tile is-ancestor">
-            <div class="tile is-parent gap">
-                <div class="tile is-child field">
-                    <label for="saveCha">Cha:</label>
-                    <div class="control">
-                        <input type="text" name="saveCha" required class="input input-bordered w-full max-w-xs">
-                    </div>
-                </div>
+        <div class="tile is-parent gap">
+          <div class="tile is-child field">
+            <label for="saveCon">Con:</label>
+            <div class="control">
+              <input type="text" name="saveCon" required class="input input-bordered w-full max-w-xs">
             </div>
-            <div class="tile is-parent gap">
-                <div class="tile is-child field">
-                    <label for="saveInt">Int:</label>
-                    <div class="control">
-                        <input type="text" name="saveInt" required class="input input-bordered w-full max-w-xs">
-                    </div>
-                </div>
-            </div>
-            <div class="tile is-parent gap">
-                <div class="tile is-child field">
-                    <label for="saveStr">Str:</label>
-                    <div class="control">
-                        <input type="text" name="saveStr" required class="input input-bordered w-full max-w-xs">
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+        <div class="tile is-parent gap">
+          <div class="tile is-child field">
+            <label for="saveWis">Wis:</label>
+            <div class="control">
+              <input type="text" name="saveWis" required class="input input-bordered w-full max-w-xs">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="tile is-ancestor">
+      <div class="tile is-parent gap">
+        <div class="tile is-child field">
+          <label for="saveCha">Cha:</label>
+          <div class="control">
+            <input type="text" name="saveCha" required class="input input-bordered w-full max-w-xs">
+          </div>
+        </div>
+      </div>
+      <div class="tile is-parent gap">
+        <div class="tile is-child field">
+          <label for="saveInt">Int:</label>
+          <div class="control">
+            <input type="text" name="saveInt" required class="input input-bordered w-full max-w-xs">
+          </div>
+        </div>
+      </div>
+      <div class="tile is-parent gap">
+        <div class="tile is-child field">
+          <label for="saveStr">Str:</label>
+          <div class="control">
+            <input type="text" name="saveStr" required class="input input-bordered w-full max-w-xs">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="card tile is-ancestor is-vertical">
-    <header class="card-header">
-        <p class="card-header-title">
-            Skill
-        </p>
-    </header>
-    <div class="card-content">
-        <div class="content">
-            <div class="tile is-ancestor">
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="acrobatics">Acrobatics:</label>
-                        <div class="control">
-                            <input type="text" name="acrobatics" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="animalHandling">Animal Handling:</label>
-                        <div class="control">
-                            <input type="text" name="animalHandling" required
-                                class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="arcana">Arcana:</label>
-                        <div class="control">
-                            <input type="text" name="arcana" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tile is-ancestor">
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="athletics">Athletics:</label>
-                        <div class="control">
-                            <input type="text" name="athletics" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="deception">Deception:</label>
-                        <div class="control">
-                            <input type="text" name="deception" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="history">History:</label>
-                        <div class="control">
-                            <input type="text" name="history" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tile is-ancestor">
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="insight">Insight:</label>
-                        <div class="control">
-                            <input type="text" name="insight" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="intimidation">Intimidation:</label>
-                        <div class="control">
-                            <input type="text" name="intimidation" required
-                                class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="investigation">Investigation:</label>
-                        <div class="control">
-                            <input type="text" name="investigation" required
-                                class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tile is-ancestor">
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="medicine">Medicine:</label>
-                        <div class="control">
-                            <input type="text" name="medicine" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="nature">Nature:</label>
-                        <div class="control">
-                            <input type="text" name="nature" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="performance">Performance:</label>
-                        <div class="control">
-                            <input type="text" name="performance" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tile is-ancestor">
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="perception">Perception:</label>
-                        <div class="control">
-                            <input type="text" name="perception" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="stealth">Stealth:</label>
-                        <div class="control">
-                            <input type="text" name="stealth" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="persuasion">Persuasion:</label>
-                        <div class="control">
-                            <input type="text" name="persuasion" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tile is-ancestor">
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="sleightOfHand">Sleight of Hand:</label>
-                        <div class="control">
-                            <input type="text" name="sleightOfHand" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="religion">Religion:</label>
-                        <div class="control">
-                            <input type="text" name="religion" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-                <div class="tile is-parent">
-                    <div class="tile is-child field">
-                        <label for="survival">Survival:</label>
-                        <div class="control">
-                            <input type="text" name="survival" required class="input input-bordered w-full max-w-xs">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div id="skills" class="card tile is-ancestor is-vertical">
+  {{ template "skills" }}
 </div>
 <div class="tile is-ancestor">
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="resist">Damage Resistances:</label>
-            <div class="control">
-                <input type="text" name="resist" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="resist">Damage Resistances:</label>
+      <div class="control">
+        <input type="text" name="resist" required class="input input-bordered w-full max-w-xs">
+      </div>
     </div>
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="immune">Damage Immunity:</label>
-            <div class="control">
-                <input type="text" name="immune" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="immune">Damage Immunity:</label>
+      <div class="control">
+        <input type="text" name="immune" required class="input input-bordered w-full max-w-xs">
+      </div>
     </div>
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="vulnerable">Vulnerability:</label>
-            <div class="control">
-                <input type="text" name="vulnerable" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="vulnerable">Vulnerability:</label>
+      <div class="control">
+        <input type="text" name="vulnerable" required class="input input-bordered w-full max-w-xs">
+      </div>
     </div>
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="conditionImmune">Condition Immunity:</label>
-            <div class="control">
-                <input type="text" name="conditionImmune" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="conditionImmune">Condition Immunity:</label>
+      <div class="control">
+        <input type="text" name="conditionImmune" required class="input input-bordered w-full max-w-xs">
+      </div>
     </div>
+  </div>
 </div>
 <div class="tile is-ancestor">
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="senses">Senses:</label>
-            <div class="control">
-                <input type="text" name="senses" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="senses">Senses:</label>
+      <div class="control">
+        <input type="text" name="senses" required class="input input-bordered w-full max-w-xs">
+      </div>
     </div>
+  </div>
 </div>
 <div class="tile is-ancestor">
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="languages">Languages:</label>
-            <div class="control">
-                <input type="text" name="languages" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="languages">Languages:</label>
+      <div class="control">
+        <input type="text" name="languages" required class="input input-bordered w-full max-w-xs">
+      </div>
     </div>
+  </div>
 </div>
 <div class="tile is-ancestor">
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="traitName">Trait Name:</label>
-            <div class="control">
-                <input type="text" name="traitName" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="traitName">Trait Name:</label>
+      <div class="control">
+        <input type="text" name="traitName" required class="input input-bordered w-full max-w-xs">
+      </div>
     </div>
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="traitEntry">Trait Entry:</label>
-            <div class="control">
-                <input type="text" name="traitEntry" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="traitEntry">Trait Entry:</label>
+      <div class="control">
+        <input type="text" name="traitEntry" required class="input input-bordered w-full max-w-xs">
+      </div>
     </div>
+  </div>
 </div>
 <div class="tile is-ancestor">
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="actionName">Action Name:</label>
-            <div class="control">
-                <input type="text" name="actionName" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="actionName">Action Name:</label>
+      <div class="control">
+        <input type="text" name="actionName" required class="input input-bordered w-full max-w-xs">
+      </div>
     </div>
-    <div class="tile is-parent">
-        <div class="tile is-child field">
-            <label for="actionEntry">Action Entry:</label>
-            <div class="control">
-                <input type="text" name="actionEntry" required class="input input-bordered w-full max-w-xs">
-            </div>
-        </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child field">
+      <label for="actionEntry">Action Entry:</label>
+      <div class="control">
+        <input type="text" name="actionEntry" required class="input input-bordered w-full max-w-xs">
+      </div>
     </div>
+  </div>
 </div>
 {{end}}
