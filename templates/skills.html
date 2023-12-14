@@ -1,4 +1,71 @@
 {{ define "skills" }}
+<div class="tile is-parent">
+<div class="card tile is-child is-ancestor is-vertical">
+  <header class="card-header">
+    <p class="card-header-title">
+      Save
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <div class="tile is-ancestor">
+        <div class="tile is-parent gap">
+          <div class="tile is-child field">
+            <label for="saveDex">Dex:</label>
+            <div class="control">
+              <input type="text" name="saveDex" required class="input input-bordered w-full max-w-xs" value="{{.saveDex}}">
+            </div>
+          </div>
+        </div>
+        <div class="tile is-parent gap">
+          <div class="tile is-child field">
+            <label for="saveCon">Con:</label>
+            <div class="control">
+              <input type="text" name="saveCon" required class="input input-bordered w-full max-w-xs" value="{{.saveCon}}">
+            </div>
+          </div>
+        </div>
+        <div class="tile is-parent gap">
+          <div class="tile is-child field">
+            <label for="saveWis">Wis:</label>
+            <div class="control">
+              <input type="text" name="saveWis" required class="input input-bordered w-full max-w-xs" value="{{.saveWis}}">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tile is-ancestor">
+      <div class="tile is-parent gap">
+        <div class="tile is-child field">
+          <label for="saveCha">Cha:</label>
+          <div class="control">
+            <input type="text" name="saveCha" required class="input input-bordered w-full max-w-xs" value="{{.saveCha}}">
+          </div>
+        </div>
+      </div>
+      <div class="tile is-parent gap">
+        <div class="tile is-child field">
+          <label for="saveInt">Int:</label>
+          <div class="control">
+            <input type="text" name="saveInt" required class="input input-bordered w-full max-w-xs" value="{{.saveInt}}">
+          </div>
+        </div>
+      </div>
+      <div class="tile is-parent gap">
+        <div class="tile is-child field">
+          <label for="saveStr">Str:</label>
+          <div class="control">
+            <input type="text" name="saveStr" required class="input input-bordered w-full max-w-xs" value="{{.saveStr}}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="tile is-parent">
+<div class="card tile is-child is-ancestor is-vertical">
 <header class="card-header">
   <p class="card-header-title">
     Skill
@@ -9,7 +76,7 @@
     <div class="tile is-ancestor">
       <div class="tile is-parent">
         <div class="tile is-child field">
-          <label for="acrobatics">Acrobatics:</label>
+          <label class="checkbox" for="acrobatics"><input type="checkbox">Acrobatics:</label>
           <div class="control">
             <input type="text" name="acrobatics" required class="input input-bordered w-full max-w-xs" value="{{
               .acrobatics }}" readonly>
@@ -18,7 +85,7 @@
       </div>
       <div class="tile is-parent">
         <div class="tile is-child field">
-          <label for="animalHandling">Animal Handling:</label>
+          <label for="animalHandling" class="checkbox"><input type="checkbox">Animal Handling:</label>
           <div class="control">
             <input type="text" name="animalHandling" required class="input input-bordered w-full max-w-xs"
               value="{{ .animalHandling }}" readonly>
@@ -27,7 +94,7 @@
       </div>
       <div class="tile is-parent">
         <div class="tile is-child field">
-          <label for="arcana">Arcana:</label>
+          <label for="arcana" class="ceckbox"><input type="checkbox">Arcana:</label>
           <div class="control">
             <input type="text" name="arcana" required class="input input-bordered w-full max-w-xs" value="{{ .arcana }}"
               readonly>
@@ -38,7 +105,7 @@
     <div class="tile is-ancestor">
       <div class="tile is-parent">
         <div class="tile is-child field">
-          <label for="athletics">Athletics:</label>
+          <label for="athletics" class="checkbox"><input type="checkbox">Athletics:</label>
           <div class="control">
             <input type="text" name="athletics" required class="input input-bordered w-full max-w-xs"
               value="{{ .athletics }}" readonly>
@@ -47,7 +114,7 @@
       </div>
       <div class="tile is-parent">
         <div class="tile is-child field">
-          <label for="deception">Deception:</label>
+          <label for="deception" class="checkbox"><input type="checkbox">Deception:</label>
           <div class="control">
             <input type="text" name="deception" required class="input input-bordered w-full max-w-xs"
               value="{{ .deception }}" readonly>
@@ -56,7 +123,7 @@
       </div>
       <div class="tile is-parent">
         <div class="tile is-child field">
-          <label for="history">History:</label>
+          <label for="history" class="checkbox"><input type="checkbox">History:</label>
           <div class="control">
             <input type="text" name="history" required class="input input-bordered w-full max-w-xs"
               value="{{ .history }}" readonly>
@@ -67,7 +134,7 @@
     <div class="tile is-ancestor">
       <div class="tile is-parent">
         <div class="tile is-child field">
-          <label for="insight">Insight:</label>
+          <label for="insight" class="checkbox"><input type="checkbox">Insight:</label>
           <div class="control">
             <input type="text" name="insight" required class="input input-bordered w-full max-w-xs"
               value="{{ .insight }}" readonly>
@@ -76,7 +143,7 @@
       </div>
       <div class="tile is-parent">
         <div class="tile is-child field">
-          <label for="intimidation">Intimidation:</label>
+          <label for="intimidation" class="checkbox"><input type="checkbox">Intimidation:</label>
           <div class="control">
             <input type="text" name="intimidation" required class="input input-bordered w-full max-w-xs"
               value="{{ .intimidation }}" readonly>
@@ -85,7 +152,7 @@
       </div>
       <div class="tile is-parent">
         <div class="tile is-child field">
-          <label for="investigation">Investigation:</label>
+          <label for="investigation" class="checkbox"><input type="checkbox">Investigation:</label>
           <div class="control">
             <input type="text" name="investigation" required class="input input-bordered w-full max-w-xs"
               value="{{ .investigation }}" readonly>
@@ -96,7 +163,7 @@
     <div class="tile is-ancestor">
       <div class="tile is-parent">
         <div class="tile is-child field">
-          <label for="medicine">Medicine:</label>
+          <label for="medicine" class="checkbox"><input type="checkbox">Medicine:</label>
           <div class="control">
             <input type="text" name="medicine" required class="input input-bordered w-full max-w-xs"
               value="{{ .medicine }}" readonly>
@@ -105,7 +172,7 @@
       </div>
       <div class="tile is-parent">
         <div class="tile is-child field">
-          <label for="nature">Nature:</label>
+          <label for="nature" class="checkbox"><input type="checkbox">Nature:</label>
           <div class="control">
             <input type="text" name="nature" required class="input input-bordered w-full max-w-xs" value="{{ .nature }}"
               readonly>
@@ -114,7 +181,7 @@
       </div>
       <div class="tile is-parent">
         <div class="tile is-child field">
-          <label for="performance">Performance:</label>
+          <label for="performance" class="checkbox"><input type="checkbox">Performance:</label>
           <div class="control">
             <input type="text" name="performance" required class="input input-bordered w-full max-w-xs"
               value="{{ .performance }}" readonly>
@@ -125,7 +192,7 @@
     <div class="tile is-ancestor">
       <div class="tile is-parent">
         <div class="tile is-child field">
-          <label for="perception">Perception:</label>
+          <label for="perception" class="checkbox"><input type="checkbox">Perception:</label>
           <div class="control">
             <input type="text" name="perception" required class="input input-bordered w-full max-w-xs"
               value="{{ .perception }}" readonly>
@@ -134,7 +201,7 @@
       </div>
       <div class="tile is-parent">
         <div class="tile is-child field">
-          <label for="stealth">Stealth:</label>
+          <label for="stealth" class="checkbox"><input type="checkbox">Stealth:</label>
           <div class="control">
             <input type="text" name="stealth" required class="input input-bordered w-full max-w-xs"
               value="{{ .stealth }}" readonly>
@@ -143,7 +210,7 @@
       </div>
       <div class="tile is-parent">
         <div class="tile is-child field">
-          <label for="persuasion">Persuasion:</label>
+          <label for="persuasion" class="checkbox"><input type="checkbox">Persuasion:</label>
           <div class="control">
             <input type="text" name="persuasion" required class="input input-bordered w-full max-w-xs"
               value="{{ .persuasion }}" readonly>
@@ -154,7 +221,7 @@
     <div class="tile is-ancestor">
       <div class="tile is-parent">
         <div class="tile is-child field">
-          <label for="sleightOfHand">Sleight of Hand:</label>
+          <label for="sleightOfHand" class="checkbox"><input type="checkbox">Sleight of Hand:</label>
           <div class="control">
             <input type="text" name="sleightOfHand" required class="input input-bordered w-full max-w-xs"
               value="{{.sleightOfHand }}" readonly>
@@ -163,7 +230,7 @@
       </div>
       <div class="tile is-parent">
         <div class="tile is-child field">
-          <label for="religion">Religion:</label>
+          <label for="religion" class="checkbox"><input type="checkbox">Religion:</label>
           <div class="control">
             <input type="text" name="religion" required class="input input-bordered w-full max-w-xs"
               value="{{ .religion }}" readonly>
@@ -172,7 +239,7 @@
       </div>
       <div class="tile is-parent">
         <div class="tile is-child field">
-          <label for="survival">Survival:</label>
+          <label for="survival" class="checkbox"><input type="checkbox">Survival:</label>
           <div class="control">
             <input type="text" name="survival" required class="input input-bordered w-full max-w-xs"
               value="{{ .survival }}" readonly>
@@ -181,5 +248,7 @@
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>
 {{ end }}

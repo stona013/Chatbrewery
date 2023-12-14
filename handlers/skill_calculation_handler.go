@@ -45,6 +45,7 @@ func SkillCalculationHandler(content embed.FS) http.HandlerFunc {
 		int := parseFieldValue(r.FormValue("int"))
 		cha := parseFieldValue(r.FormValue("cha"))
 		wis := parseFieldValue(r.FormValue("wis"))
+		con := parseFieldValue(r.FormValue("con"))
 		cr := parseFieldValue(r.FormValue("cr"))
 		crBonus := calcBonus(cr)
 
@@ -67,6 +68,12 @@ func SkillCalculationHandler(content embed.FS) http.HandlerFunc {
 			"sleightOfHand":  strconv.Itoa(calcAbilityScore(dex) + crBonus),
 			"stealth":        strconv.Itoa(calcAbilityScore(dex) + crBonus),
 			"survival":       strconv.Itoa(calcAbilityScore(wis) + crBonus),
+			"saveStr":        strconv.Itoa(calcAbilityScore(str)),
+			"saveWis":        strconv.Itoa(calcAbilityScore(wis)),
+			"saveCon":        strconv.Itoa(calcAbilityScore(con)),
+			"saveInt":        strconv.Itoa(calcAbilityScore(int)),
+			"saveCha":        strconv.Itoa(calcAbilityScore(cha)),
+			"saveDex":        strconv.Itoa(calcAbilityScore(dex)),
 		}
 
 		// Execute template with skill values.
