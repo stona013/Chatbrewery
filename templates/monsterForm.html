@@ -209,15 +209,6 @@
       </div>
     </div>
   </div>
-  <div class="tile is-parent">
-    <div class="tile is-child field">
-      <label for="passive">Passive:</label>
-      <div class="control">
-        <input type="number" name="passive" required class="input input-bordered w-full max-w-xs"
-          hx-post="/calculate-skills" hx-trigger="keyup changed delay:100ms" hx-target="#skills" hx-swap="innerHTML">
-      </div>
-    </div>
-  </div>
 </div>
 <div id="skills" class="tile is-ancestor is-vertical">
   {{ template "skills" }}
