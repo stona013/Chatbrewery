@@ -37,6 +37,7 @@ func main() {
 	routes.HandleFunc("/contact", handlers.ContactHandler(content))
 	routes.HandleFunc("/monsterTable", handlers.MonsterTableHandler(content, &Monsters))
 	routes.HandleFunc("/calculate-skills", handlers.SkillCalculationHandler(content))
+	routes.HandleFunc("/loadFile", handlers.LoadFileHandler(&Monsters))
 	// Print the message indicating that 'static' has been included.
 	log.Printf("Eingebunden is %v\n", static)
 
