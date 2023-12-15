@@ -64,6 +64,80 @@ func parseInt(s string) int {
 
 // parseMonster parses the Monster from monsterForm.html and return it.
 func parseMonster(r *http.Request) model.Monster {
+	var (
+		acrobatics     = ""
+		animalHandling = ""
+		arcana         = ""
+		athletics      = ""
+		deception      = ""
+		history        = ""
+		insight        = ""
+		intimidation   = ""
+		investigation  = ""
+		medicine       = ""
+		nature         = ""
+		performance    = ""
+		perception     = ""
+		persuasion     = ""
+		sleightOfHand  = ""
+		religion       = ""
+		stealth        = ""
+		survival       = ""
+	)
+	if r.FormValue("checkAcrobatics") == "on" {
+		acrobatics = r.FormValue("acrobatics")
+	}
+	if r.FormValue("checkAnimalHandling") == "on" {
+		animalHandling = r.FormValue("animalHandling")
+	}
+	if r.FormValue("checkArcana") == "on" {
+		arcana = r.FormValue("arcana")
+	}
+	if r.FormValue("checkAthletics") == "on" {
+		athletics = r.FormValue("athletics")
+	}
+	if r.FormValue("checkDeception") == "on" {
+		deception = r.FormValue("deception")
+	}
+	if r.FormValue("checkHistory") == "on" {
+		history = r.FormValue("history")
+	}
+	if r.FormValue("checkInsight") == "on" {
+		insight = r.FormValue("insight")
+	}
+	if r.FormValue("checkIntimidation") == "on" {
+		intimidation = r.FormValue("intimidation")
+	}
+	if r.FormValue("checkInvestigation") == "on" {
+		investigation = r.FormValue("investigation")
+	}
+	if r.FormValue("checkMedicine") == "on" {
+		medicine = r.FormValue("medicine")
+	}
+	if r.FormValue("checkNature") == "on" {
+		nature = r.FormValue("nature")
+	}
+	if r.FormValue("checkPerformance") == "on" {
+		performance = r.FormValue("performance")
+	}
+	if r.FormValue("checkPerception") == "on" {
+		perception = r.FormValue("perception")
+	}
+	if r.FormValue("checkPersuasion") == "on" {
+		persuasion = r.FormValue("persuasion")
+	}
+	if r.FormValue("checkSleightOfHand") == "on" {
+		sleightOfHand = r.FormValue("sleightOfHand")
+	}
+	if r.FormValue("checkStealth") == "on" {
+		stealth = r.FormValue("stealth")
+	}
+	if r.FormValue("checkSurvival") == "on" {
+		survival = r.FormValue("survival")
+	}
+	if r.FormValue("checkReligion") == "on" {
+		religion = r.FormValue("religion")
+	}
 	return model.Monster{
 		Name:      r.FormValue("name"),
 		Source:    r.FormValue("source"),
@@ -102,24 +176,24 @@ func parseMonster(r *http.Request) model.Monster {
 			Int: r.FormValue("saveInt"),
 		},
 		Skill: model.Skill{
-			Perception:     r.FormValue("perception"),
-			Stealth:        r.FormValue("stealth"),
-			Acrobatics:     r.FormValue("acrobatics"),
-			AnimalHandling: r.FormValue("animalHandling"),
-			Arcana:         r.FormValue("arcana"),
-			Athletics:      r.FormValue("athletics"),
-			Deception:      r.FormValue("deception"),
-			History:        r.FormValue("history"),
-			Insight:        r.FormValue("insight"),
-			Intimidation:   r.FormValue("intimidation"),
-			Investigation:  r.FormValue("investigation"),
-			Medicine:       r.FormValue("medicine"),
-			Nature:         r.FormValue("nature"),
-			Performance:    r.FormValue("performance"),
-			Persuasion:     r.FormValue("persuasion"),
-			SleightOfHand:  r.FormValue("sleightOfHand"),
-			Survival:       r.FormValue("survival"),
-			Religion:       r.FormValue("religion"),
+			Perception:     perception,
+			Stealth:        stealth,
+			Acrobatics:     acrobatics,
+			AnimalHandling: animalHandling,
+			Arcana:         arcana,
+			Athletics:      athletics,
+			Deception:      deception,
+			History:        history,
+			Insight:        insight,
+			Intimidation:   intimidation,
+			Investigation:  investigation,
+			Medicine:       medicine,
+			Nature:         nature,
+			Performance:    performance,
+			Persuasion:     persuasion,
+			SleightOfHand:  sleightOfHand,
+			Survival:       survival,
+			Religion:       religion,
 		},
 		Resist:          []string{r.FormValue("resist")},
 		ConditionImmune: []string{r.FormValue("conditionImmune")},
