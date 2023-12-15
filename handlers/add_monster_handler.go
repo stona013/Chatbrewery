@@ -102,7 +102,7 @@ func parseMonster(r *http.Request) model.Monster {
 			Con: r.FormValue("saveCon"),
 			Wis: r.FormValue("saveWis"),
 			Str: r.FormValue("saveStr"),
-			Cha: r.FormValue("saveCha"),
+			Cha: checkCheckbox("cha", r),
 			Int: r.FormValue("saveInt"),
 		},
 		Skill: model.Skill{

@@ -87,60 +87,6 @@
     </div>
   </div>
 </div>
-<div class="card tile is-ancestor is-vertical">
-  <header class="card-header">
-    <p class="card-header-title">
-      Speed
-    </p>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <div class="tile is-ancestor">
-        <div class="tile is-parent">
-          <div class="tile is-child field">
-            <label for="walk">Walk:</label>
-            <div class="control">
-              <input type="number" name="walk" required class="input input-bordered w-full max-w-xs">
-            </div>
-          </div>
-        </div>
-        <div class="tile is-parent">
-          <div class="tile is-child field">
-            <label for="burrow">Burrow:</label>
-            <div class="control">
-              <input type="number" name="burrow" required class="input input-bordered w-full max-w-xs">
-            </div>
-          </div>
-        </div>
-        <div class="tile is-parent">
-          <div class="tile is-child field">
-            <label for="climb">Climb:</label>
-            <div class="control">
-              <input type="number" name="climb" required class="input input-bordered w-full max-w-xs">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tile is-ancestor">
-        <div class="tile is-parent">
-          <div class="tile is-child field">
-            <label for="fly">Fly:</label>
-            <div class="control">
-              <input type="number" name="fly" required class="input input-bordered w-full max-w-xs">
-            </div>
-          </div>
-        </div>
-        <div class="tile is-parent">
-          <div class="tile is-child field">
-            <label for="swim">Swim:</label>
-            <div class="control">
-              <input type="number" name="swim" required class="input input-bordered w-full max-w-xs">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 <div class="tile is-ancestor">
   <div class="tile is-parent">
@@ -212,6 +158,63 @@
 </div>
 <div id="skills" class="tile is-ancestor is-vertical">
   {{ template "skills" }}
+</div>
+<div class="card tile is-child is-ancestor ">
+  <div class="tile is-parent is-vertical">
+    <header class="card-header">
+      <p class="card-header-title">
+        Speed
+      </p>
+    </header>
+    <div class="card-content">
+      <div class="content">
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <div class="tile is-child field">
+              <label for="walk">Walk:</label>
+              <div class="control">
+                <input type="number" name="walk" required class="input input-bordered w-full max-w-xs">
+              </div>
+            </div>
+          </div>
+          <div class="tile is-parent">
+            <div class="tile is-child field">
+              <label for="burrow">Burrow:</label>
+              <div class="control">
+                <input type="number" name="burrow" required class="input input-bordered w-full max-w-xs">
+              </div>
+            </div>
+          </div>
+          <div class="tile is-parent">
+            <div class="tile is-child field">
+              <label for="climb">Climb:</label>
+              <div class="control">
+                <input type="number" name="climb" required class="input input-bordered w-full max-w-xs">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <div class="tile is-child field">
+              <label for="fly">Fly:</label>
+              <div class="control">
+                <input type="number" name="fly" required class="input input-bordered w-full max-w-xs">
+              </div>
+            </div>
+          </div>
+          <div class="tile is-parent">
+            <div class="tile is-child field">
+              <label for="swim">Swim:</label>
+              <div class="control">
+                <input type="number" name="swim" required class="input input-bordered w-full max-w-xs">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="tile is-ancestor">
   <div class="tile is-parent">

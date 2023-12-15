@@ -68,12 +68,12 @@ func SkillCalculationHandler(content embed.FS) http.HandlerFunc {
 			"sleightOfHand":  strconv.Itoa(calcAbilityScore(dex) + crBonus),
 			"stealth":        strconv.Itoa(calcAbilityScore(dex) + crBonus),
 			"survival":       strconv.Itoa(calcAbilityScore(wis) + crBonus),
-			"saveStr":        strconv.Itoa(calcAbilityScore(str)),
-			"saveWis":        strconv.Itoa(calcAbilityScore(wis)),
-			"saveCon":        strconv.Itoa(calcAbilityScore(con)),
-			"saveInt":        strconv.Itoa(calcAbilityScore(int)),
-			"saveCha":        strconv.Itoa(calcAbilityScore(cha)),
-			"saveDex":        strconv.Itoa(calcAbilityScore(dex)),
+			"saveStr":        strconv.Itoa(calcAbilityScore(str) + crBonus),
+			"saveWis":        strconv.Itoa(calcAbilityScore(wis) + crBonus),
+			"saveCon":        strconv.Itoa(calcAbilityScore(con) + crBonus),
+			"saveInt":        strconv.Itoa(calcAbilityScore(int) + crBonus),
+			"saveCha":        strconv.Itoa(calcAbilityScore(cha) + crBonus),
+			"saveDex":        strconv.Itoa(calcAbilityScore(dex) + crBonus),
 		}
 
 		// Execute template with skill values.
