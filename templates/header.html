@@ -1,81 +1,82 @@
 {{ define "header" }}
 <header>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a href="/" class="navbar-item" hx-get="/main" hx-target="#main-content" hx-boost="true">
-          Dungeons & Dragons
-        </a>
-
-        <a href="/about" class="navbar-item" hx-get="/about" hx-target="#main-content" hx-boost="true">
-          About
-        </a>
-
-        <a href="/contact" class="navbar-item" hx-get="/contact" hx-target="#main-content" hx-boost="true">
-          Contact
-        </a>
-      </div>
-
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <button id="switchButton" class="button is-light">
-            <span id="stylesheetIcon" class="icon">
-              <i class="fas fa-sun"></i>
-            </span>
-          </button>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
         </div>
-      </div>
-    </div>
-  </nav>
-  <div class="tile is-ancestor">
-    <div class="tile is-parent">
-      <section class="tile is-child hero box is-widescreen">
-        <div class="hero-body is-flex is-justify-content-center is-align-items-center">
-          <div class="container has-text-centered">
-            <div class="hero-background">
-              <img src="/images/images/banner.jpg" alt="Dungeons-and-Dragons-Banner">
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a href="/" class="navbar-item" hx-get="/main" hx-target="#main-content" hx-boost="true">
+                    Dungeons & Dragons
+                </a>
+
+                <a href="/about" class="navbar-item" hx-get="/about" hx-target="#main-content" hx-boost="true">
+                    About
+                </a>
+
+                <a href="/contact" class="navbar-item" hx-get="/contact" hx-target="#main-content" hx-boost="true">
+                    Contact
+                </a>
             </div>
-            <div class="hero-content is-overlay">
-              <p class="title is-size-5-mobile is-size-1-desktop"
-                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                Dungeons and Dragons Monster Generator
-              </p>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <button id="switchButton" class="button is-light">
+                        <span id="stylesheetIcon" class="icon">
+                            <i class="fas fa-sun"></i>
+                        </span>
+                    </button>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
+    </nav>
+    <div class="tile is-ancestor">
+        <div class="tile is-parent">
+            <section class="tile is-child hero box is-widescreen">
+                <div class="hero-body is-flex is-justify-content-center is-align-items-center">
+                    <div class="container has-text-centered">
+                        <div class="hero-background">
+                            <img src="/images/images/banner.jpg" alt="Dungeons-and-Dragons-Banner">
+                        </div>
+                        <div class="hero-content is-overlay">
+                            <p class="title is-size-5-mobile is-size-1-desktop"
+                                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                                Dungeons and Dragons Monster Generator
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
-  </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const switchButton = document.getElementById("switchButton");
-      const stylesheetIcon = document.getElementById("stylesheetIcon");
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const switchButton = document.getElementById("switchButton");
+            const stylesheetIcon = document.getElementById("stylesheetIcon");
 
-      if (switchButton) {
-        switchButton.addEventListener('click', switchStylesheet);
-      }
+            if (switchButton) {
+                switchButton.addEventListener('click', switchStylesheet);
+            }
 
-      function switchStylesheet() {
-        const link = document.getElementById("customStylesheet");
+            function switchStylesheet() {
+                const link = document.getElementById("customStylesheet");
 
-        // Ändere das Icon basierend auf dem aktuellen Stylesheet
-        if (link.getAttribute("href") === "/static/darkly_bulmawatch.css") {
-          link.setAttribute("href", "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css");
-          stylesheetIcon.innerHTML = '<i class="fas fa-moon"></i>'; // Zum Mond-Icon wechseln
-        } else {
-          link.setAttribute("href", "/static/darkly_bulmawatch.css");
-          stylesheetIcon.innerHTML = '<i class="fas fa-sun"></i>'; // Zum Sonnen-Icon wechseln
-        }
-      }
-    });
-  </script>
+                // Ändere das Icon basierend auf dem aktuellen Stylesheet
+                if (link.getAttribute("href") === "/static/darkly_bulmawatch.css") {
+                    link.setAttribute("href", "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css");
+                    stylesheetIcon.innerHTML = '<i class="fas fa-moon"></i>'; // Zum Mond-Icon wechseln
+                } else {
+                    link.setAttribute("href", "/static/darkly_bulmawatch.css");
+                    stylesheetIcon.innerHTML = '<i class="fas fa-sun"></i>'; // Zum Sonnen-Icon wechseln
+                }
+            }
+        });
+    </script>
 </header>
 {{ end }}

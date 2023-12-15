@@ -1,59 +1,59 @@
 {{ define "monster" }}
 <tr>
-  <td>{{.Name}}</td>
-  <td>{{.Source}}</td>
-  <td>{{range .Size}}{{.}}{{end}}</td>
-  <td>{{.Type}}</td>
-  <td>{{range .Alignment}}{{.}}{{end}}</td>
-  <td>{{range .AC}}{{.AC}}{{end}}</td>
-  <td>{{range .AC}}{{.From}}{{end}}</td>
-  <td>{{.HP.Average}}</td>
-  <td>{{.HP.Formula}}</td>
-  <td>{{.Speed.Walk}}</td>
-  <td>{{.Speed.Swim}}</td>
-  <td>{{.Speed.Burrow}}</td>
-  <td>{{.Speed.Climb}}</td>
-  <td>{{.Speed.Fly}}</td>
-  <td>{{.Str}}</td>
-  <td>{{.Dex}}</td>
-  <td>{{.Con}}</td>
-  <td>{{.Int}}</td>
-  <td>{{.Wis}}</td>
-  <td>{{.Cha}}</td>
-  <td>{{.Save.Dex}}</td>
-  <td>{{.Save.Con}}</td>
-  <td>{{.Save.Wis}}</td>
-  <td>{{.Save.Str}}</td>
-  <td>{{.Save.Int}}</td>
-  <td>{{.Save.Cha}}</td>
-  <td>{{.Skill.Perception}}</td>
-  <td>{{.Skill.Stealth}}</td>
-  <td>{{.Skill.Acrobatics}}</td>
-  <td>{{.Skill.AnimalHandling}}</td>
-  <td>{{.Skill.Arcana}}</td>
-  <td>{{.Skill.Athletics}}</td>
-  <td>{{.Skill.Deception}}</td>
-  <td>{{.Skill.History}}</td>
-  <td>{{.Skill.Insight}}</td>
-  <td>{{.Skill.Intimidation}}</td>
-  <td>{{.Skill.Investigation}}</td>
-  <td>{{.Skill.Medicine}}</td>
-  <td>{{.Skill.Nature}}</td>
-  <td>{{.Skill.Performance}}</td>
-  <td>{{.Skill.Persuasion}}</td>
-  <td>{{.Skill.SleightOfHand}}</td>
-  <td>{{.Skill.Survival}}</td>
-  <td>{{.Skill.Religion}}</td>
-  <td>{{range .Resist}}{{.}}{{end}}</td>
-  <td>{{range .Immune}}{{.}}{{end}}</td>
-  <td>{{range .Vulnerable}}{{.}}{{end}}</td>
-  <td>{{range .ConditionImmune}}{{.}}{{end}}</td>
-  <td>{{range .Senses}}{{.}}{{end}}</td>
-  <td>{{range .Languages}}{{.}}{{end}}</td>
-  <td>{{.CR}}</td>
-  <td>{{range .Traits}}{{.Name}}{{end}}</td>
-  <td>{{range .Traits}}{{range .Entries}}{{.}}{{end}}{{end}}</td>
-  <td>{{range .Actions}}{{.Name}}{{end}}</td>
-  <td>{{range .Actions}}{{range .Entries}}{{.}}{{end}}{{end}}</td>
+    <td>{{.Name}}</td>
+    <td>{{.Source}}</td>
+    <td>{{range .Size}}{{.}}{{end}}</td>
+    <td>{{.Type}}</td>
+    <td>{{range .Alignment}}{{.}}{{end}}</td>
+    <td>{{range .AC}}{{.AC}}{{end}}</td>
+    <td>{{range .AC}}{{.From}}{{end}}</td>
+    <td>{{.HP.Average}}</td>
+    <td>{{.HP.Formula}}</td>
+    <td>{{.Speed.Walk}}</td>
+    <td>{{.Speed.Swim}}</td>
+    <td>{{.Speed.Burrow}}</td>
+    <td>{{.Speed.Climb}}</td>
+    <td>{{.Speed.Fly}}</td>
+    <td>{{.Str}}</td>
+    <td>{{.Dex}}</td>
+    <td>{{.Con}}</td>
+    <td>{{.Int}}</td>
+    <td>{{.Wis}}</td>
+    <td>{{.Cha}}</td>
+    <td>{{.Save.Dex}}</td>
+    <td>{{.Save.Con}}</td>
+    <td>{{.Save.Wis}}</td>
+    <td>{{.Save.Str}}</td>
+    <td>{{.Save.Int}}</td>
+    <td>{{.Save.Cha}}</td>
+    <td>{{.Skill.Perception}}</td>
+    <td>{{.Skill.Stealth}}</td>
+    <td>{{.Skill.Acrobatics}}</td>
+    <td>{{.Skill.AnimalHandling}}</td>
+    <td>{{.Skill.Arcana}}</td>
+    <td>{{.Skill.Athletics}}</td>
+    <td>{{.Skill.Deception}}</td>
+    <td>{{.Skill.History}}</td>
+    <td>{{.Skill.Insight}}</td>
+    <td>{{.Skill.Intimidation}}</td>
+    <td>{{.Skill.Investigation}}</td>
+    <td>{{.Skill.Medicine}}</td>
+    <td>{{.Skill.Nature}}</td>
+    <td>{{.Skill.Performance}}</td>
+    <td>{{.Skill.Persuasion}}</td>
+    <td>{{.Skill.SleightOfHand}}</td>
+    <td>{{.Skill.Survival}}</td>
+    <td>{{.Skill.Religion}}</td>
+    <td>{{range .Resist}}{{.}}{{end}}</td>
+    <td>{{range .Immune}}{{.}}{{end}}</td>
+    <td>{{range .Vulnerable}}{{.}}{{end}}</td>
+    <td>{{range .ConditionImmune}}{{.}}{{end}}</td>
+    <td>{{range .Senses}}{{.}}{{end}}</td>
+    <td>{{range .Languages}}{{.}}{{end}}</td>
+    <td>{{.CR}}</td>
+    <td>{{range .Traits}}{{.Name}}{{end}}</td>
+    <td>{{range .Traits}}{{range .Entries}}{{.}}{{end}}{{end}}</td>
+    <td>{{range .Actions}}{{.Name}}{{end}}</td>
+    <td>{{range .Actions}}{{range .Entries}}{{.}}{{end}}{{end}}</td>
 </tr>
 {{ end }}

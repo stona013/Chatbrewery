@@ -1,57 +1,58 @@
 {{ define "contact" }}
 <div class="tile is-parent">
-  <div class="tile is-child card ">
-    <div class="card-content">
-      <div class="media-content">
-        <p class="title is-4">Contact Us</p>
-      </div>
-      <div class="content">
+    <div class="tile is-child card ">
+        <div class="card-content">
+            <div class="media-content">
+                <p class="title is-4">Contact Us</p>
+            </div>
+            <div class="content">
 
-        <div class="contact-info">
-          <h2>Our Contact Information</h2>
-          <p>You can reach us through the following channels:</p>
-          <ul>
-            <li>Email: example@example.com</li>
-            <li>Phone: +123456789</li>
-          </ul>
+                <div class="contact-info">
+                    <h2>Our Contact Information</h2>
+                    <p>You can reach us through the following channels:</p>
+                    <ul>
+                        <li>Email: example@example.com</li>
+                        <li>Phone: +123456789</li>
+                    </ul>
+                </div>
+
+                <div class="contact-form">
+                    <h2>Contact Form</h2>
+                    <form action="/submitContact" method="post">
+                        <div class="field">
+                            <label for="name">Your Name:</label>
+                            <div class="control">
+                                <input type="text" name="name" required placeholder="Your name"
+                                    class="input input-bordered w-full max-w-xs">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="email">Your Email:</label>
+                            <div class="control">
+                                <input type="email" name="email" required placeholder="Your email"
+                                    class="input input-bordered w-full max-w-xs">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="message">Your Message:</label>
+                            <div class="control">
+                                <textarea name="message" required placeholder="Type your message here"
+                                    class="textarea"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <button type="submit" class="button is-primary">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <div class="contact-form">
-          <h2>Contact Form</h2>
-          <form action="/submitContact" method="post">
-            <div class="field">
-              <label for="name">Your Name:</label>
-              <div class="control">
-                <input type="text" name="name" required placeholder="Your name"
-                  class="input input-bordered w-full max-w-xs">
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="email">Your Email:</label>
-              <div class="control">
-                <input type="email" name="email" required placeholder="Your email"
-                  class="input input-bordered w-full max-w-xs">
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="message">Your Message:</label>
-              <div class="control">
-                <textarea name="message" required placeholder="Type your message here" class="textarea"></textarea>
-              </div>
-            </div>
-
-            <div class="field">
-              <div class="control">
-                <button type="submit" class="button is-primary">Send Message</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
     </div>
-  </div>
 </div>
 </div>
 {{ end }}
