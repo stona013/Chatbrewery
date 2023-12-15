@@ -98,12 +98,12 @@ func parseMonster(r *http.Request) model.Monster {
 		Wis: parseInt(r.FormValue("wis")),
 		Cha: parseInt(r.FormValue("cha")),
 		Save: model.Save{
-			Dex: r.FormValue("saveDex"),
-			Con: r.FormValue("saveCon"),
-			Wis: r.FormValue("saveWis"),
-			Str: r.FormValue("saveStr"),
-			Cha: r.FormValue("saveCha"),
-			Int: r.FormValue("saveInt"),
+			Dex: checkCheckbox("savedex", r),
+			Con: checkCheckbox("savecon", r),
+			Wis: checkCheckbox("savewis", r),
+			Str: checkCheckbox("savestr", r),
+			Cha: checkCheckbox("savecha", r),
+			Int: checkCheckbox("saveint", r),
 		},
 		Skill: model.Skill{
 			Perception:     checkCheckbox("perception", r),
