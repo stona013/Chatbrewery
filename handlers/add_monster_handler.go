@@ -2,10 +2,14 @@ package handlers
 
 import (
 	"ddServer/model"
+	"fmt"
 	"log"
 	"net/http"
 	"strconv"
 	"strings"
+
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 // AddMonster is a http.HandlerFunc that adds a new monster to the Monsters slice.
@@ -64,80 +68,6 @@ func parseInt(s string) int {
 
 // parseMonster parses the Monster from monsterForm.html and return it.
 func parseMonster(r *http.Request) model.Monster {
-	var (
-		acrobatics     = ""
-		animalHandling = ""
-		arcana         = ""
-		athletics      = ""
-		deception      = ""
-		history        = ""
-		insight        = ""
-		intimidation   = ""
-		investigation  = ""
-		medicine       = ""
-		nature         = ""
-		performance    = ""
-		perception     = ""
-		persuasion     = ""
-		sleightOfHand  = ""
-		religion       = ""
-		stealth        = ""
-		survival       = ""
-	)
-	if r.FormValue("checkAcrobatics") == "on" {
-		acrobatics = r.FormValue("acrobatics")
-	}
-	if r.FormValue("checkAnimalHandling") == "on" {
-		animalHandling = r.FormValue("animalHandling")
-	}
-	if r.FormValue("checkArcana") == "on" {
-		arcana = r.FormValue("arcana")
-	}
-	if r.FormValue("checkAthletics") == "on" {
-		athletics = r.FormValue("athletics")
-	}
-	if r.FormValue("checkDeception") == "on" {
-		deception = r.FormValue("deception")
-	}
-	if r.FormValue("checkHistory") == "on" {
-		history = r.FormValue("history")
-	}
-	if r.FormValue("checkInsight") == "on" {
-		insight = r.FormValue("insight")
-	}
-	if r.FormValue("checkIntimidation") == "on" {
-		intimidation = r.FormValue("intimidation")
-	}
-	if r.FormValue("checkInvestigation") == "on" {
-		investigation = r.FormValue("investigation")
-	}
-	if r.FormValue("checkMedicine") == "on" {
-		medicine = r.FormValue("medicine")
-	}
-	if r.FormValue("checkNature") == "on" {
-		nature = r.FormValue("nature")
-	}
-	if r.FormValue("checkPerformance") == "on" {
-		performance = r.FormValue("performance")
-	}
-	if r.FormValue("checkPerception") == "on" {
-		perception = r.FormValue("perception")
-	}
-	if r.FormValue("checkPersuasion") == "on" {
-		persuasion = r.FormValue("persuasion")
-	}
-	if r.FormValue("checkSleightOfHand") == "on" {
-		sleightOfHand = r.FormValue("sleightOfHand")
-	}
-	if r.FormValue("checkStealth") == "on" {
-		stealth = r.FormValue("stealth")
-	}
-	if r.FormValue("checkSurvival") == "on" {
-		survival = r.FormValue("survival")
-	}
-	if r.FormValue("checkReligion") == "on" {
-		religion = r.FormValue("religion")
-	}
 	return model.Monster{
 		Name:      r.FormValue("name"),
 		Source:    r.FormValue("source"),
@@ -176,24 +106,24 @@ func parseMonster(r *http.Request) model.Monster {
 			Int: r.FormValue("saveInt"),
 		},
 		Skill: model.Skill{
-			Perception:     perception,
-			Stealth:        stealth,
-			Acrobatics:     acrobatics,
-			AnimalHandling: animalHandling,
-			Arcana:         arcana,
-			Athletics:      athletics,
-			Deception:      deception,
-			History:        history,
-			Insight:        insight,
-			Intimidation:   intimidation,
-			Investigation:  investigation,
-			Medicine:       medicine,
-			Nature:         nature,
-			Performance:    performance,
-			Persuasion:     persuasion,
-			SleightOfHand:  sleightOfHand,
-			Survival:       survival,
-			Religion:       religion,
+			Perception:     checkCheckbox("perception", r),
+			Stealth:        checkCheckbox("stealth", r),
+			Acrobatics:     checkCheckbox("acrobatics", r),
+			AnimalHandling: checkCheckbox("animalhandling", r),
+			Arcana:         checkCheckbox("arcana", r),
+			Athletics:      checkCheckbox("athletics", r),
+			Deception:      checkCheckbox("deception", r),
+			History:        checkCheckbox("history", r),
+			Insight:        checkCheckbox("insight", r),
+			Intimidation:   checkCheckbox("intimidation", r),
+			Investigation:  checkCheckbox("investigation", r),
+			Medicine:       checkCheckbox("medicine", r),
+			Nature:         checkCheckbox("nature", r),
+			Performance:    checkCheckbox("performance", r),
+			Persuasion:     checkCheckbox("persuasion", r),
+			SleightOfHand:  checkCheckbox("sleightofhand", r),
+			Survival:       checkCheckbox("survival", r),
+			Religion:       checkCheckbox("religion", r),
 		},
 		Resist:          []string{r.FormValue("resist")},
 		ConditionImmune: []string{r.FormValue("conditionImmune")},
@@ -215,4 +145,11 @@ func parseMonster(r *http.Request) model.Monster {
 			},
 		},
 	}
+}
+
+func checkCheckbox(field string, r *http.Request) string {
+	if r.FormValue(fmt.Sprintf("check%v", cases.Caser(cases.Title(language.Und)).String(field))) == "on" {
+		return r.FormValue(field)
+	}
+	return ""
 }
