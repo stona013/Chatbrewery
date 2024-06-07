@@ -1,0 +1,73 @@
+{{ define "ai" }}
+<!-- Start of about section -->
+<div class="tile is-parent">
+  <div class="tile is-child card ">
+    <div class="card-content">
+      <div class="media-content">
+        <!-- Title -->
+        <p class="title is-4">AI Generator</p>
+      </div>
+      <div class="content">
+        <!-- Description -->
+        <p>On this tab, you are able to generate monsters using ChatGPT. You can choose to create a fully randomized
+          monster or provide specific details to tailor the monster to your needs.</p>
+      </div>
+
+      <div class="field">
+        <td><label for="APIKEY">APIKEY:</label></td>
+        <div class="control"><input type="text" name="apikey" required placeholder="apikey"
+            class="input input-bordered w-full max-w-xs input is-info">
+        </div>
+
+        <div>
+          <div class="tile is-ancestor">
+            <div class="tile is-parent">
+              <div class="tile is-child field">
+                <label for="name">Monster Name:</label>
+                <div class="control">
+                  <input type="text" name="name" placeholder="The Name of the Monster"
+                    class="input input-bordered w-full max-w-xs input is-info">
+                </div>
+              </div>
+            </div>
+            <div class="tile is-child field">
+              <label for="cr">CR:</label>
+              <div class="control">
+                <input type="text" name="cr" placeholder="The Challenge Rating of the Monster"
+                  class="input input-bordered w-full max-w-xs input is-info">
+              </div>
+
+              <div class="tile is-child field">
+                <label for="type">Type:</label>
+                <div class="control">
+                  <input type="text" name="type" placeholder="The Type of the Monster"
+                    class="input input-bordered w-full max-w-xs input is-info">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tile is-parent">
+            <div class="tile is-child field">
+              <label for="monsterinfo">Monsterinfo:</label>
+              <div class="control">
+                <textarea type="text" name="monsterinfo"
+                  placeholder="Important Infos about the Monster which you want to include"
+                  class="textarea textarea has-fixed-size textarea is-info"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="field is-grouped" style="margin-top: 20px;">
+            <p class="control">
+              <button class="button is-info" id="randomizedButton">Randomized</button>
+            </p>
+            <p class="control">
+              <button class="button is-primary" id="generateButton">Generate</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ end }}
