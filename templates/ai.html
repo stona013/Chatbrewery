@@ -11,15 +11,6 @@
       </div>
 
       <form action="/ai" method="post">
-        <!-- API Key -->
-        <div class="field">
-          <label for="apikey">API Key:</label>
-          <div class="control">
-            <input type="text" name="apikey" required placeholder="Enter your API key"
-              class="input input-bordered w-full max-w-xs input is-info">
-          </div>
-        </div>
-
         <!-- Generation Type -->
         <div class="field">
           <label class="label">Generation Type:</label>
@@ -34,41 +25,66 @@
             </label>
           </div>
         </div>
+        <!-- Break between Generation Type and API Key -->
+        <hr>
+
+        <!-- API Key -->
+        <div class="field">
+          <label for="apikey"><strong>API Key:</strong></label>
+          <div class="control">
+            <input type="text" name="apikey" required placeholder="Enter your API key"
+              class="input input-bordered w-full max-w-xs input is-info">
+          </div>
+        </div>
+        <!-- Break between API Key and Custom Monster Generation -->
+        <hr>
 
         <!-- Additional fields for custom monster generation -->
-        <div class="field" id="customFields" style="display: none;">
-          <div class="tile is-ancestor">
-            <div class="tile is-parent">
-              <div class="tile is-child field">
-                <label for="name">Monster Name:</label>
-                <div class="control">
-                  <input type="text" name="name" placeholder="The Name of the Monster"
-                    class="input input-bordered w-full max-w-xs input is-info">
-                </div>
-              </div>
-            </div>
-            <div class="tile is-child field">
-              <label for="cr">CR:</label>
+        <div class="field is-horizontal" id="customFields">
+          <div class="field-label">
+            <label class="label">Name:</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
               <div class="control">
-                <input type="text" name="cr" placeholder="The Challenge Rating of the Monster"
+                <input type="text" name="name" placeholder="The Name of the Monster"
                   class="input input-bordered w-full max-w-xs input is-info">
               </div>
             </div>
           </div>
-          <div class="tile is-child field">
-            <label for="type">Type:</label>
-            <div class="control">
-              <input type="text" name="type" placeholder="The Type of the Monster"
-                class="input input-bordered w-full max-w-xs input is-info">
+          <div class="field-label">
+            <label class="label">CR:</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input type="text" name="cr" placeholder="The Challenge Rating of the Monster" 
+                  class="input input-bordered w-full max-w-xs input is-info">
+              </div>
             </div>
           </div>
-          <div class="tile is-child field">
-            <label for="monsterinfo">Monsterinfo:</label>
-            <div class="control">
-              <textarea type="text" name="monsterinfo"
-                placeholder="Important Infos about the Monster which you want to include"
-                class="textarea textarea has-fixed-size textarea is-info"></textarea>
+          <div class="field-label">
+            <label class="label">Type:</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input type="text" name="type" placeholder="The Type of the Monster"
+                  class="input input-bordered w-full max-w-xs input is-info">
+              </div>
             </div>
+          </div>
+        </div>
+        <!-- Break between Custom Monster Generation and Monster Info -->
+        <hr>
+        
+        <!-- Monsterinfo -->
+        <div class="tile is-child field">
+          <label for="monsterinfo"><strong>Monsterinfo:</strong></label>
+          <div class="control">
+            <textarea type="text" name="monsterinfo"
+              placeholder="Important Infos about the Monster which you want to include"
+              class="textarea textarea has-fixed-size textarea is-info"></textarea>
           </div>
         </div>
 
