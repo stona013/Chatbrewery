@@ -1,0 +1,58 @@
+### Monster Name: **Glimmerfang Hydra**
+
+#### Statistics
+- **Size/Type:** Large Monstrosity
+- **Alignment:** Chaotic Evil
+- **Armor Class:** 16 (natural armor)
+- **Hit Points:** 172 (15d10 + 90)
+- **Speed:** 30 ft., swim 20 ft.
+
+#### Abilities
+- **STR:** 20 (+5)
+- **DEX:** 12 (+1)
+- **CON:** 22 (+6)
+- **INT:** 7 (-2)
+- **WIS:** 10 (+0)
+- **CHA:** 9 (-1)
+
+#### Saving Throws
+- **Wis +4**
+- **Con +10**
+
+#### Skills
+- **Perception +8**
+
+#### Damage Resistances
+- **Cold; Bludgeoning, Piercing, and Slashing from Nonmagical Attacks**
+
+#### Senses
+- **Darkvision 60 ft., passive Perception 18**
+
+#### Languages
+- **Understands Draconic but can't speak**
+
+#### Challenge Rating
+- **12 (8,400 XP)**
+
+### Special Traits
+- **Multiple Heads:** The hydra has five heads. While it has more than one head, the hydra has advantage on saving throws against being blinded, charmed, deafened, frightened, stunned, and knocked unconscious.
+- **Regeneration:** The hydra regains 10 hit points at the start of its turn. If the hydra takes fire or acid damage, this trait doesn't function at the start of the hydra's next turn. The hydra dies only if it starts its turn with 0 hit points and doesn't regenerate.
+- **Reactive Heads:** For each head the hydra has beyond the first, it gets an extra reaction that can only be used for opportunity attacks.
+- **Wakeful:** While the hydra sleeps, at least one of its heads is awake.
+
+### Actions
+- **Multiattack:** The hydra makes as many bite attacks as it has heads.
+- **Bite:** Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 10 (1d10 + 5) piercing damage.
+- **Glimmerfang Strike (Recharge 5-6):** The hydra can unleash a magical beam of shimmering energy from all its heads in a 60-foot cone. Each creature in that area must make a DC 18 Dexterity saving throw, taking 45 (10d8) radiant damage on a failed save, or half as much damage on a successful one.
+
+### Legendary Actions
+The Glimmerfang Hydra can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The hydra regains spent legendary actions at the start of its turn.
+- **Detect:** The hydra makes a Wisdom (Perception) check.
+- **Head Attack:** The hydra makes one bite attack.
+- **Heal:** The hydra regains 10 hit points.
+
+### Lore
+Glimmerfang Hydras are rare and mystical variants of the more commonly known hydras. They possess shimmering scales that seem to reflect moonlight, even in complete darkness. These creatures are often found in ancient ruins or guarding enchanted forests and lakes believed to be blessed by lunar deities. Their glimmering attacks are said to be infused with the raw essence of starlight, making them particularly feared by those who dare to tread into their territories.
+
+### Tactics
+Glimmerfang Hydras rely heavily on their regenerative capabilities and the powerful radiant burst of their Glimmerfang Strike. In combat, they try to position themselves to use their breath attack effectively against as many foes as possible before engaging with their biting attacks. Wise adventurers will attempt to disable its regenerative abilities

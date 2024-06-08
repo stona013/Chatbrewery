@@ -20,6 +20,13 @@ type OpenAIResponse struct {
 	} `json:"choices"`
 }
 
+// Add a function to handle file download
+func downloadFile(w http.ResponseWriter, r *http.Request, filePath string) {
+	w.Header().Set("Content-Disposition", "attachment; filename="+filePath)
+	w.Header().Set("Content-Type", "text/plain")
+	http.ServeFile(w, r, filePath)
+}
+
 func AIHandler(content embed.FS, monsters *[]model.Monster) http.HandlerFunc {
 	log.Print("AIHandler called")
 
@@ -54,11 +61,11 @@ func AIHandler(content embed.FS, monsters *[]model.Monster) http.HandlerFunc {
 			}
 
 			data := map[string]interface{}{
-				"model": "gpt-3.5-turbo",
+				"model": "gpt-4-turbo",
 				"messages": []map[string]string{
 					{"role": "user", "content": prompt},
 				},
-				"max_tokens":  500,
+				"max_tokens":  800,
 				"temperature": 0.7,
 			}
 
@@ -103,23 +110,18 @@ func AIHandler(content embed.FS, monsters *[]model.Monster) http.HandlerFunc {
 
 			if len(aiResponse.Choices) > 0 {
 				messageContent := aiResponse.Choices[0].Message.Content
-				tmplFiles := []string{"templates/base.html", "templates/header.html", "templates/main.html", "templates/footer.html", "templates/ai.html"}
-				tmpl, err := template.ParseFS(content, tmplFiles...)
+
+				// Save the generated monster to a TXT file
+				filename := "generated_monster.txt"
+				err := ioutil.WriteFile(filename, []byte(messageContent), 0644)
 				if err != nil {
-					log.Printf("Template parsing error: %v\n", err)
-					http.Error(w, err.Error(), http.StatusBadRequest)
+					log.Printf("Error writing to file: %v\n", err)
+					http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 					return
 				}
 
-				data := map[string]interface{}{
-					"Title":   "Dungeons & Dragons Monster Generator",
-					"Message": messageContent,
-				}
-				err = tmpl.ExecuteTemplate(w, "ai", data)
-				if err != nil {
-					log.Printf("Template execution error: %v\n", err)
-					http.Error(w, err.Error(), http.StatusBadRequest)
-				}
+				// Trigger the file download
+				downloadFile(w, r, filename)
 				return
 			}
 		}
