@@ -4,7 +4,6 @@ import (
 	"ddServer/handlers"
 	"ddServer/model"
 	"embed"
-	"encoding/json"
 	"log"
 	"net/http"
 	"sync"
@@ -21,37 +20,6 @@ var (
 	Monsters []model.Monster
 )
 
-func ChatCompletionHandler(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
-		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
-		return
-	}
-
-	// Process the request and generate the completion (this logic needs to be implemented)
-
-	// For demonstration purposes, I'm simulating a completion response
-	completionResponse := map[string]string{
-		"completion": "This is the generated completion text.",
-	}
-
-	// Convert the completion response to JSON
-	jsonResponse, err := json.Marshal(completionResponse)
-	if err != nil {
-		http.Error(w, "Error creating JSON response", http.StatusInternalServerError)
-		return
-	}
-
-	// Set the Content-Type header to application/json
-	w.Header().Set("Content-Type", "application/json")
-
-	// Write the JSON response to the response writer
-	_, err = w.Write(jsonResponse)
-	if err != nil {
-		http.Error(w, "Error writing response", http.StatusInternalServerError)
-		return
-	}
-}
-
 // main is the entry point of the program.
 func main() {
 	filename := ""
@@ -66,8 +34,7 @@ func main() {
 	routes.HandleFunc("/addMonster", handlers.AddMonster(&Monsters))
 	routes.HandleFunc("/main", handlers.MainHandler(content, &Monsters))
 	routes.HandleFunc("/about", handlers.AboutHandler(content))
-	routes.HandleFunc("/ai", handlers.AIHandler(content))
-	routes.HandleFunc("/ai/completions", ChatCompletionHandler)
+	routes.HandleFunc("/ai", handlers.AIHandler(content, &Monsters))
 	routes.HandleFunc("/contact", handlers.ContactHandler(content))
 	routes.HandleFunc("/monsterTable", handlers.MonsterTableHandler(content, &Monsters))
 	routes.HandleFunc("/calculate-skills", handlers.SkillCalculationHandler(content))
