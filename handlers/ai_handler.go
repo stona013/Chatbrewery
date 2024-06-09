@@ -39,13 +39,21 @@ func AIHandler(content embed.FS, monsters *[]model.Monster) http.HandlerFunc {
 
 			var prompt string
 			if generationType == "random" {
-				prompt = "Generate a Random Homebrew Dnd monster. You can choose the CR, the type, and the design. Give me a detailed sheet for the monster."
+				prompt = `"Create a random detailed DnD monster for the plutonium importer tool 5etools for the inport on Foundry Vtt with the following Json structure but input the stats and features from the monster you have builded:" 
+json structure:
+{  "_meta":{"_dateLastModifiedHash":"66658f76","sources":[{"json":"chatbrewery","abbreviation":"MG","version":"unknown","authors":["Krzysztof"],"convertedBy":["Krzysztof"]}],"dateAdded":1717931894,"dateLastModified":1717931894},"monster":[{"save":{"dex":"1","con":"1","wis":"1","cha":"1","str":"1","int":"1"},"skill":{"stealth":"-3","acrobatics":"-3","animalHandling":"-3","arcana":"-3","athletics":"-3","deception":"-3","history":"-3","insight":"-3","intimidation":"-3","investigation":"-3","medicine":"-3","nature":"-3","perception":"-3","performance":"-3","persuasion":"-3","sleightOfHand":"-3","survival":"-3","religion":"-3"},"hp":{"formula":"1","average":1},"source":"1","cr":"1","type":"beast","name":"test","vulnerable":["1"],"conditionImmune":["1"],"resist":["1"],"immune":["1"],"trait":[{"name":"1","entries":["1"]}],"ac":[{"from":["1"],"ac":1}],"senses":["1"],"languages":["1"],"size":["H"],"action":[{"name":"Claw","entries":["{@atk mw} {@hit 7} to hit, reach 5 ft., one target. {@h}17 ({@damage 2d12 + 5}) bludgeoning damage. On a hit, the target must make a DC 16 Strength saving throw or be knocked prone."]}],"speed":{"walk":1,"burrow":1,"climb":1,"fly":1,"swim":1},"str":1,"dex":1,"con":1,"int":1,"wis":1,"cha":1}]}" "
+you can choose the CR the Type and the Name for the Monster and just response with the Json structure and nothing else not even a comand form you and also dont put backtick att the beginning and the end! 
+`
 			} else {
 				name := r.FormValue("name")
 				cr := r.FormValue("cr")
 				monsterType := r.FormValue("type")
 				monsterInfo := r.FormValue("monsterinfo")
-				prompt = "Create a DnD monster with the following details:\n"
+				prompt += `"Create a detailed DnD monster for the plutonium importer tool from 5etools for the inport on Foundry Vtt with the following Json structure just response with the Json structure and nothing else not even a comand form you and also dont put backtick att the beginning and the end!!:
+json structure :
+{  "_meta":{"_dateLastModifiedHash":"66658f76","sources":[{"json":"Malgorgon","abbreviation":"MG","version":"unknown","authors":["Krzysztof"],"convertedBy":["Krzysztof"]}],"dateAdded":1717931894,"dateLastModified":1717931894},"monster":[{"save":{"dex":"1","con":"1","wis":"1","cha":"1","str":"1","int":"1"},"skill":{"stealth":"-3","acrobatics":"-3","animalHandling":"-3","arcana":"-3","athletics":"-3","deception":"-3","history":"-3","insight":"-3","intimidation":"-3","investigation":"-3","medicine":"-3","nature":"-3","perception":"-3","performance":"-3","persuasion":"-3","sleightOfHand":"-3","survival":"-3","religion":"-3"},"hp":{"formula":"1","average":1},"source":"1","cr":"1","type":"beast","name":"test","vulnerable":["1"],"conditionImmune":["1"],"resist":["1"],"immune":["1"],"trait":[{"name":"1","entries":["1"]}],"ac":[{"from":["1"],"ac":1}],"senses":["1"],"languages":["1"],"size":["H"],"action":[{"name":"Claw","entries":["{@atk mw} {@hit 7} to hit, reach 5 ft., one target. {@h}17 ({@damage 2d12 + 5}) bludgeoning damage. On a hit, the target must make a DC 16 Strength saving throw or be knocked prone."]}],"speed":{"walk":1,"burrow":1,"climb":1,"fly":1,"swim":1},"str":1,"dex":1,"con":1,"int":1,"wis":1,"cha":1}]}
+` + "\n"
+
 				if name != "" {
 					prompt += "Name: " + name + "\n"
 				}
@@ -65,8 +73,8 @@ func AIHandler(content embed.FS, monsters *[]model.Monster) http.HandlerFunc {
 				"messages": []map[string]string{
 					{"role": "user", "content": prompt},
 				},
-				"max_tokens":  800,
-				"temperature": 0.7,
+				"max_tokens":  1500,
+				"temperature": 0.5,
 			}
 
 			requestData, err := json.Marshal(data)
@@ -112,7 +120,7 @@ func AIHandler(content embed.FS, monsters *[]model.Monster) http.HandlerFunc {
 				messageContent := aiResponse.Choices[0].Message.Content
 
 				// Save the generated monster to a TXT file
-				filename := "generated_monster.txt"
+				filename := "generated_monster.json"
 				err := ioutil.WriteFile(filename, []byte(messageContent), 0644)
 				if err != nil {
 					log.Printf("Error writing to file: %v\n", err)
