@@ -34,9 +34,11 @@ func main() {
 	routes.HandleFunc("/addMonster", handlers.AddMonster(&Monsters))
 	routes.HandleFunc("/main", handlers.MainHandler(content, &Monsters))
 	routes.HandleFunc("/about", handlers.AboutHandler(content))
+	routes.HandleFunc("/ai", handlers.AIHandler(content, &Monsters))
 	routes.HandleFunc("/contact", handlers.ContactHandler(content))
 	routes.HandleFunc("/monsterTable", handlers.MonsterTableHandler(content, &Monsters))
 	routes.HandleFunc("/calculate-skills", handlers.SkillCalculationHandler(content))
+	routes.HandleFunc("/loadFile", handlers.LoadFileHandler(&Monsters))
 	// Print the message indicating that 'static' has been included.
 	log.Printf("Eingebunden is %v\n", static)
 
@@ -45,6 +47,10 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	// Serve static files
+	fs := http.FileServer(http.Dir("path/to/static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	// Add a route for the CSS file
 	routes.HandleFunc("/static/darkly_bulmawatch.css", func(w http.ResponseWriter, r *http.Request) {

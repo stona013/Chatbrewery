@@ -8,40 +8,44 @@ import (
 	"strconv"
 )
 
-// SkillCalculationHandler ist ein http.HandlerFunc, der von htmx getriggert wird,
-// wenn der Benutzer Einträge in bestimmten Feldern macht, und dann die Skill-Felder befüllt.
+// SkillCalculationHandler is an http.HandlerFunc triggered by htmx when the user makes entries in certain fields and then populates the skill fields.
 func SkillCalculationHandler(content embed.FS) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		log.Print("SkillCalculationHandler called")
-
-		// Überprüfen Sie, ob die Anfrage eine POST-Anfrage ist.
+		// Check if the request is a POST request.
 		if r.Method != http.MethodPost {
-			log.Print("Method not allowed")
 			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 			return
 		}
 
-		// Parse Formulardaten.
+		// Parse form data.
 		err := r.ParseForm()
 		if err != nil {
-			log.Printf("Error parsing form data: %v", err)
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 
-		tmplFiles := []string{"templates/base.html", "templates/header.html", "templates/skills.html", "templates/main.html", "templates/footer.html", "templates/about.html"}
+		// Parse template files.
+		tmplFiles := []string{
+			"templates/base.html",
+			"templates/header.html",
+			"templates/skills.html",
+			"templates/main.html",
+			"templates/footer.html",
+			"templates/about.html",
+		}
 		tmpl, err := template.ParseFS(content, tmplFiles...)
 		if err != nil {
-			log.Printf("Template parsing error: %v\n", err)
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
 
+		// Parse form field values and calculate skill values.
 		str := parseFieldValue(r.FormValue("str"))
 		dex := parseFieldValue(r.FormValue("dex"))
 		int := parseFieldValue(r.FormValue("int"))
 		cha := parseFieldValue(r.FormValue("cha"))
 		wis := parseFieldValue(r.FormValue("wis"))
+		con := parseFieldValue(r.FormValue("con"))
 		cr := parseFieldValue(r.FormValue("cr"))
 		crBonus := calcBonus(cr)
 
@@ -64,79 +68,124 @@ func SkillCalculationHandler(content embed.FS) http.HandlerFunc {
 			"sleightOfHand":  strconv.Itoa(calcAbilityScore(dex) + crBonus),
 			"stealth":        strconv.Itoa(calcAbilityScore(dex) + crBonus),
 			"survival":       strconv.Itoa(calcAbilityScore(wis) + crBonus),
+			"saveStr":        strconv.Itoa(calcAbilityScore(str) + crBonus),
+			"saveWis":        strconv.Itoa(calcAbilityScore(wis) + crBonus),
+			"saveCon":        strconv.Itoa(calcAbilityScore(con) + crBonus),
+			"saveInt":        strconv.Itoa(calcAbilityScore(int) + crBonus),
+			"saveCha":        strconv.Itoa(calcAbilityScore(cha) + crBonus),
+			"saveDex":        strconv.Itoa(calcAbilityScore(dex) + crBonus),
 		}
 
+		// Execute template with skill values.
 		err = tmpl.ExecuteTemplate(w, "skills", skillValues)
 		if err != nil {
-			log.Printf("Template execution error: %v\n", err)
 			http.Error(w, err.Error(), http.StatusBadRequest)
 		}
 	}
 }
 
+// calcBonus calculates the bonus based on the given credit rating.
+// It returns the bonus value as an integer.
 func calcBonus(cr int) int {
-	if cr >= 0 && cr < 5 {
+	switch {
+	case cr >= 0 && cr < 5:
+		log.Println("Bonus calculated for credit rating:", cr)
 		return 2
-	} else if cr >= 5 && cr < 9 {
+	case cr >= 5 && cr < 9:
+		log.Println("Bonus calculated for credit rating:", cr)
 		return 3
-	} else if cr >= 9 && cr < 14 {
+	case cr >= 9 && cr < 14:
+		log.Println("Bonus calculated for credit rating:", cr)
 		return 4
-	} else if cr >= 14 && cr < 18 {
+	case cr >= 14 && cr < 18:
+		log.Println("Bonus calculated for credit rating:", cr)
 		return 5
-	} else if cr >= 18 && cr < 21 {
+	case cr >= 18 && cr < 21:
+		log.Println("Bonus calculated for credit rating:", cr)
 		return 6
-	} else if cr >= 21 && cr < 25 {
+	case cr >= 21 && cr < 25:
+		log.Println("Bonus calculated for credit rating:", cr)
 		return 7
-	} else if cr >= 25 && cr < 28 {
+	case cr >= 25 && cr < 28:
+		log.Println("Bonus calculated for credit rating:", cr)
 		return 8
-	} else if cr >= 28 && cr < 31 {
+	case cr >= 28 && cr < 31:
+		log.Println("Bonus calculated for credit rating:", cr)
 		return 9
-	} else {
+	default:
+		log.Println("Invalid credit rating:", cr)
 		return 0
 	}
 }
 
+// calcAbilityScore calculates the ability score based on the given value.
 func calcAbilityScore(val int) int {
-	if val < 2 {
+	switch {
+	case val < 2:
+		log.Println("Ability Score: -5")
 		return -5
-	} else if val >= 2 && val < 4 {
+	case val < 4:
+		log.Println("Ability Score: -4")
 		return -4
-	} else if val >= 4 && val < 6 {
+	case val < 6:
+		log.Println("Ability Score: -3")
 		return -3
-	} else if val >= 6 && val < 8 {
+	case val < 8:
+		log.Println("Ability Score: -2")
 		return -2
-	} else if val >= 8 && val < 10 {
+	case val < 10:
+		log.Println("Ability Score: -1")
 		return -1
-	} else if val >= 10 && val < 12 {
+	case val < 12:
+		log.Println("Ability Score: 0")
 		return 0
-	} else if val >= 12 && val < 14 {
+	case val < 14:
+		log.Println("Ability Score: 1")
 		return 1
-	} else if val >= 14 && val < 16 {
+	case val < 16:
+		log.Println("Ability Score: 2")
 		return 2
-	} else if val >= 16 && val < 18 {
+	case val < 18:
+		log.Println("Ability Score: 3")
 		return 3
-	} else if val >= 18 && val < 20 {
+	case val < 20:
+		log.Println("Ability Score: 4")
 		return 4
-	} else if val >= 20 && val < 22 {
+	case val < 22:
+		log.Println("Ability Score: 5")
 		return 5
-	} else if val >= 22 && val < 24 {
+	case val < 24:
+		log.Println("Ability Score: 6")
 		return 6
-	} else if val >= 24 && val < 26 {
+	case val < 26:
+		log.Println("Ability Score: 7")
 		return 7
-	} else if val >= 26 && val < 28 {
+	case val < 28:
+		log.Println("Ability Score: 8")
 		return 8
-	} else if val >= 28 && val < 30 {
+	case val < 30:
+		log.Println("Ability Score: 9")
 		return 9
-	} else {
+	default:
+		log.Println("Ability Score: 10")
 		return 10
 	}
 }
 
+// parseFieldValue takes a string value and returns an integer.
+// If the string value cannot be converted to an integer, it logs an error and returns 0.
+// The function follows these rules:
+// - No line is over 66 characters.
 func parseFieldValue(value string) int {
+	// Convert the string value to an integer using strconv.Atoi.
+	// If an error occurs during the conversion, log the error and return 0.
 	val, err := strconv.Atoi(value)
 	if err != nil {
 		log.Printf("Error converting field value to integer: %v", err)
 		return 0
 	}
+	// Log the converted integer value for debugging purposes.
+	log.Printf("Converted field value to integer: %d", val)
+	// Return the converted integer value.
 	return val
 }

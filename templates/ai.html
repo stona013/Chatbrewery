@@ -1,0 +1,111 @@
+{{ define "ai" }}
+<div class="tile is-parent">
+  <div class="tile is-child card">
+    <div class="card-content">
+      <div class="media-content">
+        <p class="title is-4">AI Generator</p>
+      </div>
+      <div class="content">
+        <p>On this tab, you can generate monsters using ChatGPT. Choose to create a fully randomized
+          monster or provide specific details.</p>
+      </div>
+
+      <form action="/ai" method="post">
+        <!-- Generation Type -->
+        <div class="field">
+          <label class="label">Generation Type:</label>
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="generationType" value="random" checked>
+              Randomized
+            </label>
+            <label class="radio">
+              <input type="radio" name="generationType" value="custom">
+              Custom
+            </label>
+          </div>
+        </div>
+        <!-- Break between Generation Type and API Key -->
+        <hr>
+
+        <!-- API Key -->
+        <div class="field">
+          <label for="apikey"><strong>API Key:</strong></label>
+          <div class="control">
+            <input type="text" name="apikey" required placeholder="Enter your API key"
+              class="input input-bordered w-full max-w-xs input is-info">
+          </div>
+        </div>
+        <!-- Break between API Key and Custom Monster Generation -->
+        <hr>
+
+        <!-- Additional fields for custom monster generation -->
+        <div class="field is-horizontal" id="customFields">
+          <div class="field-label">
+            <label class="label">Name:</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input type="text" name="name" placeholder="The Name of the Monster"
+                  class="input input-bordered w-full max-w-xs input is-info">
+              </div>
+            </div>
+          </div>
+          <div class="field-label">
+            <label class="label">CR:</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input type="text" name="cr" placeholder="The Challenge Rating of the Monster" 
+                  class="input input-bordered w-full max-w-xs input is-info">
+              </div>
+            </div>
+          </div>
+          <div class="field-label">
+            <label class="label">Type:</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input type="text" name="type" placeholder="The Type of the Monster"
+                  class="input input-bordered w-full max-w-xs input is-info">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Break between Custom Monster Generation and Monster Info -->
+        <hr>
+        
+        <!-- Monsterinfo -->
+        <div class="tile is-child field">
+          <label for="monsterinfo"><strong>Monsterinfo:</strong></label>
+          <div class="control">
+            <textarea type="text" name="monsterinfo"
+              placeholder="Important Infos about the Monster which you want to include"
+              class="textarea textarea has-fixed-size textarea is-info"></textarea>
+          </div>
+        </div>
+
+        <!-- Generate Button -->
+        <div class="field is-grouped" style="margin-top: 20px;">
+          <div class="control">
+            <button class="button is-primary" type="submit">Generate</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Display the generated message -->
+      {{ if .Message }}
+      <div class="field">
+        <label class="label">Generated Monster:</label>
+        <div class="control">
+          <textarea class="textarea is-info" readonly>{{ .Message }}</textarea>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

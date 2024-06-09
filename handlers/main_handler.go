@@ -16,7 +16,7 @@ func MainHandler(content embed.FS, monsters *[]model.Monster) http.HandlerFunc {
 		log.Print("MainHandler called")
 
 		// Parse the templates from the embedded file system
-		tmpl, err := template.ParseFS(content, "templates/main.html", "templates/monsterForm.html", "templates/monster.html", "templates/monsterTable.html", "templates/base.html")
+		tmpl, err := template.ParseFS(content, "templates/main.html", "templates/monsterForm.html", "templates/monster.html", "templates/monsterTable.html", "templates/base.html", "templates/skills.html")
 		if err != nil {
 			log.Printf("Template parsing error: %v\n", err)
 			http.Error(w, err.Error(), http.StatusInternalServerError)

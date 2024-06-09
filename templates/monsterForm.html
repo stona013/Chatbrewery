@@ -87,61 +87,6 @@
     </div>
   </div>
 </div>
-<div class="card tile is-ancestor is-vertical">
-  <header class="card-header">
-    <p class="card-header-title">
-      Speed
-    </p>
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <div class="tile is-ancestor">
-        <div class="tile is-parent">
-          <div class="tile is-child field">
-            <label for="walk">Walk:</label>
-            <div class="control">
-              <input type="number" name="walk" required class="input input-bordered w-full max-w-xs">
-            </div>
-          </div>
-        </div>
-        <div class="tile is-parent">
-          <div class="tile is-child field">
-            <label for="burrow">Burrow:</label>
-            <div class="control">
-              <input type="number" name="burrow" required class="input input-bordered w-full max-w-xs">
-            </div>
-          </div>
-        </div>
-        <div class="tile is-parent">
-          <div class="tile is-child field">
-            <label for="climb">Climb:</label>
-            <div class="control">
-              <input type="number" name="climb" required class="input input-bordered w-full max-w-xs">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tile is-ancestor">
-        <div class="tile is-parent">
-          <div class="tile is-child field">
-            <label for="fly">Fly:</label>
-            <div class="control">
-              <input type="number" name="fly" required class="input input-bordered w-full max-w-xs">
-            </div>
-          </div>
-        </div>
-        <div class="tile is-parent">
-          <div class="tile is-child field">
-            <label for="swim">Swim:</label>
-            <div class="control">
-              <input type="number" name="swim" required class="input input-bordered w-full max-w-xs">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="tile is-ancestor">
   <div class="tile is-parent">
     <div class="tile is-child field">
@@ -209,20 +154,14 @@
       </div>
     </div>
   </div>
-  <div class="tile is-parent">
-    <div class="tile is-child field">
-      <label for="passive">Passive:</label>
-      <div class="control">
-        <input type="number" name="passive" required class="input input-bordered w-full max-w-xs"
-          hx-post="/calculate-skills" hx-trigger="keyup changed delay:100ms" hx-target="#skills" hx-swap="innerHTML">
-      </div>
-    </div>
-  </div>
+</div>
+<div id="skills" class="tile is-ancestor is-vertical">
+  {{ template "skills" }}
 </div>
 <div class="card tile is-ancestor is-vertical">
   <header class="card-header">
     <p class="card-header-title">
-      Save
+      Speed
     </p>
   </header>
   <div class="card-content">
@@ -230,60 +169,49 @@
       <div class="tile is-ancestor">
         <div class="tile is-parent gap">
           <div class="tile is-child field">
-            <label for="saveDex">Dex:</label>
+            <label for="walk">Walk:</label>
             <div class="control">
-              <input type="text" name="saveDex" required class="input input-bordered w-full max-w-xs">
+              <input type="number" name="walk" required class="input input-bordered w-full max-w-xs">
             </div>
           </div>
         </div>
         <div class="tile is-parent gap">
           <div class="tile is-child field">
-            <label for="saveCon">Con:</label>
+            <label for="burrow">Burrow:</label>
             <div class="control">
-              <input type="text" name="saveCon" required class="input input-bordered w-full max-w-xs">
+              <input type="number" name="burrow" required class="input input-bordered w-full max-w-xs">
             </div>
           </div>
         </div>
         <div class="tile is-parent gap">
           <div class="tile is-child field">
-            <label for="saveWis">Wis:</label>
+            <label for="climb">Climb:</label>
             <div class="control">
-              <input type="text" name="saveWis" required class="input input-bordered w-full max-w-xs">
+              <input type="number" name="climb" required class="input input-bordered w-full max-w-xs">
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="tile is-ancestor">
-      <div class="tile is-parent gap">
-        <div class="tile is-child field">
-          <label for="saveCha">Cha:</label>
-          <div class="control">
-            <input type="text" name="saveCha" required class="input input-bordered w-full max-w-xs">
+      <div class="tile is-ancestor">
+        <div class="tile is-parent gap">
+          <div class="tile is-child field">
+            <label for="fly">Fly:</label>
+            <div class="control">
+              <input type="number" name="fly" required class="input input-bordered w-full max-w-xs">
+            </div>
           </div>
         </div>
-      </div>
-      <div class="tile is-parent gap">
-        <div class="tile is-child field">
-          <label for="saveInt">Int:</label>
-          <div class="control">
-            <input type="text" name="saveInt" required class="input input-bordered w-full max-w-xs">
-          </div>
-        </div>
-      </div>
-      <div class="tile is-parent gap">
-        <div class="tile is-child field">
-          <label for="saveStr">Str:</label>
-          <div class="control">
-            <input type="text" name="saveStr" required class="input input-bordered w-full max-w-xs">
+        <div class="tile is-parent gap">
+          <div class="tile is-child field">
+            <label for="swim">Swim:</label>
+            <div class="control">
+              <input type="number" name="swim" required class="input input-bordered w-full max-w-xs">
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div id="skills" class="card tile is-ancestor is-vertical">
-  {{ template "skills" }}
 </div>
 <div class="tile is-ancestor">
   <div class="tile is-parent">
@@ -339,13 +267,15 @@
     </div>
   </div>
 </div>
+<br>
+<br>
 <div class="tile is-ancestor">
   <div class="tile is-parent">
     <div class="tile is-child field">
       <label for="traitName">Trait Name:</label>
       <div class="control">
         <input type="text" name="traitName" required class="input input-bordered w-full max-w-xs">
-      </div>
+      </div>ser
     </div>
   </div>
   <div class="tile is-parent">
@@ -357,6 +287,8 @@
     </div>
   </div>
 </div>
+<br>
+<br>
 <div class="tile is-ancestor">
   <div class="tile is-parent">
     <div class="tile is-child field">
@@ -375,4 +307,6 @@
     </div>
   </div>
 </div>
+<br>
+<br>
 {{end}}

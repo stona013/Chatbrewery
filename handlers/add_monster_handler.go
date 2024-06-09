@@ -2,10 +2,14 @@ package handlers
 
 import (
 	"ddServer/model"
+	"fmt"
 	"log"
 	"net/http"
 	"strconv"
 	"strings"
+
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 // AddMonster is a http.HandlerFunc that adds a new monster to the Monsters slice.
@@ -94,32 +98,32 @@ func parseMonster(r *http.Request) model.Monster {
 		Wis: parseInt(r.FormValue("wis")),
 		Cha: parseInt(r.FormValue("cha")),
 		Save: model.Save{
-			Dex: r.FormValue("saveDex"),
-			Con: r.FormValue("saveCon"),
-			Wis: r.FormValue("saveWis"),
-			Str: r.FormValue("saveStr"),
-			Cha: r.FormValue("saveCha"),
-			Int: r.FormValue("saveInt"),
+			Dex: checkCheckbox("savedex", r),
+			Con: checkCheckbox("savecon", r),
+			Wis: checkCheckbox("savewis", r),
+			Str: checkCheckbox("savestr", r),
+			Cha: checkCheckbox("savecha", r),
+			Int: checkCheckbox("saveint", r),
 		},
 		Skill: model.Skill{
-			Perception:     r.FormValue("perception"),
-			Stealth:        r.FormValue("stealth"),
-			Acrobatics:     r.FormValue("acrobatics"),
-			AnimalHandling: r.FormValue("animalHandling"),
-			Arcana:         r.FormValue("arcana"),
-			Athletics:      r.FormValue("athletics"),
-			Deception:      r.FormValue("deception"),
-			History:        r.FormValue("history"),
-			Insight:        r.FormValue("insight"),
-			Intimidation:   r.FormValue("intimidation"),
-			Investigation:  r.FormValue("investigation"),
-			Medicine:       r.FormValue("medicine"),
-			Nature:         r.FormValue("nature"),
-			Performance:    r.FormValue("performance"),
-			Persuasion:     r.FormValue("persuasion"),
-			SleightOfHand:  r.FormValue("sleightOfHand"),
-			Survival:       r.FormValue("survival"),
-			Religion:       r.FormValue("religion"),
+			Perception:     checkCheckbox("perception", r),
+			Stealth:        checkCheckbox("stealth", r),
+			Acrobatics:     checkCheckbox("acrobatics", r),
+			AnimalHandling: checkCheckbox("animalhandling", r),
+			Arcana:         checkCheckbox("arcana", r),
+			Athletics:      checkCheckbox("athletics", r),
+			Deception:      checkCheckbox("deception", r),
+			History:        checkCheckbox("history", r),
+			Insight:        checkCheckbox("insight", r),
+			Intimidation:   checkCheckbox("intimidation", r),
+			Investigation:  checkCheckbox("investigation", r),
+			Medicine:       checkCheckbox("medicine", r),
+			Nature:         checkCheckbox("nature", r),
+			Performance:    checkCheckbox("performance", r),
+			Persuasion:     checkCheckbox("persuasion", r),
+			SleightOfHand:  checkCheckbox("sleightofhand", r),
+			Survival:       checkCheckbox("survival", r),
+			Religion:       checkCheckbox("religion", r),
 		},
 		Resist:          []string{r.FormValue("resist")},
 		ConditionImmune: []string{r.FormValue("conditionImmune")},
@@ -141,4 +145,11 @@ func parseMonster(r *http.Request) model.Monster {
 			},
 		},
 	}
+}
+
+func checkCheckbox(field string, r *http.Request) string {
+	if r.FormValue(fmt.Sprintf("check%v", cases.Caser(cases.Title(language.Und)).String(field))) == "on" {
+		return r.FormValue(field)
+	}
+	return ""
 }
