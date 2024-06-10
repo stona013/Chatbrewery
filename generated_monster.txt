@@ -1,0 +1,106 @@
+{
+  "_meta": {
+    "_dateLastModifiedHash": "66658f76",
+    "sources": [
+      {
+        "json": "Malgorgon",
+        "abbreviation": "MG",
+        "version": "unknown",
+        "authors": ["Krzysztof"],
+        "convertedBy": ["Krzysztof"]
+      }
+    ],
+    "dateAdded": 1717931894,
+    "dateLastModified": 1717931894
+  },
+  "monster": [
+    {
+      "save": {
+        "dex": "+6",
+        "con": "+9",
+        "wis": "+4",
+        "cha": "+5",
+        "str": "+8",
+        "int": "+3"
+      },
+      "skill": {
+        "stealth": "+10",
+        "acrobatics": "0",
+        "animalHandling": "0",
+        "arcana": "+3",
+        "athletics": "+14",
+        "deception": "+5",
+        "history": "0",
+        "insight": "+4",
+        "intimidation": "+12",
+        "investigation": "+3",
+        "medicine": "0",
+        "nature": "+3",
+        "perception": "+9",
+        "performance": "0",
+        "persuasion": "0",
+        "sleightOfHand": "0",
+        "survival": "+4",
+        "religion": "0"
+      },
+      "hp": {
+        "formula": "18d12+108",
+        "average": 225
+      },
+      "source": "1",
+      "cr": "18",
+      "type": "monstrosity",
+      "name": "Thornhide Behemoth",
+      "vulnerable": ["fire"],
+      "conditionImmune": ["charmed", "frightened"],
+      "resist": ["piercing", "bludgeoning", "slashing from non-magical weapons"],
+      "immune": ["poison", "disease"],
+      "trait": [
+        {
+          "name": "Regeneration",
+          "entries": ["The Thornhide Behemoth regains 10 hit points at the start of its turn if it has at least 1 hit point."]
+        },
+        {
+          "name": "Magic Resistance",
+          "entries": ["The Thornhide Behemoth has advantage on saving throws against spells and other magical effects."]
+        }
+      ],
+      "ac": [
+        {
+          "from": ["natural armor"],
+          "ac": 19
+        }
+      ],
+      "senses": ["darkvision 120 ft.", "passive Perception 19"],
+      "languages": ["understands Common but can't speak"],
+      "size": "G",
+      "action": [
+        {
+          "name": "Multiattack",
+          "entries": ["The Thornhide Behemoth makes two attacks with its Thorned Limbs and one with its Devastating Roar."]
+        },
+        {
+          "name": "Thorned Limbs",
+          "entries": ["{@atk mw} {@hit 13} to hit, reach 15 ft., one target. {@h}24 ({@damage 3d10 + 8}) slashing damage."]
+        },
+        {
+          "name": "Devastating Roar",
+          "entries": ["The Thornhide Behemoth exhales a destructive roar in a 60-foot cone. Each creature in that area must make a DC 18 Constitution saving throw, taking 55 ({@damage 10d10}) thunder damage on a failed save, or half as much damage on a successful one."]
+        }
+      ],
+      "speed": {
+        "walk": 40,
+        "burrow": 0,
+        "climb": 0,
+        "fly": 0,
+        "swim": 30
+      },
+      "str": 27,
+      "dex": 14,
+      "con": 29,
+      "int": 7,
+      "wis": 19,
+      "cha": 16
+    }
+  ]
+}

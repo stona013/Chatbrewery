@@ -3,7 +3,7 @@
     "_dateLastModifiedHash": "66658f76",
     "sources": [
       {
-        "json": "Malgorgon",
+        "json": "chatbrewery",
         "abbreviation": "MG",
         "version": "unknown",
         "authors": ["Krzysztof"],
@@ -16,91 +16,111 @@
   "monster": [
     {
       "save": {
-        "dex": "12",
-        "con": "10",
-        "wis": "15",
-        "cha": "18",
-        "str": "22",
-        "int": "19"
+        "dex": "3",
+        "con": "5",
+        "wis": "2",
+        "cha": "1",
+        "str": "6",
+        "int": "1"
       },
       "skill": {
-        "stealth": "10",
-        "acrobatics": "5",
-        "animalHandling": "0",
-        "arcana": "12",
-        "athletics": "14",
-        "deception": "18",
-        "history": "12",
-        "insight": "15",
-        "intimidation": "20",
-        "investigation": "19",
-        "medicine": "15",
-        "nature": "12",
-        "perception": "15",
-        "performance": "18",
-        "persuasion": "18",
-        "sleightOfHand": "10",
-        "survival": "15",
-        "religion": "12"
+        "stealth": "5",
+        "acrobatics": "2",
+        "animalHandling": "-1",
+        "arcana": "-1",
+        "athletics": "8",
+        "deception": "0",
+        "history": "-1",
+        "insight": "2",
+        "intimidation": "3",
+        "investigation": "-1",
+        "medicine": "-1",
+        "nature": "-1",
+        "perception": "3",
+        "performance": "-1",
+        "persuasion": "-1",
+        "sleightOfHand": "-1",
+        "survival": "4",
+        "religion": "-1"
       },
       "hp": {
-        "formula": "20d10+200",
-        "average": 300
+        "formula": "8d12+40",
+        "average": 92
       },
-      "source": "MG",
-      "cr": "25",
-      "type": "construct",
-      "name": "Krzysztof Stankiewicz",
-      "vulnerable": ["psychic"],
-      "conditionImmune": ["charmed", "exhaustion", "frightened", "paralyzed", "poisoned"],
-      "resist": ["acid", "fire", "lightning", "thunder", "bludgeoning", "piercing", "slashing"],
-      "immune": ["cold", "necrotic", "poison"],
+      "source": "1",
+      "cr": "15",
+      "type": "elemental",
+      "name": "Stormhide Behemoth",
+      "vulnerable": ["lightning"],
+      "conditionImmune": ["paralyzed", "poisoned"],
+      "resist": ["bludgeoning", "piercing", "slashing from nonmagical attacks"],
+      "immune": ["cold", "poison"],
       "trait": [
         {
-          "name": "Immutable Form",
-          "entries": ["Krzysztof Stankiewicz is immune to any spell or effect that would alter its form."]
+          "name": "Storm Aura",
+          "entries": [
+            "At the start of each of the Stormhide Behemoth's turns, each creature within 10 feet of it takes 5 (1d10) lightning damage, and the Stormhide Behemoth regains 5 (1d10) hit points."
+          ]
         },
         {
-          "name": "Magic Resistance",
-          "entries": ["Krzysztof Stankiewicz has advantage on saving throws against spells and other magical effects."]
+          "name": "Thundering Charge",
+          "entries": [
+            "If the Stormhide Behemoth moves at least 30 feet straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 14 (4d6) thunder damage. If the target is a creature, it must succeed on a DC 18 Strength saving throw or be knocked prone."
+          ]
         }
       ],
       "ac": [
         {
           "from": ["natural armor"],
-          "ac": 19
+          "ac": 17
         }
       ],
-      "senses": ["darkvision 120 ft.", "truesight 60 ft."],
-      "languages": ["Common", "Elvish", "Dwarvish", "Infernal", "Celestial"],
-      "size": "G",
+      "senses": ["darkvision 60 ft.", "passive Perception 13"],
+      "languages": ["Terran"],
+      "size": "H",
       "action": [
         {
-          "name": "Multiattack",
-          "entries": ["Krzysztof Stankiewicz makes two attacks with its Arcane Slam."]
+          "name": "Gore",
+          "entries": [
+            "{@atk mw} {@hit 10} to hit, reach 10 ft., one target. {@h}22 (4d8 + 6) piercing damage."
+          ]
         },
         {
-          "name": "Arcane Slam",
-          "entries": ["{@atk mw} {@hit 14} to hit, reach 10 ft., one target. {@h}35 ({@damage 4d10 + 10}) bludgeoning plus 18 ({@damage 4d8}) force damage."]
-        },
-        {
-          "name": "Spellcasting",
-          "entries": ["Krzysztof Stankiewicz is a 20th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 19, +11 to hit with spell attacks). It has the following wizard spells prepared:\n- Cantrips (at will): mage hand, prestidigitation, ray of frost\n- 1st level (4 slots): detect magic, mage armor, magic missile, shield\n- 2nd level (3 slots): mirror image, misty step, scorching ray\n- 3rd level (3 slots): counterspell, fireball, fly\n- 4th level (3 slots): ice storm, polymorph, wall of fire\n- 5th level (3 slots): cone of cold, hold monster, telekinesis\n- 6th level (2 slots): disintegrate, globe of invulnerability\n- 7th level (2 slots): prismatic spray, teleport\n- 8th level (1 slot): mind blank, power word stun\n- 9th level (1 slot): time stop, true polymorph"]
+          "name": "Stomp",
+          "entries": [
+            "{@atk mw} {@hit 10} to hit, reach 5 ft., one target. {@h}26 (4d10 + 6) bludgeoning damage."
+          ]
         }
       ],
       "speed": {
-        "walk": 30,
+        "walk": 40,
         "burrow": 0,
         "climb": 0,
         "fly": 0,
         "swim": 0
       },
+      "spellcasting": [
+        {
+          "name": "Innate Spellcasting",
+          "headerEntries": [
+            "The Stormhide Behemoth's innate spellcasting ability is Wisdom (spell save DC 14, +6 to hit with spell attacks). It can innately cast the following spells, requiring no material components:"
+          ],
+          "will": ["misty step"],
+          "daily": {
+            "3e": ["lightning bolt", "thunderwave"],
+            "1e": ["call lightning", "sleet storm"]
+          },
+          "ability": "wis",
+          "type": "spellcasting"
+        }
+      ],
+      "spellcastingTags": ["P", "I"],
       "str": 22,
-      "dex": 14,
-      "con": 20,
-      "int": 28,
-      "wis": 20,
-      "cha": 24
+      "dex": 16,
+      "con": 21,
+      "int": 8,
+      "wis": 14,
+      "cha": 12
     }
   ]
 }

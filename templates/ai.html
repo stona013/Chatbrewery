@@ -6,8 +6,9 @@
         <p class="title is-4">AI Generator</p>
       </div>
       <div class="content">
-        <p>On this tab, you can generate monsters using ChatGPT. Choose to create a fully randomized
-          monster or provide specific details.</p>
+        <p>Welcome to the Monster Generator tab! Here, you can create unique Dungeons & Dragons monsters using ChatGPT. Choose between fully randomized monsters or provide specific details to tailor your creation. You can also select the output format, generating either a JSON file or a TXT file containing the monster's data.
+
+          Please note that this is a prototype and may occasionally encounter issues during generation. Currently, it supports generating simple monsters, and the TXT file will display the monster data in JSON format.</p>
       </div>
 
       <form action="/ai" method="post">
@@ -25,6 +26,17 @@
             </label>
           </div>
         </div>
+
+        <!-- Extra option for randomized type -->
+        <div class="field">
+          <div class="control">
+            <label class="checkbox">
+              <input type="checkbox" name="extra" value="innate_SP">
+              Include Innate Spellcasting
+            </label>
+          </div>
+        </div>
+
         <!-- Break between Generation Type and API Key -->
         <hr>
 
@@ -87,6 +99,24 @@
               class="textarea textarea has-fixed-size textarea is-info"></textarea>
           </div>
         </div>
+
+        <hr>
+
+        <div class="field">
+          <label class="label">File Format:</label>
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="fileFormat" value="json" checked>
+              JSON File
+            </label>
+            <label class="radio">
+              <input type="radio" name="fileFormat" value="txt">
+              TXT File
+            </label>
+          </div>
+        </div>
+
+        <hr>
 
         <!-- Generate Button -->
         <div class="field is-grouped" style="margin-top: 20px;">
