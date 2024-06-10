@@ -11,8 +11,9 @@
           Please note that this is a prototype and may occasionally encounter issues during generation. Currently, it supports generating simple monsters.</p>
       </div>
 
-      <form action="/ai" method="post">
+      <form id="aiForm" action="/ai" method="post">
         <!-- Generation Type -->
+        <div class="field">
           <label class="label">Generation Type:</label>
           <div class="control">
             <label class="radio">
@@ -27,7 +28,7 @@
         </div>
 
         <!-- Extra option for randomized type -->
-        <div class="field">
+        <div class="field" id="extraOption" style="display: none;">
           <div class="control">
             <label class="checkbox">
               <input type="checkbox" name="extra" value="innate_SP">
@@ -43,10 +44,11 @@
         <div class="field">
           <label for="apikey"><strong>API Key:</strong></label>
           <div class="control">
-            <input type="text" name="apikey" required placeholder="Enter your API key"
+            <input type="text" id="apikey" name="apikey" required placeholder="Enter your API key"
               class="input input-bordered w-full max-w-xs input is-info">
           </div>
         </div>
+
         <!-- Break between API Key and Custom Monster Generation -->
         <hr>
 
@@ -58,7 +60,7 @@
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <input type="text" name="name" placeholder="The Name of the Monster"
+                <input type="text" name="name" id="name" placeholder="The Name of the Monster"
                   class="input input-bordered w-full max-w-xs input is-info">
               </div>
             </div>
@@ -69,7 +71,7 @@
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <input type="text" name="cr" placeholder="The Challenge Rating of the Monster" 
+                <input type="text" name="cr" id="cr" placeholder="The Challenge Rating of the Monster" 
                   class="input input-bordered w-full max-w-xs input is-info">
               </div>
             </div>
@@ -80,12 +82,13 @@
           <div class="field-body">
             <div class="field">
               <div class="control">
-                <input type="text" name="type" placeholder="The Type of the Monster"
+                <input type="text" name="type" id="type" placeholder="The Type of the Monster"
                   class="input input-bordered w-full max-w-xs input is-info">
               </div>
             </div>
           </div>
         </div>
+
         <!-- Break between Custom Monster Generation and Monster Info -->
         <hr>
         
@@ -93,7 +96,7 @@
         <div class="tile is-child field">
           <label for="monsterinfo"><strong>Monsterinfo:</strong></label>
           <div class="control">
-            <textarea type="text" name="monsterinfo"
+            <textarea type="text" name="monsterinfo" id="monsterinfo"
               placeholder="Important Infos about the Monster which you want to include"
               class="textarea textarea has-fixed-size textarea is-info"></textarea>
           </div>
@@ -120,7 +123,7 @@
         <!-- Generate Button -->
         <div class="field is-grouped" style="margin-top: 20px;">
           <div class="control">
-            <button class="button is-primary" type="submit">Generate</button>
+            <button id="generateButton" class="button is-primary" type="submit">Generate</button>
           </div>
         </div>
       </form>

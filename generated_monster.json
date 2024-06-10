@@ -3,7 +3,7 @@
     "_dateLastModifiedHash": "66658f76",
     "sources": [
       {
-        "json": "chatbrewery",
+        "json": "Malgorgon",
         "abbreviation": "MG",
         "version": "unknown",
         "authors": ["Krzysztof"],
@@ -16,57 +16,53 @@
   "monster": [
     {
       "save": {
-        "dex": "3",
-        "con": "5",
-        "wis": "2",
-        "cha": "1",
-        "str": "6",
-        "int": "1"
+        "dex": "+6",
+        "con": "+9",
+        "wis": "+4",
+        "cha": "+5",
+        "str": "+8",
+        "int": "+3"
       },
       "skill": {
-        "stealth": "5",
-        "acrobatics": "2",
-        "animalHandling": "-1",
-        "arcana": "-1",
-        "athletics": "8",
-        "deception": "0",
-        "history": "-1",
-        "insight": "2",
-        "intimidation": "3",
-        "investigation": "-1",
-        "medicine": "-1",
-        "nature": "-1",
-        "perception": "3",
-        "performance": "-1",
-        "persuasion": "-1",
-        "sleightOfHand": "-1",
-        "survival": "4",
-        "religion": "-1"
+        "stealth": "+10",
+        "acrobatics": "+6",
+        "animalHandling": "+4",
+        "arcana": "+3",
+        "athletics": "+14",
+        "deception": "+5",
+        "history": "+3",
+        "insight": "+4",
+        "intimidation": "+12",
+        "investigation": "+3",
+        "medicine": "+4",
+        "nature": "+3",
+        "perception": "+11",
+        "performance": "+5",
+        "persuasion": "+5",
+        "sleightOfHand": "+6",
+        "survival": "+4",
+        "religion": "+3"
       },
       "hp": {
-        "formula": "8d12+40",
-        "average": 92
+        "formula": "18d12+72",
+        "average": 189
       },
-      "source": "1",
+      "source": "Homebrew",
       "cr": "15",
-      "type": "elemental",
-      "name": "Stormhide Behemoth",
-      "vulnerable": ["lightning"],
-      "conditionImmune": ["paralyzed", "poisoned"],
+      "type": "monstrosity",
+      "name": "Fellwing Terror",
+      "vulnerable": ["cold"],
+      "conditionImmune": ["charmed", "frightened"],
       "resist": ["bludgeoning", "piercing", "slashing from nonmagical attacks"],
-      "immune": ["cold", "poison"],
+      "immune": ["poison", "disease"],
       "trait": [
         {
-          "name": "Storm Aura",
-          "entries": [
-            "At the start of each of the Stormhide Behemoth's turns, each creature within 10 feet of it takes 5 (1d10) lightning damage, and the Stormhide Behemoth regains 5 (1d10) hit points."
-          ]
+          "name": "Night Hunter",
+          "entries": ["The Fellwing Terror has advantage on Wisdom (Perception) checks that rely on sight in darkness."]
         },
         {
-          "name": "Thundering Charge",
-          "entries": [
-            "If the Stormhide Behemoth moves at least 30 feet straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 14 (4d6) thunder damage. If the target is a creature, it must succeed on a DC 18 Strength saving throw or be knocked prone."
-          ]
+          "name": "Terrifying Screech",
+          "entries": ["As an action, the Fellwing Terror can emit a terrifying screech. Each creature within 60 feet that can hear it must succeed on a DC 17 Wisdom saving throw or be frightened for 1 minute. A frightened target can repeat the saving throw at the end of each of its turns, with disadvantage if the Fellwing Terror is within line of sight, ending the effect on itself on a success. Once a creature succeeds on this saving throw, it is immune to the Terrifying Screech of all Fellwing Terrors for the next 24 hours."]
         }
       ],
       "ac": [
@@ -75,52 +71,33 @@
           "ac": 17
         }
       ],
-      "senses": ["darkvision 60 ft.", "passive Perception 13"],
-      "languages": ["Terran"],
-      "size": "H",
+      "senses": ["darkvision 120 ft.", "passive Perception 21"],
+      "languages": ["Common", "Abyssal"],
+      "size": "L",
       "action": [
         {
-          "name": "Gore",
-          "entries": [
-            "{@atk mw} {@hit 10} to hit, reach 10 ft., one target. {@h}22 (4d8 + 6) piercing damage."
-          ]
+          "name": "Multiattack",
+          "entries": ["The Fellwing Terror makes three attacks: one with its bite and two with its claws."]
         },
         {
-          "name": "Stomp",
-          "entries": [
-            "{@atk mw} {@hit 10} to hit, reach 5 ft., one target. {@h}26 (4d10 + 6) bludgeoning damage."
-          ]
+          "name": "Bite",
+          "entries": ["{@atk mw} {@hit 10} to hit, reach 10 ft., one target. {@h}22 ({@damage 3d10 + 6}) piercing damage."]
+        },
+        {
+          "name": "Claw",
+          "entries": ["{@atk mw} {@hit 10} to hit, reach 5 ft., one target. {@h}17 ({@damage 2d12 + 5}) slashing damage."]
         }
       ],
       "speed": {
-        "walk": 40,
-        "burrow": 0,
-        "climb": 0,
-        "fly": 0,
-        "swim": 0
+        "walk": 30,
+        "fly": 80
       },
-      "spellcasting": [
-        {
-          "name": "Innate Spellcasting",
-          "headerEntries": [
-            "The Stormhide Behemoth's innate spellcasting ability is Wisdom (spell save DC 14, +6 to hit with spell attacks). It can innately cast the following spells, requiring no material components:"
-          ],
-          "will": ["misty step"],
-          "daily": {
-            "3e": ["lightning bolt", "thunderwave"],
-            "1e": ["call lightning", "sleet storm"]
-          },
-          "ability": "wis",
-          "type": "spellcasting"
-        }
-      ],
-      "spellcastingTags": ["P", "I"],
-      "str": 22,
-      "dex": 16,
-      "con": 21,
-      "int": 8,
-      "wis": 14,
-      "cha": 12
+      "str": 23,
+      "dex": 22,
+      "con": 26,
+      "int": 16,
+      "wis": 19,
+      "cha": 20
     }
   ]
 }

@@ -1,82 +1,95 @@
-### Monster Name: Starweaver Drake
+### Monster Name: Whisperwind Wraith
 
-#### Type: Dragon
+#### Type: Undead
 
-#### Challenge Rating (CR): 18
+#### Challenge Rating (CR): 12
 
 ---
 
 ### Description:
-The Starweaver Drake is a celestial dragon that glimmers with a coat resembling a starlit night sky. Its scales shimmer in hues of deep blue and purple, with speckles of white that twinkle like distant stars. This majestic creature has vast, translucent wings that flow with an aurora-like effect. Starweaver Drakes are known to dwell in the highest mountain peaks, close to the heavens, and are revered as guardians of the celestial balance.
+The Whisperwind Wraith is a ghostly apparition that roams ancient, forgotten forests and the ruins of long-lost civilizations. It appears as a swirling mass of mist and shadow with faint, glowing eyes that flicker like dying stars. Its form is often accompanied by the sound of soft, haunting whispers that carry secrets of the past and omens of the future.
+
+---
 
 ### Stats:
-**Armor Class:** 19 (Natural Armor)  
-**Hit Points:** 325 (25d12 + 150)  
-**Speed:** 40 ft., fly 80 ft.
-
-**STR:** 25 (+7)  
-**DEX:** 14 (+2)  
-**CON:** 23 (+6)  
-**INT:** 18 (+4)  
-**WIS:** 20 (+5)  
-**CHA:** 21 (+5)
-
-### Saving Throws:
-Dex +8, Con +12, Wis +11, Cha +11
-
-### Skills:
-Perception +11, Stealth +8, Arcana +10
-
-### Damage Resistances:
-Radiant; Bludgeoning, Piercing, and Slashing from Nonmagical Attacks
-
-### Damage Immunities:
-Cold
-
-### Condition Immunities:
-Charmed, Frightened, Paralyzed
-
-### Senses:
-Darkvision 120 ft., Passive Perception 21
-
-### Languages:
-Common, Draconic, Celestial
-
-### Challenge:
-18 (20,000 XP)
+**Armor Class:** 17 (natural armor)  
+**Hit Points:** 152 (16d8 + 80)  
+**Speed:** 0 ft., fly 50 ft. (hover)
 
 ---
 
 ### Abilities:
+**STR:** 6 (-2)  
+**DEX:** 18 (+4)  
+**CON:** 20 (+5)  
+**INT:** 17 (+3)  
+**WIS:** 14 (+2)  
+**CHA:** 23 (+6)
 
-**Celestial Camouflage:** While in dim light or darkness, the Starweaver Drake can take the Hide action as a bonus action.
+---
 
-**Innate Spellcasting:** The Starweaver Drake's innate spellcasting ability is Charisma (spell save DC 19). It can innately cast the following spells, requiring no material components:
-- At will: *light, dancing lights, minor illusion*
-- 3/day each: *misty step, scrying*
-- 1/day: *teleport, reverse gravity*
+### Skills:
+**Arcana:** +8  
+**Perception:** +7  
+**Stealth:** +9
 
-**Starfire Breath (Recharge 5–6):** The Starweaver Drake exhales radiant fire in a 60-foot cone. Each creature in that area must make a DC 20 Dexterity saving throw, taking 56 (16d6) radiant damage on a failed save, or half as much damage on a successful one.
+---
 
-**Twilight Shroud:** As a bonus action, the Starweaver Drake can create a shroud of twinkling starlight in a 30-foot radius around itself. The area is lightly obscured, and each hostile creature that starts its turn in the shroud must succeed on a DC 19 Wisdom saving throw or be blinded until the shroud ends. The shroud lasts for 1 minute or until dispelled. Once used, this ability can't be used again until the next dawn.
+### Damage Resistances:
+Cold, Necrotic; Bludgeoning, Piercing, and Slashing from Nonmagical Attacks
+
+---
+
+### Damage Immunities:
+Poison
+
+---
+
+### Condition Immunities:
+Charmed, Exhaustion, Grappled, Paralyzed, Petrified, Poisoned, Prone
+
+---
+
+### Senses:
+Darkvision 120 ft., passive Perception 17
+
+---
+
+### Languages:
+Common, Elvish, Sylvan
+
+---
+
+### Challenge:
+12 (8,400 XP)
+
+---
+
+### Special Traits:
+**Ethereal Sight:** The Whisperwind Wraith can see 60 ft. into the Ethereal Plane when it is on the Material Plane, and vice versa.
+
+**Incorporeal Movement:** The Whisperwind Wraith can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object.
+
+**Voice of the Ages:** Once per day, the Whisperwind Wraith can use its action to unleash spectral voices that force each creature of its choice within 30 feet to make a DC 18 Wisdom saving throw or be frightened for 1 minute. A frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+
+---
 
 ### Actions:
+**Multiattack:** The Whisperwind Wraith makes three attacks with its chilling touch.
 
-**Multiattack:** The Starweaver Drake makes three attacks: one with its bite and two with its claws.
+**Chilling Touch:** *Melee Weapon Attack:* +9 to hit, reach 10 ft., one target. *Hit:* 12 (3d6 + 2) cold damage, and the target's speed is reduced by 10 feet until the start of the Wraith's next turn.
 
-**Bite:** Melee Weapon Attack: +13 to hit, reach 10 ft., one target. Hit: 18 (2d10 + 7) piercing damage plus 9 (2d8) radiant damage.
+**Wail of the Forgotten (Recharge 5-6):** The Whisperwind Wraith releases a mournful wail that can be heard up to 300 feet away. All creatures within 60 feet that can hear the wail must succeed on a DC 18 Constitution saving throw or take 22 (4d10) psychic damage and be stunned until the end of the Wraith's next turn. On a successful save, the creature takes half as much damage and isn't stunned.
 
-**Claw:** Melee Weapon Attack: +13 to hit, reach 5 ft., one target. Hit: 15 (2d8 + 7) slashing damage.
+---
 
 ### Legendary Actions:
-The Starweaver Drake can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The Starweaver Drake regains spent legendary actions at the start of its turn.
+The Whisperwind Wraith can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The Whisperwind Wraith regains spent legendary actions at the start of its turn.
 
-- **Detect:** The Starweaver Drake makes a Wisdom (Perception) check.
-- **Wing Attack (Costs 2 Actions):** The Starweaver Drake beats its wings. Each creature within 10 feet of the Drake must succeed on a DC 21 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The drake can then fly up to half its flying speed.
-- **Healing Starlight (Costs 3 Actions):** The Starweaver Drake harnesses the celestial energy around it to heal itself for 50 hit points.
+- **Move:** The Whisperwind Wraith moves up to its speed without provoking opportunity attacks.
+- **Chilling Touch (Costs 2 Actions):** The Whisperwind Wraith makes one chilling touch attack.
+- **Silence the Brave (Costs 3 Actions):** The Whisperwind Wraith targets one creature it can see within 30 feet of it. The target must succeed on a DC 18 Charisma saving throw or be unable to speak and cast spells with verbal components for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on a success.
 
-### Environment:
-High mountain peaks, celestial realms
+---
 
-### Lore:
-Starweaver Drakes are often seen as omens of significant cosmic events. Legend has it that their appearance heralds times of great change or challenge. They are wise and reclusive, typically avoiding conflict unless provoked or unless the balance of the celestial forces is at risk. Their understanding of the cosmos is unmatched, often sought after by sages and astrologers who wish to learn the secrets of the stars.
+The Whisperwind Wraith is a formidable foe for adventurers who dare to explore its haunting haunts. Its ability to manipulate the environment and wield ancient spectral powers makes it a mysterious and terrifying presence in any campaign.
