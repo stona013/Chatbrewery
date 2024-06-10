@@ -1,106 +1,82 @@
-{
-  "_meta": {
-    "_dateLastModifiedHash": "66658f76",
-    "sources": [
-      {
-        "json": "Malgorgon",
-        "abbreviation": "MG",
-        "version": "unknown",
-        "authors": ["Krzysztof"],
-        "convertedBy": ["Krzysztof"]
-      }
-    ],
-    "dateAdded": 1717931894,
-    "dateLastModified": 1717931894
-  },
-  "monster": [
-    {
-      "save": {
-        "dex": "+6",
-        "con": "+9",
-        "wis": "+4",
-        "cha": "+5",
-        "str": "+8",
-        "int": "+3"
-      },
-      "skill": {
-        "stealth": "+10",
-        "acrobatics": "0",
-        "animalHandling": "0",
-        "arcana": "+3",
-        "athletics": "+14",
-        "deception": "+5",
-        "history": "0",
-        "insight": "+4",
-        "intimidation": "+12",
-        "investigation": "+3",
-        "medicine": "0",
-        "nature": "+3",
-        "perception": "+9",
-        "performance": "0",
-        "persuasion": "0",
-        "sleightOfHand": "0",
-        "survival": "+4",
-        "religion": "0"
-      },
-      "hp": {
-        "formula": "18d12+108",
-        "average": 225
-      },
-      "source": "1",
-      "cr": "18",
-      "type": "monstrosity",
-      "name": "Thornhide Behemoth",
-      "vulnerable": ["fire"],
-      "conditionImmune": ["charmed", "frightened"],
-      "resist": ["piercing", "bludgeoning", "slashing from non-magical weapons"],
-      "immune": ["poison", "disease"],
-      "trait": [
-        {
-          "name": "Regeneration",
-          "entries": ["The Thornhide Behemoth regains 10 hit points at the start of its turn if it has at least 1 hit point."]
-        },
-        {
-          "name": "Magic Resistance",
-          "entries": ["The Thornhide Behemoth has advantage on saving throws against spells and other magical effects."]
-        }
-      ],
-      "ac": [
-        {
-          "from": ["natural armor"],
-          "ac": 19
-        }
-      ],
-      "senses": ["darkvision 120 ft.", "passive Perception 19"],
-      "languages": ["understands Common but can't speak"],
-      "size": "G",
-      "action": [
-        {
-          "name": "Multiattack",
-          "entries": ["The Thornhide Behemoth makes two attacks with its Thorned Limbs and one with its Devastating Roar."]
-        },
-        {
-          "name": "Thorned Limbs",
-          "entries": ["{@atk mw} {@hit 13} to hit, reach 15 ft., one target. {@h}24 ({@damage 3d10 + 8}) slashing damage."]
-        },
-        {
-          "name": "Devastating Roar",
-          "entries": ["The Thornhide Behemoth exhales a destructive roar in a 60-foot cone. Each creature in that area must make a DC 18 Constitution saving throw, taking 55 ({@damage 10d10}) thunder damage on a failed save, or half as much damage on a successful one."]
-        }
-      ],
-      "speed": {
-        "walk": 40,
-        "burrow": 0,
-        "climb": 0,
-        "fly": 0,
-        "swim": 30
-      },
-      "str": 27,
-      "dex": 14,
-      "con": 29,
-      "int": 7,
-      "wis": 19,
-      "cha": 16
-    }
-  ]
-}
+### Monster Name: Starweaver Drake
+
+#### Type: Dragon
+
+#### Challenge Rating (CR): 18
+
+---
+
+### Description:
+The Starweaver Drake is a celestial dragon that glimmers with a coat resembling a starlit night sky. Its scales shimmer in hues of deep blue and purple, with speckles of white that twinkle like distant stars. This majestic creature has vast, translucent wings that flow with an aurora-like effect. Starweaver Drakes are known to dwell in the highest mountain peaks, close to the heavens, and are revered as guardians of the celestial balance.
+
+### Stats:
+**Armor Class:** 19 (Natural Armor)  
+**Hit Points:** 325 (25d12 + 150)  
+**Speed:** 40 ft., fly 80 ft.
+
+**STR:** 25 (+7)  
+**DEX:** 14 (+2)  
+**CON:** 23 (+6)  
+**INT:** 18 (+4)  
+**WIS:** 20 (+5)  
+**CHA:** 21 (+5)
+
+### Saving Throws:
+Dex +8, Con +12, Wis +11, Cha +11
+
+### Skills:
+Perception +11, Stealth +8, Arcana +10
+
+### Damage Resistances:
+Radiant; Bludgeoning, Piercing, and Slashing from Nonmagical Attacks
+
+### Damage Immunities:
+Cold
+
+### Condition Immunities:
+Charmed, Frightened, Paralyzed
+
+### Senses:
+Darkvision 120 ft., Passive Perception 21
+
+### Languages:
+Common, Draconic, Celestial
+
+### Challenge:
+18 (20,000 XP)
+
+---
+
+### Abilities:
+
+**Celestial Camouflage:** While in dim light or darkness, the Starweaver Drake can take the Hide action as a bonus action.
+
+**Innate Spellcasting:** The Starweaver Drake's innate spellcasting ability is Charisma (spell save DC 19). It can innately cast the following spells, requiring no material components:
+- At will: *light, dancing lights, minor illusion*
+- 3/day each: *misty step, scrying*
+- 1/day: *teleport, reverse gravity*
+
+**Starfire Breath (Recharge 5–6):** The Starweaver Drake exhales radiant fire in a 60-foot cone. Each creature in that area must make a DC 20 Dexterity saving throw, taking 56 (16d6) radiant damage on a failed save, or half as much damage on a successful one.
+
+**Twilight Shroud:** As a bonus action, the Starweaver Drake can create a shroud of twinkling starlight in a 30-foot radius around itself. The area is lightly obscured, and each hostile creature that starts its turn in the shroud must succeed on a DC 19 Wisdom saving throw or be blinded until the shroud ends. The shroud lasts for 1 minute or until dispelled. Once used, this ability can't be used again until the next dawn.
+
+### Actions:
+
+**Multiattack:** The Starweaver Drake makes three attacks: one with its bite and two with its claws.
+
+**Bite:** Melee Weapon Attack: +13 to hit, reach 10 ft., one target. Hit: 18 (2d10 + 7) piercing damage plus 9 (2d8) radiant damage.
+
+**Claw:** Melee Weapon Attack: +13 to hit, reach 5 ft., one target. Hit: 15 (2d8 + 7) slashing damage.
+
+### Legendary Actions:
+The Starweaver Drake can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The Starweaver Drake regains spent legendary actions at the start of its turn.
+
+- **Detect:** The Starweaver Drake makes a Wisdom (Perception) check.
+- **Wing Attack (Costs 2 Actions):** The Starweaver Drake beats its wings. Each creature within 10 feet of the Drake must succeed on a DC 21 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The drake can then fly up to half its flying speed.
+- **Healing Starlight (Costs 3 Actions):** The Starweaver Drake harnesses the celestial energy around it to heal itself for 50 hit points.
+
+### Environment:
+High mountain peaks, celestial realms
+
+### Lore:
+Starweaver Drakes are often seen as omens of significant cosmic events. Legend has it that their appearance heralds times of great change or challenge. They are wise and reclusive, typically avoiding conflict unless provoked or unless the balance of the celestial forces is at risk. Their understanding of the cosmos is unmatched, often sought after by sages and astrologers who wish to learn the secrets of the stars.
