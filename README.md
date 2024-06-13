@@ -1,7 +1,7 @@
 # Dungeons & Dragons Monster Generator
 
 ## Overview
-The Dungeons & Dragons Monster Generator is a prototype project developed as part of Design Thinking Seminar. It aims to assist Dungeon Masters (DMs) and players in creating unique monsters for their D&D campaigns using OpenAI's ChatGPT.
+The Dungeons & Dragons Monster Generator is a prototype project developed as part of the Design Thinking Seminar. It aims to assist Dungeon Masters (DMs) and players in creating unique monsters for their D&D campaigns using OpenAI's ChatGPT.
 
 ## Features
 - **AI-Generated Monsters:** Utilize the power of AI to create custom D&D monsters.
@@ -14,14 +14,14 @@ The Dungeons & Dragons Monster Generator is a prototype project developed as par
 2. Run the executable file on your local machine. This will start a local server on port 8080.
 3. Open your web browser and navigate to [http://localhost:8080](http://localhost:8080).
 4. You will be directed to the AI Generator tab of the Dungeons & Dragons Monster Generator.
-5. Obtain an API key for the ChatGPT API from [here](https://chat.openai.com/signup/).
+5. Obtain an API key for the ChatGPT API from [here]([https://chat.openai.com/signup/](https://platform.openai.com/docs/overview)).
 6. Enter your API key in the provided field on the AI Generator tab.
 7. Start generating D&D monsters by either fully randomizing generation or providing specific details.
 8. Choose the desired output format (JSON or TXT) and click the "Generate" button.
 9. Download the generated monster file.
 
 ## Requirements
-- [OpenAI ChatGPT API Key](https://chat.openai.com/signup/)
+- [OpenAI ChatGPT API Key]([https://chat.openai.com/signup/](https://platform.openai.com/docs/overview))
 - Compatible with all modern web browsers.
 
 ## Contributing
