@@ -1,95 +1,55 @@
-### Monster Name: Whisperwind Wraith
+**Name:** Skyrift Behemoth
 
-#### Type: Undead
+**Type:** Giant
 
-#### Challenge Rating (CR): 12
+**Size:** Gargantuan
 
----
+**Alignment:** Chaotic Neutral
 
-### Description:
-The Whisperwind Wraith is a ghostly apparition that roams ancient, forgotten forests and the ruins of long-lost civilizations. It appears as a swirling mass of mist and shadow with faint, glowing eyes that flicker like dying stars. Its form is often accompanied by the sound of soft, haunting whispers that carry secrets of the past and omens of the future.
+**Armor Class:** 18 (Natural Armor)
 
----
+**Hit Points:** 350 (20d20 + 140)
 
-### Stats:
-**Armor Class:** 17 (natural armor)  
-**Hit Points:** 152 (16d8 + 80)  
-**Speed:** 0 ft., fly 50 ft. (hover)
+**Speed:** 40 ft., climb 30 ft.
 
----
+**CR:** 20
 
-### Abilities:
-**STR:** 6 (-2)  
-**DEX:** 18 (+4)  
-**CON:** 20 (+5)  
-**INT:** 17 (+3)  
-**WIS:** 14 (+2)  
-**CHA:** 23 (+6)
+**Abilities:**
+STR | DEX | CON | INT | WIS | CHA
+--- | --- | --- | --- | --- | ---
+30 (+10) | 14 (+2) | 25 (+7) | 16 (+3) | 18 (+4) | 15 (+2)
 
----
+**Saving Throws:** Dex +8, Con +13, Wis +10, Cha +8
 
-### Skills:
-**Arcana:** +8  
-**Perception:** +7  
-**Stealth:** +9
+**Skills:** Athletics +16, Perception +10, Intimidation +8
 
----
+**Damage Resistances:** Bludgeoning, Piercing, and Slashing from nonmagical attacks
 
-### Damage Resistances:
-Cold, Necrotic; Bludgeoning, Piercing, and Slashing from Nonmagical Attacks
+**Damage Immunities:** Cold, Lightning
 
----
+**Condition Immunities:** Charmed, Frightened, Paralyzed
 
-### Damage Immunities:
-Poison
+**Senses:** Darkvision 120 ft., passive Perception 20
 
----
+**Languages:** Giant, Common
 
-### Condition Immunities:
-Charmed, Exhaustion, Grappled, Paralyzed, Petrified, Poisoned, Prone
+**Challenge:** 20 (25,000 XP)
 
----
+**Special Traits:**
+- **Skywalker:** The Skyrift Behemoth can move across any surface as if under the effect of the *spider climb* spell.
+- **Elemental Ancestry:** Due to its heritage, it can cast *lightning bolt* (DC 18, 8d6 lightning damage) and *cone of cold* (DC 18, 8d8 cold damage) each three times per day.
+- **Thunderous Stomp:** When the Skyrift Behemoth moves at least 30 feet straight toward a target and then hits it with a melee attack on the same turn, the target takes an extra 3d12 thunder damage. If the target is a creature, it must succeed on a DC 21 Strength saving throw or be knocked prone.
 
-### Senses:
-Darkvision 120 ft., passive Perception 17
+**Actions:**
+- **Multiattack:** The Skyrift Behemoth makes two slam attacks.
+- **Slam:** Melee Weapon Attack: +16 to hit, reach 15 ft., one target. Hit: 3d10 + 10 bludgeoning damage.
+- **Rock Throw:** Ranged Weapon Attack: +16 to hit, range 60/240 ft., one target. Hit: 4d10 + 10 bludgeoning damage.
+- **Roar of the Rift (Recharge 5-6):** The Skyrift Behemoth unleashes a devastating roar in a 60-foot cone. Each creature in that area must make a DC 18 Constitution saving throw, taking 6d10 thunder damage and becoming deafened for 1 minute on a failed save, or half as much damage on a successful one.
 
----
+**Legendary Actions:** The Skyrift Behemoth can take 3 legendary actions, choosing from the options below. It can take only one legendary action at a time and only at the end of another creature's turn.
+- **Detect:** The Skyrift Behemoth makes a Wisdom (Perception) check.
+- **Move:** The Skyrift Behemoth moves up to half its speed.
+- **Slam (Costs 2 Actions):** The Skyrift Behemoth makes one slam attack.
 
-### Languages:
-Common, Elvish, Sylvan
-
----
-
-### Challenge:
-12 (8,400 XP)
-
----
-
-### Special Traits:
-**Ethereal Sight:** The Whisperwind Wraith can see 60 ft. into the Ethereal Plane when it is on the Material Plane, and vice versa.
-
-**Incorporeal Movement:** The Whisperwind Wraith can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object.
-
-**Voice of the Ages:** Once per day, the Whisperwind Wraith can use its action to unleash spectral voices that force each creature of its choice within 30 feet to make a DC 18 Wisdom saving throw or be frightened for 1 minute. A frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
-
----
-
-### Actions:
-**Multiattack:** The Whisperwind Wraith makes three attacks with its chilling touch.
-
-**Chilling Touch:** *Melee Weapon Attack:* +9 to hit, reach 10 ft., one target. *Hit:* 12 (3d6 + 2) cold damage, and the target's speed is reduced by 10 feet until the start of the Wraith's next turn.
-
-**Wail of the Forgotten (Recharge 5-6):** The Whisperwind Wraith releases a mournful wail that can be heard up to 300 feet away. All creatures within 60 feet that can hear the wail must succeed on a DC 18 Constitution saving throw or take 22 (4d10) psychic damage and be stunned until the end of the Wraith's next turn. On a successful save, the creature takes half as much damage and isn't stunned.
-
----
-
-### Legendary Actions:
-The Whisperwind Wraith can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The Whisperwind Wraith regains spent legendary actions at the start of its turn.
-
-- **Move:** The Whisperwind Wraith moves up to its speed without provoking opportunity attacks.
-- **Chilling Touch (Costs 2 Actions):** The Whisperwind Wraith makes one chilling touch attack.
-- **Silence the Brave (Costs 3 Actions):** The Whisperwind Wraith targets one creature it can see within 30 feet of it. The target must succeed on a DC 18 Charisma saving throw or be unable to speak and cast spells with verbal components for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on a success.
-
----
-
-The Whisperwind Wraith is a formidable foe for adventurers who dare to explore its haunting haunts. Its ability to manipulate the environment and wield ancient spectral powers makes it a mysterious and terrifying presence in any campaign.
+**Lore:**
+Born from the union of a cloud giant and a storm elemental, the Skyrift Behemoth roams the highest peaks and the deepest valleys of the world. Its massive form is often cloaked in storm clouds, and it is said that thunderstorms follow wherever it treads. The Skyrift Behemoth is a solitary creature, preferring the isolation of high altitudes and rarely descending to lower lands unless provoked or during its rare mating seasons. Its elemental nature grants it control over thunder and cold, making it a formidable opponent in combat. Despite its fearsome appearance and abilities, the Skyrift Behemoth possesses a complex intelligence and occasionally communicates with those brave enough to approach it peacefully.

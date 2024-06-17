@@ -6,39 +6,30 @@
         <p class="title is-4">AI Generator</p>
       </div>
       <div class="content">
-        <p>Welcome to the Monster Generator tab! Here, you can create unique Dungeons & Dragons monsters using ChatGPT. Choose between fully randomized monsters or provide specific details to tailor your creation. You can also select the output format, generating either a JSON file or a TXT file containing the monster's data.
+        <p>Welcome to the Monster Generator tab! Here, you can create unique Dungeons & Dragons monsters using ChatGPT.
+          Choose between fully randomized monsters or provide specific details to tailor your creation. You can also
+          select the output format, generating either a JSON file or a TXT file containing the monster's data.
 
-          Please note that this is a prototype and may occasionally encounter issues during generation. Currently, it supports generating simple monsters.</p>
+          Please note that this is a prototype and may occasionally encounter issues during generation. Currently, it
+          supports generating simple monsters.</p>
       </div>
 
       <form id="aiForm" action="/ai" method="post">
+
         <!-- Generation Type -->
         <div class="field">
           <label class="label">Generation Type:</label>
           <div class="control">
             <label class="radio">
-              <input type="radio" name="generationType" value="random" checked>
+              <input type="radio" name="generationType" value="random" checked onclick="toggleCustomFields()">
               Randomized
             </label>
             <label class="radio">
-              <input type="radio" name="generationType" value="custom">
+              <input type="radio" name="generationType" value="custom" onclick="toggleCustomFields()">
               Custom
             </label>
           </div>
         </div>
-
-        <!-- Extra option for randomized type -->
-        <div class="field" id="extraOption" style="display: none;">
-          <div class="control">
-            <label class="checkbox">
-              <input type="checkbox" name="extra" value="innate_SP">
-              Include Innate Spellcasting
-            </label>
-          </div>
-        </div>
-
-        <!-- Break between Generation Type and API Key -->
-        <hr>
 
         <!-- API Key -->
         <div class="field">
@@ -49,51 +40,55 @@
           </div>
         </div>
 
-        <!-- Break between API Key and Custom Monster Generation -->
-        <hr>
+        <!-- Horizontal Rule for separation -->
+        <hr id="customFieldsSeparator" style="display: none;">
 
         <!-- Additional fields for custom monster generation -->
-        <div class="field is-horizontal" id="customFields">
-          <div class="field-label">
-            <label class="label">Name:</label>
-          </div>
-          <div class="field-body">
-            <div class="field">
-              <div class="control">
-                <input type="text" name="name" id="name" placeholder="The Name of the Monster"
-                  class="input input-bordered w-full max-w-xs input is-info">
+        <div id="customFields" style="display: none;">
+          <div class="field is-horizontal">
+            <div class="field-label">
+              <label class="label">Name:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input type="text" name="customName" id="customName" placeholder="The Name of the Monster"
+                    class="input input-bordered w-full max-w-xs input is-info">
+                </div>
               </div>
             </div>
-          </div>
-          <div class="field-label">
-            <label class="label">CR:</label>
-          </div>
-          <div class="field-body">
-            <div class="field">
-              <div class="control">
-                <input type="text" name="cr" id="cr" placeholder="The Challenge Rating of the Monster" 
-                  class="input input-bordered w-full max-w-xs input is-info">
+
+            <div class="field-label">
+              <label class="label">CR:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input type="text" name="customCR" id="customCR" placeholder="The Challenge Rating of the Monster"
+                    class="input input-bordered w-full max-w-xs input is-info">
+                </div>
               </div>
             </div>
-          </div>
-          <div class="field-label">
-            <label class="label">Type:</label>
-          </div>
-          <div class="field-body">
-            <div class="field">
-              <div class="control">
-                <input type="text" name="type" id="type" placeholder="The Type of the Monster"
-                  class="input input-bordered w-full max-w-xs input is-info">
+
+            <div class="field-label">
+              <label class="label">Type:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input type="text" name="customType" id="customType" placeholder="The Type of the Monster"
+                    class="input input-bordered w-full max-w-xs input is-info">
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Break between Custom Monster Generation and Monster Info -->
-        <hr>
-        
+        <!-- Horizontal Rule for separation -->
+        <hr id="monsterInfoSeparator" style="display: none;">
+
         <!-- Monsterinfo -->
-        <div class="tile is-child field">
+        <div id="monsterInfoField" style="display: none;" class="tile is-child field">
           <label for="monsterinfo"><strong>Monsterinfo:</strong></label>
           <div class="control">
             <textarea type="text" name="monsterinfo" id="monsterinfo"
@@ -102,8 +97,27 @@
           </div>
         </div>
 
-        <hr>
+        <!-- Legendary and Spellcaster options -->
+        <div class="field">
+          <label class="label">Monster Type:</label>
+          <div class="control">
+            <label class="checkbox">
+              <input type="checkbox" name="legendary" value="legendary">
+              Create Legendary Monster
+            </label>
+          </div>
+        </div>
 
+        <div class="field">
+          <div class="control">
+            <label class="checkbox">
+              <input type="checkbox" name="spellcaster" value="spellcaster">
+              Create Spellcaster
+            </label>
+          </div>
+        </div>
+
+        <!-- File Format -->
         <div class="field">
           <label class="label">File Format:</label>
           <div class="control">
@@ -118,8 +132,6 @@
           </div>
         </div>
 
-        <hr>
-
         <!-- Generate Button -->
         <div class="field is-grouped" style="margin-top: 20px;">
           <div class="control">
@@ -127,17 +139,42 @@
           </div>
         </div>
       </form>
-
-      <!-- Display the generated message -->
-      {{ if .Message }}
-      <div class="field">
-        <label class="label">Generated Monster:</label>
-        <div class="control">
-          <textarea class="textarea is-info" readonly>{{ .Message }}</textarea>
-        </div>
-      </div>
-      {{ end }}
     </div>
   </div>
 </div>
+
+<script>
+  function toggleCustomFields() {
+    const generationType = document.querySelector('input[name="generationType"]:checked').value;
+    const customFields = document.getElementById('customFields');
+    const customFieldsSeparator = document.getElementById('customFieldsSeparator');
+    const monsterInfoField = document.getElementById('monsterInfoField');
+    const monsterInfoSeparator = document.getElementById('monsterInfoSeparator');
+
+    if (generationType === 'random') {
+      customFields.style.display = 'none';
+      customFieldsSeparator.style.display = 'none';
+      monsterInfoField.style.display = 'none';
+      monsterInfoSeparator.style.display = 'none';
+    } else {
+      customFields.style.display = 'block';
+      customFieldsSeparator.style.display = 'block';
+      monsterInfoField.style.display = 'block';
+      monsterInfoSeparator.style.display = 'block';
+    }
+  }
+
+  // Initialize the form with custom fields hidden if randomized is selected by default
+  document.addEventListener('DOMContentLoaded', () => {
+    toggleCustomFields(); // Call the function initially to set the correct state
+
+    // Add event listeners to radio buttons to toggle custom fields
+    const randomRadio = document.querySelector('input[value="random"]');
+    const customRadio = document.querySelector('input[value="custom"]');
+
+    randomRadio.addEventListener('change', toggleCustomFields);
+    customRadio.addEventListener('change', toggleCustomFields);
+  });
+</script>
+
 {{ end }}

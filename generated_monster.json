@@ -1,103 +1,158 @@
 {
-  "_meta": {
-    "_dateLastModifiedHash": "66658f76",
-    "sources": [
-      {
-        "json": "Malgorgon",
-        "abbreviation": "MG",
-        "version": "unknown",
-        "authors": ["Krzysztof"],
-        "convertedBy": ["Krzysztof"]
-      }
-    ],
-    "dateAdded": 1717931894,
-    "dateLastModified": 1717931894
-  },
-  "monster": [
-    {
-      "save": {
-        "dex": "+6",
-        "con": "+9",
-        "wis": "+4",
-        "cha": "+5",
-        "str": "+8",
-        "int": "+3"
-      },
-      "skill": {
-        "stealth": "+10",
-        "acrobatics": "+6",
-        "animalHandling": "+4",
-        "arcana": "+3",
-        "athletics": "+14",
-        "deception": "+5",
-        "history": "+3",
-        "insight": "+4",
-        "intimidation": "+12",
-        "investigation": "+3",
-        "medicine": "+4",
-        "nature": "+3",
-        "perception": "+11",
-        "performance": "+5",
-        "persuasion": "+5",
-        "sleightOfHand": "+6",
-        "survival": "+4",
-        "religion": "+3"
-      },
-      "hp": {
-        "formula": "18d12+72",
-        "average": 189
-      },
-      "source": "Homebrew",
-      "cr": "15",
-      "type": "monstrosity",
-      "name": "Fellwing Terror",
-      "vulnerable": ["cold"],
-      "conditionImmune": ["charmed", "frightened"],
-      "resist": ["bludgeoning", "piercing", "slashing from nonmagical attacks"],
-      "immune": ["poison", "disease"],
-      "trait": [
+    "_meta": {
+        "_dateLastModifiedHash": "66658f76",
+        "sources": [
+            {
+                "json": "chatbrewery",
+                "abbreviation": "CGPT",
+                "version": "0.1.6",
+                "authors": [
+                    "Chat GPT"
+                ],
+                "convertedBy": [
+                    "Krzysztof"
+                ]
+            }
+        ],
+        "dateAdded": 1717931894,
+        "dateLastModified": 1717931894
+    },
+    "monster": [
         {
-          "name": "Night Hunter",
-          "entries": ["The Fellwing Terror has advantage on Wisdom (Perception) checks that rely on sight in darkness."]
-        },
-        {
-          "name": "Terrifying Screech",
-          "entries": ["As an action, the Fellwing Terror can emit a terrifying screech. Each creature within 60 feet that can hear it must succeed on a DC 17 Wisdom saving throw or be frightened for 1 minute. A frightened target can repeat the saving throw at the end of each of its turns, with disadvantage if the Fellwing Terror is within line of sight, ending the effect on itself on a success. Once a creature succeeds on this saving throw, it is immune to the Terrifying Screech of all Fellwing Terrors for the next 24 hours."]
+            "source": "chatbrewery",
+            "cr": "25",
+            "type": "Devil",
+            "name": "Nex_athar",
+            "ac": [
+                {
+                    "from": [
+                        "natural armor"
+                    ],
+                    "ac": 22
+                }
+            ],
+            "str": 30,
+            "dex": 18,
+            "con": 26,
+            "int": 24,
+            "wis": 23,
+            "cha": 28,
+            "size": [
+                "Huge"
+            ],
+            "speed": {
+                "walk": 40,
+                "fly": 80
+            },
+            "save": {
+                "dex": 12,
+                "con": 16,
+                "wis": 14,
+                "cha": 17,
+                "str": 18,
+                "int": 15
+            },
+            "skill": {
+                "arcana": 24,
+                "intimidation": 22,
+                "perception": 20
+            },
+            "hp": {
+                "formula": "28d12+168",
+                "average": 350
+            },
+            "senses": [
+                "truesight 120 ft.",
+                "darkvision 120 ft."
+            ],
+            "languages": [
+                "Common",
+                "Infernal",
+                "Celestial",
+                "Abyssal"
+            ],
+            "vulnerable": [
+                "Radiant"
+            ],
+            "conditionImmune": [
+                "charmed",
+                "frightened",
+                "poisoned"
+            ],
+            "resist": [
+                "cold",
+                "bludgeoning, piercing, and slashing from nonmagical attacks"
+            ],
+            "immune": [
+                "fire",
+                "poison"
+            ],
+            "trait": [
+                {
+                    "name": "Aether Absorption",
+                    "entries": [
+                        "Nex_athar absorbs magical energy from the surroundings. Whenever a spell is cast within 60 feet of Nex_athar, he gains a +2 bonus to AC and saving throws until the end of his next turn."
+                    ]
+                },
+                {
+                    "name": "Innate Spellcasting",
+                    "entries": [
+                        "Nex_athar's spellcasting ability is Charisma (spell save DC 23, +15 to hit with spell attacks). He can innately cast the following spells, requiring no material components:",
+                        "At will: detect magic, mage hand, prestidigitation",
+                        "3/day each: counterspell, fireball, teleport",
+                        "1/day each: plane shift, power word kill"
+                    ]
+                }
+            ],
+            "action": [
+                {
+                    "name": "Multiattack",
+                    "entries": [
+                        "Nex_athar makes two attacks with his Hellfire Claws or uses his Devour Magic twice."
+                    ]
+                },
+                {
+                    "name": "Hellfire Claws",
+                    "entries": [
+                        "{@atk mw} {@hit 19} to hit, reach 10 ft., one target. {@h}44 (8d8 + 10) slashing damage plus 18 (4d8) fire damage."
+                    ]
+                },
+                {
+                    "name": "Devour Magic",
+                    "entries": [
+                        "Nex_athar targets one creature or magical effect within 60 feet. If the target is a creature, it must succeed on a DC 23 Wisdom saving throw or have one of its spells (of 3rd level or lower) that it has cast and is currently maintaining through concentration stolen by Nex_athar. If the target is a magical effect, Nex_athar attempts to end it as if casting dispel magic at 5th level."
+                    ]
+                }
+            ],
+            "legendaryActions": 3,
+            "legendaryHeader": [
+                "Nex_athar can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. Nex_athar regains spent legendary actions at the start of his turn."
+            ],
+            "legendary": [
+                {
+                    "name": "Attack (Costs 1)",
+                    "entries": [
+                        "Nex_athar makes one attack with his Hellfire Claws."
+                    ]
+                },
+                {
+                    "name": "Cast a Spell (Costs 2)",
+                    "entries": [
+                        "Nex_athar casts a spell from his list of Innate Spellcasting, using up the same amount of uses as if he had cast it normally."
+                    ]
+                },
+                {
+                    "name": "Aether Surge (Costs 3)",
+                    "entries": [
+                        "Nex_athar releases a wave of absorbed magical energy. Each creature within 30 feet of him must make a DC 23 Dexterity saving throw, taking 55 (10d10) force damage on a failed save, or half as much damage on a successful one."
+                    ]
+                }
+            ],
+            "fluff": {
+                "entries": [
+                    "Nex_athar is an ancient devil born from the absence of Aether, the magical force pervasive in the world. He appears as a towering figure shrouded in shadows, with eyes that burn like the coals of a dying fire. His presence is enough to drain the magic from the air, making him a feared opponent for any magic user."
+                ]
+            }
         }
-      ],
-      "ac": [
-        {
-          "from": ["natural armor"],
-          "ac": 17
-        }
-      ],
-      "senses": ["darkvision 120 ft.", "passive Perception 21"],
-      "languages": ["Common", "Abyssal"],
-      "size": "L",
-      "action": [
-        {
-          "name": "Multiattack",
-          "entries": ["The Fellwing Terror makes three attacks: one with its bite and two with its claws."]
-        },
-        {
-          "name": "Bite",
-          "entries": ["{@atk mw} {@hit 10} to hit, reach 10 ft., one target. {@h}22 ({@damage 3d10 + 6}) piercing damage."]
-        },
-        {
-          "name": "Claw",
-          "entries": ["{@atk mw} {@hit 10} to hit, reach 5 ft., one target. {@h}17 ({@damage 2d12 + 5}) slashing damage."]
-        }
-      ],
-      "speed": {
-        "walk": 30,
-        "fly": 80
-      },
-      "str": 23,
-      "dex": 22,
-      "con": 26,
-      "int": 16,
-      "wis": 19,
-      "cha": 20
-    }
-  ]
+    ]
 }
