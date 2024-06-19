@@ -153,8 +153,6 @@ func generateJsonStructure(name, cr, monsterType, monsterInfo string, isRandom b
                     "entries": [
                         "Description",
                         "DescriptionText",
-                        "AdditionalInfo",
-                        "AdditionalInfoText"
                     ]
                 }
                 {{if .IsLegendary}},
@@ -280,7 +278,9 @@ func generateJsonStructure(name, cr, monsterType, monsterInfo string, isRandom b
 func generateTextPrompt(name, cr, monsterType, monsterInfo string, isJson, isRandom, isLegendary, isSpellcaster bool) string {
 	if isJson {
 		if isRandom {
-			prompt := `Create a detailed and  random DnD monster. You choose the monster name(Think of a Name for the Monster and make it suits its Type features and other Factors), type (choose a type from: Fiends, Undead, Beast, Monstrosity, Celestial, Abberation, Humanoid, Giant, Elemental, Dragon, Construct, Ooze, Fey or Plant), and CR (choose a number 1 and 30).`
+			prompt := `Create a detailed and  random DnD monster. You choose the monster name(Think of a Name for the Monster and make it suits its Type features and other Factors), 
+			type (choose a type from: Fiends, Undead, Beast, Monstrosity, Celestial, Abberation, Humanoid, Giant, Elemental, Dragon, Construct, Ooze, Fey or Plant), 
+			and CR (choose a number 1 and 30). also write a detailed discription and backstory for the monster into the DescriptionTextfield in the json. `
 			if isLegendary {
 				prompt += ` Make it a legendary monster with appropriate legendary actions and resistances.`
 			}
@@ -290,7 +290,8 @@ func generateTextPrompt(name, cr, monsterType, monsterInfo string, isJson, isRan
 			prompt += generateJsonStructure(name, cr, monsterType, monsterInfo, isRandom)
 			return prompt
 		} else {
-			prompt := `Create a detailed and unique Homebrew DnD monster. Choose the monster name, type, and CR (between 1 and 30).`
+			prompt := `Create a detailed and unique Homebrew DnD monster. If not given Choose the monster name, type, and CR (between 1 and 30). ALso  
+			write a detailed discription and backstory for the monster into the DescriptionTextfield in the json.`
 			if name != "" {
 				prompt += "\nName: " + name
 			}
@@ -359,23 +360,25 @@ func AIHandler(content embed.FS, monsters *[]model.Monster) http.HandlerFunc {
 			apiKey := r.FormValue("apikey")
 			generationType := r.FormValue("generationType")
 			fileFormat := r.FormValue("fileFormat")
-			isLegendary := r.FormValue("legendary")
-			isSpellcaster := r.FormValue("spellcaster")
+			isLegendary := r.FormValue("legendary") == "legendary"
+			isSpellcaster := r.FormValue("spellcaster") == "spellcaster"
 
 			isRandom := generationType == "random"
 			isJson := fileFormat == "json"
-			name := r.FormValue("name")
-			cr := r.FormValue("cr")
-			monsterType := r.FormValue("type")
-			monsterInfo := r.FormValue("monsterinfo")
+			name := r.FormValue("monsterName")        // Adjust this based on your form field names
+			cr := r.FormValue("monsterCR")            // Adjust this based on your form field names
+			monsterType := r.FormValue("monsterType") // Adjust this based on your form field names
+			monsterInfo := r.FormValue("monsterinfo") // Adjust this based on your form field names
 
-			prompt := generateTextPrompt(name, cr, monsterType, monsterInfo, isJson, isRandom, isLegendary != "", isSpellcaster != "")
+			// Generate the prompt based on the form inputs
+			prompt := generateTextPrompt(name, cr, monsterType, monsterInfo, isJson, isRandom, isLegendary, isSpellcaster)
 
+			log.Print(prompt)
+
+			// Construct the OpenAI API request payload
 			data := map[string]interface{}{
-				"model": "gpt-4-turbo",
-				"messages": []map[string]string{
-					{"role": "user", "content": prompt},
-				},
+				"model":       "gpt-4-turbo",
+				"messages":    []map[string]string{{"role": "user", "content": prompt}},
 				"max_tokens":  2500,
 				"temperature": 0.6,
 			}

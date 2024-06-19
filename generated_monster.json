@@ -20,87 +20,84 @@
     "monster": [
         {
             "source": "chatbrewery",
-            "cr": "25",
-            "type": "Devil",
-            "name": "Nex_athar",
+            "cr": "30",
+            "type": "Fish",
+            "name": "Dalias",
             "ac": [
                 {
                     "from": [
-                        "natural armor"
+                        "Natural Armor"
                     ],
-                    "ac": 22
+                    "ac": 25
                 }
             ],
             "str": 30,
-            "dex": 18,
-            "con": 26,
-            "int": 24,
-            "wis": 23,
-            "cha": 28,
+            "dex": 10,
+            "con": 28,
+            "int": 20,
+            "wis": 18,
+            "cha": 22,
             "size": [
-                "Huge"
+                "Gargantuan"
             ],
             "speed": {
-                "walk": 40,
-                "fly": 80
+                "walk": 0,
+                "burrow": 0,
+                "climb": 0,
+                "fly": 0,
+                "swim": 60
             },
             "save": {
-                "dex": 12,
-                "con": 16,
-                "wis": 14,
-                "cha": 17,
-                "str": 18,
-                "int": 15
+                "dex": 10,
+                "con": 25,
+                "wis": 18,
+                "cha": 22,
+                "str": 30,
+                "int": 20
             },
             "skill": {
-                "arcana": 24,
-                "intimidation": 22,
+                "stealth": 15,
                 "perception": 20
             },
             "hp": {
-                "formula": "28d12+168",
-                "average": 350
+                "formula": "30d20+280",
+                "average": 910
             },
             "senses": [
-                "truesight 120 ft.",
-                "darkvision 120 ft."
+                "darkvision 120 ft.",
+                "blindsight 60 ft."
             ],
             "languages": [
+                "Abyssal",
                 "Common",
-                "Infernal",
-                "Celestial",
-                "Abyssal"
+                "Primordial"
             ],
             "vulnerable": [
-                "Radiant"
+                "Lightning"
             ],
             "conditionImmune": [
                 "charmed",
-                "frightened",
-                "poisoned"
+                "frightened"
             ],
             "resist": [
                 "cold",
-                "bludgeoning, piercing, and slashing from nonmagical attacks"
+                "fire"
             ],
             "immune": [
-                "fire",
-                "poison"
+                "poison",
+                "psychic"
             ],
             "trait": [
                 {
-                    "name": "Aether Absorption",
+                    "name": "Amphibious",
                     "entries": [
-                        "Nex_athar absorbs magical energy from the surroundings. Whenever a spell is cast within 60 feet of Nex_athar, he gains a +2 bonus to AC and saving throws until the end of his next turn."
+                        "Dalias can breathe air and water."
                     ]
                 },
                 {
-                    "name": "Innate Spellcasting",
+                    "name": "Elder Magic",
                     "entries": [
-                        "Nex_athar's spellcasting ability is Charisma (spell save DC 23, +15 to hit with spell attacks). He can innately cast the following spells, requiring no material components:",
-                        "At will: detect magic, mage hand, prestidigitation",
-                        "3/day each: counterspell, fireball, teleport",
-                        "1/day each: plane shift, power word kill"
+                        "Dalias can cast 'detect magic' at will, without expending a spell slot."
                     ]
                 }
             ],
@@ -108,51 +105,58 @@
                 {
                     "name": "Multiattack",
                     "entries": [
-                        "Nex_athar makes two attacks with his Hellfire Claws or uses his Devour Magic twice."
+                        "Dalias makes three attacks: two with its Bite and one with its Swallow or Tail Slap."
                     ]
                 },
                 {
-                    "name": "Hellfire Claws",
+                    "name": "Bite",
                     "entries": [
-                        "{@atk mw} {@hit 19} to hit, reach 10 ft., one target. {@h}44 (8d8 + 10) slashing damage plus 18 (4d8) fire damage."
+                        "{@atk mw} {@hit +19} to hit, reach 15 ft., one target. {@h}Damage ({@damage = 3d12 + 10}) piercing damage."
                     ]
                 },
                 {
-                    "name": "Devour Magic",
+                    "name": "Tail Slap",
                     "entries": [
-                        "Nex_athar targets one creature or magical effect within 60 feet. If the target is a creature, it must succeed on a DC 23 Wisdom saving throw or have one of its spells (of 3rd level or lower) that it has cast and is currently maintaining through concentration stolen by Nex_athar. If the target is a magical effect, Nex_athar attempts to end it as if casting dispel magic at 5th level."
-                    ]
-                }
-            ],
-            "legendaryActions": 3,
-            "legendaryHeader": [
-                "Nex_athar can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. Nex_athar regains spent legendary actions at the start of his turn."
-            ],
-            "legendary": [
-                {
-                    "name": "Attack (Costs 1)",
-                    "entries": [
-                        "Nex_athar makes one attack with his Hellfire Claws."
+                        "{@atk mw} {@hit +19} to hit, reach 20 ft., one target. {@h}Damage ({@damage = 4d10 + 10}) bludgeoning damage."
                     ]
                 },
                 {
-                    "name": "Cast a Spell (Costs 2)",
+                    "name": "Swallow",
                     "entries": [
-                        "Nex_athar casts a spell from his list of Innate Spellcasting, using up the same amount of uses as if he had cast it normally."
-                    ]
-                },
-                {
-                    "name": "Aether Surge (Costs 3)",
-                    "entries": [
-                        "Nex_athar releases a wave of absorbed magical energy. Each creature within 30 feet of him must make a DC 23 Dexterity saving throw, taking 55 (10d10) force damage on a failed save, or half as much damage on a successful one."
+                        "{@atk mw} {@hit +19} to hit, reach 5 ft., one Large or smaller creature. {@h}The target is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside Dalias, and it takes 56 (16d6) acid damage at the start of each of Dalias's turns. If Dalias takes 60 damage or more on a single turn from a creature inside it, Dalias must succeed on a DC 25 Constitution saving throw at the end of that turn or regurgitate the swallowed creature, which falls prone in a space within 10 feet of Dalias. If Dalias dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 15 feet of movement, exiting prone."
                     ]
                 }
             ],
             "fluff": {
                 "entries": [
-                    "Nex_athar is an ancient devil born from the absence of Aether, the magical force pervasive in the world. He appears as a towering figure shrouded in shadows, with eyes that burn like the coals of a dying fire. His presence is enough to drain the magic from the air, making him a feared opponent for any magic user."
+                    "Dalias, the Abyssal Leviathan, is believed to be an ancient creature from the depths of the darkest oceans. Legends say that Dalias was born from the nightmares of a sea god, and it has roamed the ocean depths since the world was young. It is said that Dalias's immense body can darken the waters for miles and that its presence is often heralded by a sudden drop in water temperature and an eerie, oppressive silence under the sea.",
+                    "Dalias occasionally rises from the abyss to feed or when summoned by powerful magic. Its arrival at the surface is often accompanied by storms and calamities, and it is known to destroy ships and coastal settlements in its wrath."
                 ]
-            }
+            },
+            "legendaryActions": 3,
+            "legendaryHeader": [
+                "Dalias can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. Dalias regains spent legendary actions at the start of its turn."
+            ],
+            "legendary": [
+                {
+                    "name": "Detect (Costs 1 Action)",
+                    "entries": [
+                        "Dalias makes a Wisdom (Perception) check."
+                    ]
+                },
+                {
+                    "name": "Tail Sweep (Costs 2 Actions)",
+                    "entries": [
+                        "Dalias makes a tail slap attack."
+                    ]
+                },
+                {
+                    "name": "Cast Spell (Costs 3 Actions)",
+                    "entries": [
+                        "Dalias casts a spell from its list of spells, using a spell slot as normal."
+                    ]
+                }
+            ]
         }
     ]
 }

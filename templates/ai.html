@@ -6,30 +6,16 @@
         <p class="title is-4">AI Generator</p>
       </div>
       <div class="content">
-        <p>Welcome to the Monster Generator tab! Here, you can create unique Dungeons & Dragons monsters using ChatGPT.
-          Choose between fully randomized monsters or provide specific details to tailor your creation. You can also
-          select the output format, generating either a JSON file or a TXT file containing the monster's data.
+        <p>Welcome to the Generator tab! Here, you can create unique items using ChatGPT.
+          Choose whether you want to generate a Monster or a Magic Item. For each, you can choose between fully
+          randomized generation or provide specific details to tailor your creation. You can also
+          select the output format, generating either a JSON file or a TXT file containing the item data.
 
           Please note that this is a prototype and may occasionally encounter issues during generation. Currently, it
-          supports generating simple monsters.</p>
+          supports generating simple items.</p>
       </div>
 
       <form id="aiForm" action="/ai" method="post">
-
-        <!-- Generation Type -->
-        <div class="field">
-          <label class="label">Generation Type:</label>
-          <div class="control">
-            <label class="radio">
-              <input type="radio" name="generationType" value="random" checked onclick="toggleCustomFields()">
-              Randomized
-            </label>
-            <label class="radio">
-              <input type="radio" name="generationType" value="custom" onclick="toggleCustomFields()">
-              Custom
-            </label>
-          </div>
-        </div>
 
         <!-- API Key -->
         <div class="field">
@@ -40,11 +26,38 @@
           </div>
         </div>
 
+        <!-- Choosen Factor: Monster or Magic Item -->
+        <div class="field">
+          <label class="label">Choose Factor:</label>
+          <div class="control">
+            <button type="button" id="generateMonster" class="button is-info"
+              onclick="setChoosenFactor('monster')">Generate Monster</button>
+            <button type="button" id="generateItem" class="button is-info"
+             onclick="setChoosenFactor('magic')">Generate Item</button>
+            <input type="hidden" id="choosenFactor" name="choosenFactor" value="monster">
+          </div>
+        </div>
+
+         <!-- Generation Type -->
+         <div class="field">
+          <label class="label">Generation Type:</label>
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="generationType" value="custom" checked onchange="toggleGenerationType()">
+              Custom Generation
+            </label>
+            <label class="radio">
+              <input type="radio" name="generationType" value="random" onchange="toggleGenerationType()">
+              Randomized Generation
+            </label>
+          </div>
+        </div>
+
         <!-- Horizontal Rule for separation -->
         <hr id="customFieldsSeparator" style="display: none;">
 
-        <!-- Additional fields for custom monster generation -->
-        <div id="customFields" style="display: none;">
+        <!-- Additional fields for custom generation (Monster) -->
+        <div id="monsterFields" style="display: none;">
           <div class="field is-horizontal">
             <div class="field-label">
               <label class="label">Name:</label>
@@ -52,7 +65,7 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <input type="text" name="customName" id="customName" placeholder="The Name of the Monster"
+                  <input type="text" name="monsterName" id="monsterName" placeholder="Name of the Monster"
                     class="input input-bordered w-full max-w-xs input is-info">
                 </div>
               </div>
@@ -64,7 +77,7 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <input type="text" name="customCR" id="customCR" placeholder="The Challenge Rating of the Monster"
+                  <input type="text" name="monsterCR" id="monsterCR" placeholder="CR"
                     class="input input-bordered w-full max-w-xs input is-info">
                 </div>
               </div>
@@ -76,44 +89,99 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <input type="text" name="customType" id="customType" placeholder="The Type of the Monster"
+                  <input type="text" name="monsterType" id="monsterType" placeholder="Type of the Monster"
                     class="input input-bordered w-full max-w-xs input is-info">
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Horizontal Rule for separation -->
-        <hr id="monsterInfoSeparator" style="display: none;">
+          <!-- Monster Info -->
+          <div class="tile is-child field">
+            <label for="monsterinfo"><strong>Monster Info:</strong></label>
+            <div class="control">
+              <textarea type="text" name="monsterinfo" id="monsterinfo" placeholder="Important Infos about the Monster"
+                class="textarea textarea has-fixed-size textarea is-info"></textarea>
+            </div>
+          </div>
 
-        <!-- Monsterinfo -->
-        <div id="monsterInfoField" style="display: none;" class="tile is-child field">
-          <label for="monsterinfo"><strong>Monsterinfo:</strong></label>
-          <div class="control">
-            <textarea type="text" name="monsterinfo" id="monsterinfo"
-              placeholder="Important Infos about the Monster which you want to include"
-              class="textarea textarea has-fixed-size textarea is-info"></textarea>
+          <!-- Legendary and Spellcaster options -->
+          <div class="field">
+            <label class="label">Monster Type:</label>
+            <div class="control">
+              <label class="checkbox">
+                <input type="checkbox" name="legendary" value="legendary">
+                Create Legendary Monster
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <label class="checkbox">
+                <input type="checkbox" name="spellcaster" value="spellcaster">
+                Create Spellcaster
+              </label>
+            </div>
           </div>
         </div>
 
-        <!-- Legendary and Spellcaster options -->
-        <div class="field">
-          <label class="label">Monster Type:</label>
-          <div class="control">
-            <label class="checkbox">
-              <input type="checkbox" name="legendary" value="legendary">
-              Create Legendary Monster
-            </label>
-          </div>
-        </div>
+        <!-- Additional fields for custom generation (Item) -->
+        <div id="itemFields" style="display: none;">
+          <div class="field is-horizontal">
+            <div class="field-label">
+              <label class="label">Name:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input type="text" name="itemName" id="itemName" placeholder="Name of the Item"
+                    class="input input-bordered w-full max-w-xs input is-info">
+                </div>
+              </div>
+            </div>
 
-        <div class="field">
-          <div class="control">
-            <label class="checkbox">
-              <input type="checkbox" name="spellcaster" value="spellcaster">
-              Create Spellcaster
-            </label>
+            <div class="field-label">
+              <label class="label">Type:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input type="text" name="itemType" id="itemType" placeholder="Type of the Item"
+                    class="input input-bordered w-full max-w-xs input is-info">
+                </div>
+              </div>
+            </div>
+
+            <div class="field-label">
+              <label class="label">Rarity:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <div class="select is-info">
+                    <select name="itemRarity" id="itemRarity">
+                      <option value="Mundane">Mundane</option>
+                      <option value="Common">Common</option>
+                      <option value="Uncommon">Uncommon</option>
+                      <option value="Rare">Rare</option>
+                      <option value="Very Rare">Very Rare</option>
+                      <option value="Legendary">Legendary</option>
+                      <option value="Artifact">Artifact</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item Info -->
+          <div class="tile is-child field">
+            <label for="iteminfo"><strong>Item Info:</strong></label>
+            <div class="control">
+              <textarea type="text" name="iteminfo" id="iteminfo" placeholder="Important Infos about the Item"
+                class="textarea textarea has-fixed-size textarea is-info"></textarea>
+            </div>
           </div>
         </div>
 
@@ -135,45 +203,73 @@
         <!-- Generate Button -->
         <div class="field is-grouped" style="margin-top: 20px;">
           <div class="control">
-            <button id="generateButton" class="button is-primary" type="submit">Generate</button>
+            <button id="customGenerateButton" class="button is-info" type="submit">Generate</button>
           </div>
         </div>
+
       </form>
     </div>
   </div>
 </div>
 
 <script>
-  function toggleCustomFields() {
-    const generationType = document.querySelector('input[name="generationType"]:checked').value;
-    const customFields = document.getElementById('customFields');
-    const customFieldsSeparator = document.getElementById('customFieldsSeparator');
-    const monsterInfoField = document.getElementById('monsterInfoField');
-    const monsterInfoSeparator = document.getElementById('monsterInfoSeparator');
+  function setChoosenFactor(factor) {
+    document.getElementById('choosenFactor').value = factor;
+    toggleChoosenFactor();
+    toggleGenerationType(); // Also call toggleGenerationType to update form fields visibility
+  }
 
-    if (generationType === 'random') {
-      customFields.style.display = 'none';
-      customFieldsSeparator.style.display = 'none';
-      monsterInfoField.style.display = 'none';
-      monsterInfoSeparator.style.display = 'none';
-    } else {
-      customFields.style.display = 'block';
-      customFieldsSeparator.style.display = 'block';
-      monsterInfoField.style.display = 'block';
-      monsterInfoSeparator.style.display = 'block';
+  function toggleChoosenFactor() {
+    const choosenFactor = document.getElementById('choosenFactor').value;
+    const generateMonsterButton = document.getElementById('generateMonster');
+    const generateItemButton = document.getElementById('generateItem');
+
+    if (choosenFactor === 'monster') {
+      generateItemButton.classList.remove('is-dark');
+      generateMonsterButton.classList.add('is-dark');
+    } else if (choosenFactor === 'magic') {
+      generateMonsterButton.classList.remove('is-dark');
+      generateItemButton.classList.add('is-dark');
     }
   }
 
-  // Initialize the form with custom fields hidden if randomized is selected by default
+  function toggleGenerationType() {
+    const generationType = document.querySelector('input[name="generationType"]:checked').value;
+    const choosenFactor = document.getElementById('choosenFactor').value;
+    const monsterFields = document.getElementById('monsterFields');
+    const itemFields = document.getElementById('itemFields');
+    const customFieldsSeparator = document.getElementById('customFieldsSeparator');
+
+    if (generationType === 'random') {
+      // Hide custom fields and separator
+      monsterFields.style.display = 'none';
+      itemFields.style.display = 'none';
+      customFieldsSeparator.style.display = 'none';
+    } else if (generationType === 'custom') {
+      // Show appropriate fields based on choosenFactor
+      if (choosenFactor === 'monster') {
+        monsterFields.style.display = 'block';
+        itemFields.style.display = 'none';
+      } else if (choosenFactor === 'magic') {
+        monsterFields.style.display = 'none';
+        itemFields.style.display = 'block';
+      }
+      customFieldsSeparator.style.display = 'block';
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
-    toggleCustomFields(); // Call the function initially to set the correct state
+    toggleChoosenFactor(); // Initialize button styles based on default choosenFactor (monster)
+    toggleGenerationType(); // Initialize form based on default generationType (custom)
+  });
 
-    // Add event listeners to radio buttons to toggle custom fields
-    const randomRadio = document.querySelector('input[value="random"]');
-    const customRadio = document.querySelector('input[value="custom"]');
+  // Event listeners for generating Monster or Item
+  document.getElementById('generateMonster').addEventListener('click', () => {
+    setChoosenFactor('monster');
+  });
 
-    randomRadio.addEventListener('change', toggleCustomFields);
-    customRadio.addEventListener('change', toggleCustomFields);
+  document.getElementById('generateItem').addEventListener('click', () => {
+    setChoosenFactor('magic');
   });
 </script>
 
