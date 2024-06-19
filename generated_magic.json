@@ -1,0 +1,45 @@
+{
+    "_meta": {
+        "sources": [
+            {
+                "json": "chatbrewery",
+                "abbreviation": "CGPT",
+                "full": "Chatgpt",
+                "authors": [
+                    "Krzysztof Stankiewicz",
+                    "Chat GPT"
+                ],
+                "convertedBy": [
+                    "Krzysztof Stankiewicz",
+                    "Chat GPT"
+                ],
+                "version": "0.1.6"
+            }
+        ]
+    },
+    "item": [
+        {
+            "name": "Potion of Last Stand",
+            "source": "chatbrewery",
+            "type": "P",
+            "rarity": "rare",
+            "reqAttune": false,
+            "weight": 0.5,
+            "wondrous": true,
+            "entries": [
+                "This shimmering, red-gold potion is contained in a thick glass vial. When consumed, the Potion of Last Stand grants the drinker a surge of survival instinct and power in dire conditions.",
+                {
+                    "type": "entries",
+                    "name": "Effects",
+                    "entries": [
+                        "When a creature drinks this potion, they gain the following benefits for 10 minutes:",
+                        "- If the creature is reduced to 0 hit points, they automatically stabilize and remain at 1 hit point instead.",
+                        "- The creature gains advantage on all attack rolls, saving throws, and ability checks.",
+                        "- The creature's speed is increased by 10 feet.",
+                        "Once the potion's effects end, the creature suffers one level of exhaustion. This potion's effects only trigger if the creature is below 50% of their maximum hit points at the time of consumption."
+                    ]
+                }
+            ]
+        }
+    ]
+}

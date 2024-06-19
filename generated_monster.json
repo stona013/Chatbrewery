@@ -1,103 +1,162 @@
 {
-  "_meta": {
-    "_dateLastModifiedHash": "66658f76",
-    "sources": [
-      {
-        "json": "Malgorgon",
-        "abbreviation": "MG",
-        "version": "unknown",
-        "authors": ["Krzysztof"],
-        "convertedBy": ["Krzysztof"]
-      }
-    ],
-    "dateAdded": 1717931894,
-    "dateLastModified": 1717931894
-  },
-  "monster": [
-    {
-      "save": {
-        "dex": "+6",
-        "con": "+9",
-        "wis": "+4",
-        "cha": "+5",
-        "str": "+8",
-        "int": "+3"
-      },
-      "skill": {
-        "stealth": "+10",
-        "acrobatics": "+6",
-        "animalHandling": "+4",
-        "arcana": "+3",
-        "athletics": "+14",
-        "deception": "+5",
-        "history": "+3",
-        "insight": "+4",
-        "intimidation": "+12",
-        "investigation": "+3",
-        "medicine": "+4",
-        "nature": "+3",
-        "perception": "+11",
-        "performance": "+5",
-        "persuasion": "+5",
-        "sleightOfHand": "+6",
-        "survival": "+4",
-        "religion": "+3"
-      },
-      "hp": {
-        "formula": "18d12+72",
-        "average": 189
-      },
-      "source": "Homebrew",
-      "cr": "15",
-      "type": "monstrosity",
-      "name": "Fellwing Terror",
-      "vulnerable": ["cold"],
-      "conditionImmune": ["charmed", "frightened"],
-      "resist": ["bludgeoning", "piercing", "slashing from nonmagical attacks"],
-      "immune": ["poison", "disease"],
-      "trait": [
+    "_meta": {
+        "_dateLastModifiedHash": "66658f76",
+        "sources": [
+            {
+                "json": "chatbrewery",
+                "abbreviation": "CGPT",
+                "version": "0.1.6",
+                "authors": [
+                    "Chat GPT"
+                ],
+                "convertedBy": [
+                    "Krzysztof"
+                ]
+            }
+        ],
+        "dateAdded": 1717931894,
+        "dateLastModified": 1717931894
+    },
+    "monster": [
         {
-          "name": "Night Hunter",
-          "entries": ["The Fellwing Terror has advantage on Wisdom (Perception) checks that rely on sight in darkness."]
-        },
-        {
-          "name": "Terrifying Screech",
-          "entries": ["As an action, the Fellwing Terror can emit a terrifying screech. Each creature within 60 feet that can hear it must succeed on a DC 17 Wisdom saving throw or be frightened for 1 minute. A frightened target can repeat the saving throw at the end of each of its turns, with disadvantage if the Fellwing Terror is within line of sight, ending the effect on itself on a success. Once a creature succeeds on this saving throw, it is immune to the Terrifying Screech of all Fellwing Terrors for the next 24 hours."]
+            "source": "chatbrewery",
+            "cr": "30",
+            "type": "Fish",
+            "name": "Dalias",
+            "ac": [
+                {
+                    "from": [
+                        "Natural Armor"
+                    ],
+                    "ac": 25
+                }
+            ],
+            "str": 30,
+            "dex": 10,
+            "con": 28,
+            "int": 20,
+            "wis": 18,
+            "cha": 22,
+            "size": [
+                "Gargantuan"
+            ],
+            "speed": {
+                "walk": 0,
+                "burrow": 0,
+                "climb": 0,
+                "fly": 0,
+                "swim": 60
+            },
+            "save": {
+                "dex": 10,
+                "con": 25,
+                "wis": 18,
+                "cha": 22,
+                "str": 30,
+                "int": 20
+            },
+            "skill": {
+                "stealth": 15,
+                "perception": 20
+            },
+            "hp": {
+                "formula": "30d20+280",
+                "average": 910
+            },
+            "senses": [
+                "darkvision 120 ft.",
+                "blindsight 60 ft."
+            ],
+            "languages": [
+                "Abyssal",
+                "Common",
+                "Primordial"
+            ],
+            "vulnerable": [
+                "Lightning"
+            ],
+            "conditionImmune": [
+                "charmed",
+                "frightened"
+            ],
+            "resist": [
+                "cold",
+                "fire"
+            ],
+            "immune": [
+                "poison",
+                "psychic"
+            ],
+            "trait": [
+                {
+                    "name": "Amphibious",
+                    "entries": [
+                        "Dalias can breathe air and water."
+                    ]
+                },
+                {
+                    "name": "Elder Magic",
+                    "entries": [
+                        "Dalias can cast 'detect magic' at will, without expending a spell slot."
+                    ]
+                }
+            ],
+            "action": [
+                {
+                    "name": "Multiattack",
+                    "entries": [
+                        "Dalias makes three attacks: two with its Bite and one with its Swallow or Tail Slap."
+                    ]
+                },
+                {
+                    "name": "Bite",
+                    "entries": [
+                        "{@atk mw} {@hit +19} to hit, reach 15 ft., one target. {@h}Damage ({@damage = 3d12 + 10}) piercing damage."
+                    ]
+                },
+                {
+                    "name": "Tail Slap",
+                    "entries": [
+                        "{@atk mw} {@hit +19} to hit, reach 20 ft., one target. {@h}Damage ({@damage = 4d10 + 10}) bludgeoning damage."
+                    ]
+                },
+                {
+                    "name": "Swallow",
+                    "entries": [
+                        "{@atk mw} {@hit +19} to hit, reach 5 ft., one Large or smaller creature. {@h}The target is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside Dalias, and it takes 56 (16d6) acid damage at the start of each of Dalias's turns. If Dalias takes 60 damage or more on a single turn from a creature inside it, Dalias must succeed on a DC 25 Constitution saving throw at the end of that turn or regurgitate the swallowed creature, which falls prone in a space within 10 feet of Dalias. If Dalias dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 15 feet of movement, exiting prone."
+                    ]
+                }
+            ],
+            "fluff": {
+                "entries": [
+                    "Dalias, the Abyssal Leviathan, is believed to be an ancient creature from the depths of the darkest oceans. Legends say that Dalias was born from the nightmares of a sea god, and it has roamed the ocean depths since the world was young. It is said that Dalias's immense body can darken the waters for miles and that its presence is often heralded by a sudden drop in water temperature and an eerie, oppressive silence under the sea.",
+                    "Dalias occasionally rises from the abyss to feed or when summoned by powerful magic. Its arrival at the surface is often accompanied by storms and calamities, and it is known to destroy ships and coastal settlements in its wrath."
+                ]
+            },
+            "legendaryActions": 3,
+            "legendaryHeader": [
+                "Dalias can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. Dalias regains spent legendary actions at the start of its turn."
+            ],
+            "legendary": [
+                {
+                    "name": "Detect (Costs 1 Action)",
+                    "entries": [
+                        "Dalias makes a Wisdom (Perception) check."
+                    ]
+                },
+                {
+                    "name": "Tail Sweep (Costs 2 Actions)",
+                    "entries": [
+                        "Dalias makes a tail slap attack."
+                    ]
+                },
+                {
+                    "name": "Cast Spell (Costs 3 Actions)",
+                    "entries": [
+                        "Dalias casts a spell from its list of spells, using a spell slot as normal."
+                    ]
+                }
+            ]
         }
-      ],
-      "ac": [
-        {
-          "from": ["natural armor"],
-          "ac": 17
-        }
-      ],
-      "senses": ["darkvision 120 ft.", "passive Perception 21"],
-      "languages": ["Common", "Abyssal"],
-      "size": "L",
-      "action": [
-        {
-          "name": "Multiattack",
-          "entries": ["The Fellwing Terror makes three attacks: one with its bite and two with its claws."]
-        },
-        {
-          "name": "Bite",
-          "entries": ["{@atk mw} {@hit 10} to hit, reach 10 ft., one target. {@h}22 ({@damage 3d10 + 6}) piercing damage."]
-        },
-        {
-          "name": "Claw",
-          "entries": ["{@atk mw} {@hit 10} to hit, reach 5 ft., one target. {@h}17 ({@damage 2d12 + 5}) slashing damage."]
-        }
-      ],
-      "speed": {
-        "walk": 30,
-        "fly": 80
-      },
-      "str": 23,
-      "dex": 22,
-      "con": 26,
-      "int": 16,
-      "wis": 19,
-      "cha": 20
-    }
-  ]
+    ]
 }

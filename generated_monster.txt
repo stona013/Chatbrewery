@@ -1,95 +1,68 @@
-### Monster Name: Whisperwind Wraith
+### Name: **Gloomfang Hydra**
 
-#### Type: Undead
+### Type: Monstrosity
 
-#### Challenge Rating (CR): 12
+### Size: Large
 
----
+### Alignment: Chaotic Evil
 
-### Description:
-The Whisperwind Wraith is a ghostly apparition that roams ancient, forgotten forests and the ruins of long-lost civilizations. It appears as a swirling mass of mist and shadow with faint, glowing eyes that flicker like dying stars. Its form is often accompanied by the sound of soft, haunting whispers that carry secrets of the past and omens of the future.
+### Armor Class: 17 (Natural Armor)
 
----
+### Hit Points: 207 (18d10 + 108)
 
-### Stats:
-**Armor Class:** 17 (natural armor)  
-**Hit Points:** 152 (16d8 + 80)  
-**Speed:** 0 ft., fly 50 ft. (hover)
+### Speed: 30 ft., swim 40 ft.
 
----
+### Challenge Rating (CR): 11
 
-### Abilities:
-**STR:** 6 (-2)  
-**DEX:** 18 (+4)  
-**CON:** 20 (+5)  
-**INT:** 17 (+3)  
-**WIS:** 14 (+2)  
-**CHA:** 23 (+6)
+### Ability Scores:
+- **STR**: 22 (+6)
+- **DEX**: 12 (+1)
+- **CON**: 23 (+6)
+- **INT**: 7 (-2)
+- **WIS**: 15 (+2)
+- **CHA**: 10 (0)
 
----
+### Saving Throws:
+- **Con**: +11
+- **Wis**: +7
 
 ### Skills:
-**Arcana:** +8  
-**Perception:** +7  
-**Stealth:** +9
-
----
+- **Perception**: +12
 
 ### Damage Resistances:
-Cold, Necrotic; Bludgeoning, Piercing, and Slashing from Nonmagical Attacks
-
----
-
-### Damage Immunities:
-Poison
-
----
+- **Acid**, **Cold**
 
 ### Condition Immunities:
-Charmed, Exhaustion, Grappled, Paralyzed, Petrified, Poisoned, Prone
-
----
+- **Frightened**, **Paralyzed**
 
 ### Senses:
-Darkvision 120 ft., passive Perception 17
-
----
+- Darkvision 60 ft., Passive Perception 22
 
 ### Languages:
-Common, Elvish, Sylvan
+- Understands Draconic but can't speak
 
----
+### Special Abilities:
+**Multiple Heads:** The Gloomfang Hydra has five heads. While it has more than one head, the hydra has advantage on saving throws against being blinded, charmed, deafened, frightened, stunned, and knocked unconscious.
 
-### Challenge:
-12 (8,400 XP)
+**Regeneration:** The Gloomfang Hydra regains 10 hit points at the start of its turn. If the hydra takes fire damage, this trait doesn't function at the start of the hydra's next turn. The hydra dies only if it starts its turn with 0 hit points and doesn't regenerate.
 
----
-
-### Special Traits:
-**Ethereal Sight:** The Whisperwind Wraith can see 60 ft. into the Ethereal Plane when it is on the Material Plane, and vice versa.
-
-**Incorporeal Movement:** The Whisperwind Wraith can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object.
-
-**Voice of the Ages:** Once per day, the Whisperwind Wraith can use its action to unleash spectral voices that force each creature of its choice within 30 feet to make a DC 18 Wisdom saving throw or be frightened for 1 minute. A frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
-
----
+**Wake of Gloom:** At the start of each of the hydra's turns, it emits a chilling, dark mist in a 10-foot radius. Any creature that starts its turn in the mist must make a DC 15 Constitution saving throw, taking 5d6 cold damage on a failed save, or half as much damage on a successful one.
 
 ### Actions:
-**Multiattack:** The Whisperwind Wraith makes three attacks with its chilling touch.
+**Multiattack:** The hydra makes as many bite attacks as it has heads.
 
-**Chilling Touch:** *Melee Weapon Attack:* +9 to hit, reach 10 ft., one target. *Hit:* 12 (3d6 + 2) cold damage, and the target's speed is reduced by 10 feet until the start of the Wraith's next turn.
+**Bite:** *Melee Weapon Attack:* +11 to hit, reach 10 ft., one target. *Hit:* 10 (1d8 + 6) piercing damage.
 
-**Wail of the Forgotten (Recharge 5-6):** The Whisperwind Wraith releases a mournful wail that can be heard up to 300 feet away. All creatures within 60 feet that can hear the wail must succeed on a DC 18 Constitution saving throw or take 22 (4d10) psychic damage and be stunned until the end of the Wraith's next turn. On a successful save, the creature takes half as much damage and isn't stunned.
-
----
+**Acid Breath (Recharge 5–6):** The hydra exhales acid in a 30-foot cone. Each creature in that area must make a DC 18 Dexterity saving throw, taking 45 (10d8) acid damage on a failed save, or half as much damage on a successful one.
 
 ### Legendary Actions:
-The Whisperwind Wraith can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The Whisperwind Wraith regains spent legendary actions at the start of its turn.
+The Gloomfang Hydra can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The hydra regains spent legendary actions at the start of its turn.
 
-- **Move:** The Whisperwind Wraith moves up to its speed without provoking opportunity attacks.
-- **Chilling Touch (Costs 2 Actions):** The Whisperwind Wraith makes one chilling touch attack.
-- **Silence the Brave (Costs 3 Actions):** The Whisperwind Wraith targets one creature it can see within 30 feet of it. The target must succeed on a DC 18 Charisma saving throw or be unable to speak and cast spells with verbal components for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on a success.
+**Detect:** The hydra makes a Wisdom (Perception) check.
 
----
+**Tail Swipe:** The hydra makes one tail attack.
 
-The Whisperwind Wraith is a formidable foe for adventurers who dare to explore its haunting haunts. Its ability to manipulate the environment and wield ancient spectral powers makes it a mysterious and terrifying presence in any campaign.
+**Head Regrowth (Costs 2 Actions):** If the hydra has fewer than five heads and hasn’t taken fire damage since its last turn, it regrows one severed head and regains 10 hit points.
+
+### Description:
+The Gloomfang Hydra is a terrifying amalgamation of darkness and reptilian ferocity. Born in the deepest, coldest parts of the world's oceans, it adapted to the darkness, its body exuding a chilling mist that saps the warmth from all who dare approach it. It is feared by sailors and coastal settlements, as it sometimes emerges from the depths to hunt under the cover of foggy nights. Its multiple heads snap ferociously at any prey within reach, while its thick scales repel lesser weapons with ease.
