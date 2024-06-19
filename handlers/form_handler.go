@@ -27,7 +27,7 @@ func FormHandler(content embed.FS, monsters *[]model.Monster) http.HandlerFunc {
 		templateFiles := []string{
 			"templates/base.html",
 			"templates/header.html",
-			"templates/main.html",
+			"templates/ai.html",
 			"templates/footer.html",
 			"templates/monsterForm.html",
 			"templates/monster.html",

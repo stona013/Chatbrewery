@@ -32,8 +32,11 @@ func downloadFile(w http.ResponseWriter, r *http.Request, filePath, fileType str
 }
 
 // Function to generate the JSON structure based on the parameters
-func generateJsonStructure(name, cr, monsterType, monsterInfo string, isRandom bool) string {
-	baseJson := `and use the following json structure as a sample but put your variable into the fields: 
+func generateJsonStructure(choosenFactor string) string {
+	baseJson := ""
+
+	if choosenFactor == "monster" {
+		baseJson += `and use the following json structure as a sample but put your variable into the fields: 
     {
         "_meta": {
             "_dateLastModifiedHash": "66658f76",
@@ -270,12 +273,107 @@ func generateJsonStructure(name, cr, monsterType, monsterInfo string, isRandom b
     }
 	
 	readable format without backticks at the beginning and end`
+	} else {
+		baseJson += `  and use the following json structure as a sample but put your variable into the fields: 
+{
+    "_meta": {
+        "sources": [
+            {
+                "json": "chatbrewery",
+                "abbreviation": "CGPT",
+                "full": "Chatgpt",
+                "authors": [
+                    "Krzysztof Stankiewicz",
+                    "Chat GPT"
+                ],
+                "convertedBy": [
+                    "Krzysztof Stankiewicz",
+                    "Chat GPT"
+                ],
+                "version": "0.1.6"
+            }
+        ]
+    },
+    "item": [
+        {
+            "name": "Item Name",
+            "source": "chatbrewery",
+            "baseItem": "Base Item Name (optional)",
+            "type": "Item Type (optional)", // Types: A (Ammunition), HA (Heavy Armor), MA (Medium Armor), LA (Light Armor), INS (Instrument), P (Potion), RD (Rod), M (Melee Weapon), R (Ranged Weapon), WD (Wand), SC (Scroll), "" (Anything else)
+            "tier": "Item Tier (optional)", // major, minor
+            "rarity": "Rarity", // Possible Rarities: "rare", "none", "uncommon", "very rare", "legendary", "artifact", "unknown", "common", "unknown (magic)", "varies"
+            "reqAttune": true,
+            "weight": Weight, 
+            "stealth": true, if disadvanage on Stealth
+            "ac": 12,  (optional) 
+            "acSpecial": "12 AC, 15 AC during the night", (optional) 
+            "weaponCategory": "category", // possible category simple / martial (optional) 
+            "ammunition": true, (optional) 
+            "range": "80/320", (optional) 
+            "wondrous": true, (optional)
+            "bonusSpellAttack": "+1", (optional)
+            "bonusAC": "+1", (optional)
+            "bonusWeapon": "+1", (optional)
+            "bonusWeaponAttack": "+1", (optional)
+            "bonusSpellAttack": "+1", (optional)
+            "bonusSavingThrow": "+1", (optional)
+            "charges": number, (optional)
+            "recharge": "time", // posiliby time: "round", "restShort", "restLong", "dawn", "dusk" or "midnight". (optional)
+            "ability": { (optional)
+			"static"{ (optional)
+                } 
+			 "str": number
+			 "dex": number
+			 "con": number
+			 "wis": number
+			 "cha": number
+			 "int": number
+            }
+            "resist": [ (optional)
+                "damage type"
+            ],
+			"attachedSpells": [ (optional)
+                "spell name"
+            ],			
+			 "curse": true/false,
+            "dmg1:": "how many damage die" /possible damage dice: xd2, xd4, xd6, xd8, xd10, xd12
+			"dmgtype": "Damage type" // Possible Types: "A" (Acid), "B" (Bludgeoning), "C" (Cold), "F" (Fire), "O" (Force), "L" (Lightning), "N" (Necrotic), "P" (Piercing), "I" (Poison), "Y" (Psychic), "R" (Radiant), "S" (Slashing), "T" (Thunder)
+            "property": [
+                "Item Property (optional)" / Weapon Properties: "T" (Thrown),
+                "V" (Versatile),
+                "H" (Heavy),
+                "2H" (Two-Handed),
+                "F" (Finesse),
+                "L" (Light),
+                "R" (Reach),
+                "A" (Ammunition),
+                "LD" (Loading),
+                "S" (Special),
+                "AF" (Ammunition (futuristic)),
+                "RLD" (Reload)
+            ],
+            "entries": [
+                "Description or Flavor Text",
+                {
+                    "type": "entries",
+                    "name": "Entry Name (optional)",
+                    "entries": [
+                        "Specific details or abilities"
+                    ]
+                }
+            ]
+        }
+    ]
+}
 
+			readable format without backticks at the beginning and end`
+
+	}
 	return baseJson
 }
 
 // Function to generate the text prompt based on the parameters
-func generateTextPrompt(name, cr, monsterType, monsterInfo string, isJson, isRandom, isLegendary, isSpellcaster bool) string {
+func generateMonsterPrompt(name, choosenFactor, cr, monsterType, monsterInfo string, isJson, isRandom, isLegendary, isSpellcaster bool) string {
 	if isJson {
 		if isRandom {
 			prompt := `Create a detailed and  random DnD monster. You choose the monster name(Think of a Name for the Monster and make it suits its Type features and other Factors), 
@@ -287,7 +385,7 @@ func generateTextPrompt(name, cr, monsterType, monsterInfo string, isJson, isRan
 			if isSpellcaster {
 				prompt += ` Make it a spellcaster with appropriate spells.`
 			}
-			prompt += generateJsonStructure(name, cr, monsterType, monsterInfo, isRandom)
+			prompt += generateJsonStructure(choosenFactor)
 			return prompt
 		} else {
 			prompt := `Create a detailed and unique Homebrew DnD monster. If not given Choose the monster name, type, and CR (between 1 and 30). ALso  
@@ -310,7 +408,7 @@ func generateTextPrompt(name, cr, monsterType, monsterInfo string, isJson, isRan
 			if isSpellcaster {
 				prompt += `\nMake it a spellcaster with appropriate spells.`
 			}
-			prompt += generateJsonStructure(name, cr, monsterType, monsterInfo, isRandom)
+			prompt += generateJsonStructure(choosenFactor)
 			return prompt
 		}
 	}
@@ -350,6 +448,42 @@ func generateTextPrompt(name, cr, monsterType, monsterInfo string, isJson, isRan
 	}
 }
 
+func generateItemPrompt(name, choosenFactor, itemType, itemRarity, itemInfo string, isJson, isRandom bool) string {
+	if isJson {
+		prompt := `Create a detailed DnD magic item.`
+		if name != "" {
+			prompt += "\nName: " + name
+		}
+		if itemType != "" {
+			prompt += "\nType: " + itemType
+		}
+		if itemRarity != "" {
+			prompt += "\nRarity: " + itemRarity
+		}
+		if itemInfo != "" {
+			prompt += "\nDetails: " + itemInfo
+		}
+		prompt += generateJsonStructure(choosenFactor)
+		return prompt
+	}
+
+	prompt := `Create a detailed DnD magic item.`
+	if name != "" {
+		prompt += "\nName: " + name
+	}
+	if itemType != "" {
+		prompt += "\nType: " + itemType
+	}
+	if itemRarity != "" {
+		prompt += "\nRarity: " + itemRarity
+	}
+	if itemInfo != "" {
+		prompt += "\nDetails: " + itemInfo
+	}
+	prompt += `\nRespond with the item details in a clear, readable format.`
+	return prompt
+}
+
 func AIHandler(content embed.FS, monsters *[]model.Monster) http.HandlerFunc {
 	log.Print("AIHandler called")
 
@@ -365,17 +499,26 @@ func AIHandler(content embed.FS, monsters *[]model.Monster) http.HandlerFunc {
 
 			isRandom := generationType == "random"
 			isJson := fileFormat == "json"
-			name := r.FormValue("monsterName")        // Adjust this based on your form field names
-			cr := r.FormValue("monsterCR")            // Adjust this based on your form field names
-			monsterType := r.FormValue("monsterType") // Adjust this based on your form field names
-			monsterInfo := r.FormValue("monsterinfo") // Adjust this based on your form field names
+			choosenFactor := r.FormValue("choosenFactor")
 
-			// Generate the prompt based on the form inputs
-			prompt := generateTextPrompt(name, cr, monsterType, monsterInfo, isJson, isRandom, isLegendary, isSpellcaster)
+			var prompt string
+
+			if choosenFactor == "monster" {
+				name := r.FormValue("monsterName")
+				cr := r.FormValue("monsterCR")
+				monsterType := r.FormValue("monsterType")
+				monsterInfo := r.FormValue("monsterinfo")
+				prompt = generateMonsterPrompt(name, choosenFactor, cr, monsterType, monsterInfo, isJson, isRandom, isLegendary, isSpellcaster)
+			} else {
+				name := r.FormValue("itemName")
+				itemType := r.FormValue("itemType")
+				itemRarity := r.FormValue("itemRarity")
+				itemInfo := r.FormValue("iteminfo")
+				prompt = generateItemPrompt(name, choosenFactor, itemType, itemRarity, itemInfo, isJson, isRandom)
+			}
 
 			log.Print(prompt)
 
-			// Construct the OpenAI API request payload
 			data := map[string]interface{}{
 				"model":       "gpt-4-turbo",
 				"messages":    []map[string]string{{"role": "user", "content": prompt}},
@@ -425,7 +568,6 @@ func AIHandler(content embed.FS, monsters *[]model.Monster) http.HandlerFunc {
 			if len(aiResponse.Choices) > 0 {
 				messageContent := aiResponse.Choices[0].Message.Content
 
-				// Determine the file extension based on the selected file format
 				var fileExtension string
 				if fileFormat == "json" {
 					fileExtension = ".json"
@@ -433,8 +575,7 @@ func AIHandler(content embed.FS, monsters *[]model.Monster) http.HandlerFunc {
 					fileExtension = ".txt"
 				}
 
-				// Save the generated monster to a file
-				filename := "generated_monster" + fileExtension
+				filename := "generated_" + choosenFactor + fileExtension
 				err := ioutil.WriteFile(filename, []byte(messageContent), 0644)
 				if err != nil {
 					log.Printf("Error writing to file: %v\n", err)
@@ -442,7 +583,6 @@ func AIHandler(content embed.FS, monsters *[]model.Monster) http.HandlerFunc {
 					return
 				}
 
-				// Trigger the file download
 				downloadFile(w, r, filename, fileFormat)
 				return
 			}

@@ -1,0 +1,90 @@
+{
+    "_meta": {
+        "sources": [
+            {
+                "json": "chatbrewery",
+                "abbreviation": "CGPT",
+                "full": "Chatgpt",
+                "authors": [
+                    "Krzysztof Stankiewicz",
+                    "Chat GPT"
+                ],
+                "convertedBy": [
+                    "Krzysztof Stankiewicz",
+                    "Chat GPT"
+                ],
+                "version": "0.1.6"
+            }
+        ]
+    },
+    "item": [
+        {
+            "name": "Item Name",
+            "source": "chatbrewery",
+            "baseItem": "Base Item Name (optional)",
+            "type": "Item Type (optional)", // Types: A (Ammunition), HA (Heavy Armor), MA (Medium Armor), LA (Light Armor), INS (Instrument), P (Potion), RD (Rod), M (Melee Weapon), R (Ranged Weapon), WD (Wand), SC (Scroll), "" (Anything else)
+            "tier": "Item Tier (optional)", // major, minor
+            "rarity": "Rarity", // Possible Rarities: "rare", "none", "uncommon", "very rare", "legendary", "artifact", "unknown", "common", "unknown (magic)", "varies"
+            "reqAttune": true,
+            "weight": Weight, 
+            "stealth": true, if disadvanage on Stealth
+            "ac": 12,  (optional) 
+            "acSpecial": "12 AC, 15 AC during the night", (optional) 
+            "weaponCategory": "category", // possible category simple / martial (optional) 
+            "ammunition": true, (optional) 
+            "range": "80/320", (optional) 
+            "wondrous": true, (optional)
+            "bonusSpellAttack": "+1", (optional)
+            "bonusAC": "+1", (optional)
+            "bonusWeapon": "+1", (optional)
+            "bonusWeaponAttack": "+1", (optional)
+            "bonusSpellAttack": "+1", (optional)
+            "bonusSavingThrow": "+1", (optional)
+            "charges": number, (optional)
+            "recharge": "time", // posiliby time: "round", "restShort", "restLong", "dawn", "dusk" or "midnight". (optional)
+            "ability": { (optional)
+			"static"{ (optional)
+                } 
+			 "str": number
+			 "dex": number
+			 "con": number
+			 "wis": number
+			 "cha": number
+			 "int": number
+            }
+            "resist": [ (optional)
+                "damage type"
+            ],
+			"attachedSpells": [ (optional)
+                "spell name"
+            ],			
+			 "curse": true/false,
+            "dmg1:": "how many damage die" /possible damage dice: xd2, xd4, xd6, xd8, xd10, xd12
+			"dmgtype": "Damage type" // Possible Types: "A" (Acid), "B" (Bludgeoning), "C" (Cold), "F" (Fire), "O" (Force), "L" (Lightning), "N" (Necrotic), "P" (Piercing), "I" (Poison), "Y" (Psychic), "R" (Radiant), "S" (Slashing), "T" (Thunder)
+            "property": [
+                "Item Property (optional)" / Weapon Properties: "T" (Thrown),
+                "V" (Versatile),
+                "H" (Heavy),
+                "2H" (Two-Handed),
+                "F" (Finesse),
+                "L" (Light),
+                "R" (Reach),
+                "A" (Ammunition),
+                "LD" (Loading),
+                "S" (Special),
+                "AF" (Ammunition (futuristic)),
+                "RLD" (Reload)
+            ],
+            "entries": [
+                "Description or Flavor Text",
+                {
+                    "type": "entries",
+                    "name": "Entry Name (optional)",
+                    "entries": [
+                        "Specific details or abilities"
+                    ]
+                }
+            ]
+        }
+    ]
+}
