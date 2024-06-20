@@ -19,24 +19,37 @@
     },
     "item": [
         {
-            "name": "Potion of Last Stand",
+            "name": "The Edge of True Darkness",
             "source": "chatbrewery",
-            "type": "P",
+            "type": "M", 
+            "tier": "minor",
             "rarity": "rare",
-            "reqAttune": false,
-            "weight": 0.5,
+            "reqAttune": true,
+            "weight": 7,
+            "weaponCategory": "martial",
             "wondrous": true,
+            "bonusWeaponAttack": "+2",
+            "charges": 5,
+            "recharge": "dusk",
+            "dmg1": "2d6",
+            "dmgtype": "S",
+            "property": [
+                "2H"
+            ],
             "entries": [
-                "This shimmering, red-gold potion is contained in a thick glass vial. When consumed, the Potion of Last Stand grants the drinker a surge of survival instinct and power in dire conditions.",
+                "Forged from a mysterious metal that absorbs light, The Edge of True Darkness was crafted by a forgotten sect of shadow monks. This greatsword feels surprisingly light, and its blade emits a faint, eerie glow during the night.",
                 {
                     "type": "entries",
-                    "name": "Effects",
+                    "name": "Shadow Strike",
                     "entries": [
-                        "When a creature drinks this potion, they gain the following benefits for 10 minutes:",
-                        "- If the creature is reduced to 0 hit points, they automatically stabilize and remain at 1 hit point instead.",
-                        "- The creature gains advantage on all attack rolls, saving throws, and ability checks.",
-                        "- The creature's speed is increased by 10 feet.",
-                        "Once the potion's effects end, the creature suffers one level of exhaustion. This potion's effects only trigger if the creature is below 50% of their maximum hit points at the time of consumption."
+                        "When you hit a creature with this weapon during nighttime, you can expend one charge to cast the spell 'Darkness' centered on the target without using a spell slot. The spell ends at the start of your next turn."
+                    ]
+                },
+                {
+                    "type": "entries",
+                    "name": "Daylight Vulnerability",
+                    "entries": [
+                        "While exposed to direct sunlight, the wielder has disadvantage on attack rolls with this weapon."
                     ]
                 }
             ]

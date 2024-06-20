@@ -148,7 +148,7 @@ func generateJsonStructure(choosenFactor string) string {
                     {
                         "name": "ActionName",
                         "entries": [
-                            "{@atk mw} {@hit AttackBonus} to hit, reach Reach ft., one target. {@h}Damage ({@damage = DamageDice + DamageBonus}) DamageType damage."
+                            "{@atk mw} {@hit AttackBonus} to hit, reach Reach ft., one target. {@h}Damage ({@damage}) DamageType damage."
                         ]
                     }
                 ],

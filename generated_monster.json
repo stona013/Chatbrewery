@@ -20,143 +20,68 @@
     "monster": [
         {
             "source": "chatbrewery",
-            "cr": "30",
-            "type": "Fish",
-            "name": "Dalias",
+            "cr": "1",
+            "type": "Dragon",
+            "name": "Karamell",
             "ac": [
                 {
                     "from": [
-                        "Natural Armor"
+                        "natural armor"
                     ],
-                    "ac": 25
+                    "ac": 14
                 }
             ],
-            "str": 30,
-            "dex": 10,
-            "con": 28,
-            "int": 20,
-            "wis": 18,
-            "cha": 22,
+            "str": 10,
+            "dex": 16,
+            "con": 13,
+            "int": 12,
+            "wis": 12,
+            "cha": 15,
             "size": [
-                "Gargantuan"
+                "Small"
             ],
             "speed": {
-                "walk": 0,
-                "burrow": 0,
-                "climb": 0,
-                "fly": 0,
-                "swim": 60
-            },
-            "save": {
-                "dex": 10,
-                "con": 25,
-                "wis": 18,
-                "cha": 22,
-                "str": 30,
-                "int": 20
-            },
-            "skill": {
-                "stealth": 15,
-                "perception": 20
+                "walk": 20,
+                "fly": 40
             },
             "hp": {
-                "formula": "30d20+280",
-                "average": 910
+                "formula": "3d6+3",
+                "average": 13
             },
             "senses": [
-                "darkvision 120 ft.",
-                "blindsight 60 ft."
+                "darkvision 60 ft."
             ],
             "languages": [
-                "Abyssal",
-                "Common",
-                "Primordial"
+                "Draconic"
             ],
             "vulnerable": [
-                "Lightning"
-            ],
-            "conditionImmune": [
-                "charmed",
-                "frightened"
+                "Cold"
             ],
             "resist": [
-                "cold",
-                "fire"
-            ],
-            "immune": [
-                "poison",
-                "psychic"
+                "Fire"
             ],
             "trait": [
                 {
-                    "name": "Amphibious",
+                    "name": "Caramel Breath",
                     "entries": [
-                        "Dalias can breathe air and water."
-                    ]
-                },
-                {
-                    "name": "Elder Magic",
-                    "entries": [
-                        "Dalias can cast 'detect magic' at will, without expending a spell slot."
+                        "Karamell can exhale a sticky, caramel-like substance in a 15-foot cone. Each creature in the area must succeed on a DC 12 Dexterity saving throw or be restrained until the end of their next turn as they become coated in the caramel. Creatures can use their action to make a DC 12 Strength check, freeing themselves or another creature within reach on a success."
                     ]
                 }
             ],
             "action": [
                 {
-                    "name": "Multiattack",
-                    "entries": [
-                        "Dalias makes three attacks: two with its Bite and one with its Swallow or Tail Slap."
-                    ]
-                },
-                {
                     "name": "Bite",
                     "entries": [
-                        "{@atk mw} {@hit +19} to hit, reach 15 ft., one target. {@h}Damage ({@damage = 3d12 + 10}) piercing damage."
-                    ]
-                },
-                {
-                    "name": "Tail Slap",
-                    "entries": [
-                        "{@atk mw} {@hit +19} to hit, reach 20 ft., one target. {@h}Damage ({@damage = 4d10 + 10}) bludgeoning damage."
-                    ]
-                },
-                {
-                    "name": "Swallow",
-                    "entries": [
-                        "{@atk mw} {@hit +19} to hit, reach 5 ft., one Large or smaller creature. {@h}The target is swallowed, and the grapple ends. The swallowed target is blinded and restrained, it has total cover against attacks and other effects outside Dalias, and it takes 56 (16d6) acid damage at the start of each of Dalias's turns. If Dalias takes 60 damage or more on a single turn from a creature inside it, Dalias must succeed on a DC 25 Constitution saving throw at the end of that turn or regurgitate the swallowed creature, which falls prone in a space within 10 feet of Dalias. If Dalias dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 15 feet of movement, exiting prone."
+                        "{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}Damage (1d6 + 2) piercing damage."
                     ]
                 }
             ],
             "fluff": {
                 "entries": [
-                    "Dalias, the Abyssal Leviathan, is believed to be an ancient creature from the depths of the darkest oceans. Legends say that Dalias was born from the nightmares of a sea god, and it has roamed the ocean depths since the world was young. It is said that Dalias's immense body can darken the waters for miles and that its presence is often heralded by a sudden drop in water temperature and an eerie, oppressive silence under the sea.",
-                    "Dalias occasionally rises from the abyss to feed or when summoned by powerful magic. Its arrival at the surface is often accompanied by storms and calamities, and it is known to destroy ships and coastal settlements in its wrath."
+                    "Karamell is a small dragon, not much larger than a house cat, with scales that shimmer in hues of deep gold and brown, reminiscent of flowing caramel. Despite its diminutive size, Karamell is fiercely protective and surprisingly playful.",
+                    "Karamell was born under unusual circumstances. A wizard specializing in culinary magic attempted to create the ultimate dessert and accidentally infused a dragon egg with magical caramel. The result was Karamell, a unique dragon with abilities related to caramel. Despite its origins, Karamell quickly became more than just a magical experiment, forming a deep bond with the wizard who raised it as a pet and guardian."
                 ]
-            },
-            "legendaryActions": 3,
-            "legendaryHeader": [
-                "Dalias can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. Dalias regains spent legendary actions at the start of its turn."
-            ],
-            "legendary": [
-                {
-                    "name": "Detect (Costs 1 Action)",
-                    "entries": [
-                        "Dalias makes a Wisdom (Perception) check."
-                    ]
-                },
-                {
-                    "name": "Tail Sweep (Costs 2 Actions)",
-                    "entries": [
-                        "Dalias makes a tail slap attack."
-                    ]
-                },
-                {
-                    "name": "Cast Spell (Costs 3 Actions)",
-                    "entries": [
-                        "Dalias casts a spell from its list of spells, using a spell slot as normal."
-                    ]
-                }
-            ]
+            }
         }
     ]
 }
